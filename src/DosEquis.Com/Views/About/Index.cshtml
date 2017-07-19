@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "About";
+    ViewBag.Location = "about";
+    ViewBag.BodyClass= "about light lightNav";
+    ViewBag.ShareImage = "/assets/images/about/share_about.jpg";
+    ViewBag.MetaDescription = "Learn about the rich history of Dos Equis, discover how our beer is made and find answers to our most frequently asked questions.";
+}
+@section PageSpecificHeader {
+    <title>About | Dos Equis</title>
+    <meta name="keywords" content="beer finder, where to buy, dos equis" />
+}
+<section class="hero section top">
+    <div class="content darkText">
+        <h2 class="headline">about dos equis</h2>
+        <p class="copy">Learn about the rich history of Dos Equis, discover how our beer is made and find answers to our most frequently asked questions.</p>
+    </div>
+    <img src="/assets/images/about/brewery.png" class="fg" />
+</section>
+<section id="history" class="history section lightBg">
+    @Html.Partial("_HistorySlider")
+</section>
+@Html.Partial("_BrewingPanel")
+<div class="pre-touts-load animation-element"></div>
+<section class="section faq center darkBg">
+    <div class="contentMax">
+        <div class="heading-block-01 content">
+            <h4 class="headline-04"><strong>FAQ<span>s</span></strong></h4>
+            <divider></divider>
+            <div class="headline-02">You asked, we answered</div>
+            <span class="cta">
+                <a href="/about/faq" data-ga='{"category":"faqPanel"}'>view all</a>
+            </span>
+        </div>
+    </div>
+</section>
+<section id="bottom-touts" class="section toutsWrapper">
+    <div class="touts contentMax whiteText animation-element">
+            @Html.Partial("Touts/_BeerFinder")
+            @Html.Partial("Touts/_BeerRecipe")
+
+    </div>
+</section>

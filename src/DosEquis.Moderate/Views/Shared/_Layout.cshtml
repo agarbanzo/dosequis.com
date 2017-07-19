@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Moderation Tool</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body id="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+        <header>
+            <div class="content-wrapper">
+                <section id="login" class="float-right">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <div class="float-left">
+                    <p class="site-title"><img src='/images/logo.png' /> - DosEquis.com Moderation Tool</p>
+                </div>
+                <div class="float-left">
+                    
+                    <nav>
+                        <div class="topNav">
+                            @Html.ActionLink("Social Feed Moderation", "Index", "Home",null, new { @class = "SocialFeed" })
+                            @Html.ActionLink("Stay Thirsty Grant  Moderation", "Index", "StayThirstyGrant",null, new { @class = "STG" })
+                            @Html.ActionLink("Sky Writing Contest", "Index", "SkyWriting", null, new { @class = "SkyWriting" })
+                            @Html.ActionLink("Prove Youre Interesting Memes", "Index", "ProveYoureInteresting", null, new { @class = "SkyWriting" })
+                        </div>                                                
+                        @if (IsSectionDefined("subNav")) {
+                            @RenderSection("subNav")
+                        }  
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p></p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

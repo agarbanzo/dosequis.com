@@ -1,0 +1,32 @@
+@import 'config/vars';
+.enjoy{
+        a{
+          &:hover{
+            text-decoration: none;
+          }
+        }
+            background:  $black;
+            .content{
+              background:url('/assets/images/touts/enjoyresponsibly/bg.jpg') no-repeat center;
+              background-size:cover;  
+            }
+          height: 500px;
+          .content{
+            width: 100%;
+            padding-top:60px;
+            height: 100%;
+            .cta{
+            }
+          }
+          @media screen and (max-width:($mobile-width)){
+            padding:6.25%;
+            .content{
+                @include gutter(6.25%);
+                background-image:url('/assets/images/touts/enjoyresponsibly/bg-mobile.jpg');
+          }
+        }
+
+        .heading-copy{
+          margin-bottom:0 !important;
+        }
+  }

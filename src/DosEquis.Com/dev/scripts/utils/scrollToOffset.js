@@ -1,0 +1,15 @@
+'use strict';
+function scrollToOffset(el,offset,callback){
+    var top = $(el).offset().top - offset;
+    $('html,body').animate({
+        scrollTop:top
+    },'slow',callback);
+};
+function jumpToOffset(el,offset){
+    var top = $(el).offset().top - offset;
+    $('html,body').scrollTop( top );
+};
+
+
+module.exports.scrollToOffset = scrollToOffset;
+module.exports.jumpToOffset = jumpToOffset;

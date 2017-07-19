@@ -1,0 +1,113 @@
+@import "config/vars";
+
+.scrollbtn{
+      border-radius:50%;
+      background-color:rgba(255,255,255,1);
+      display:block;
+      margin:0 auto;
+      position: absolute;
+      display: inline-block;
+      z-index: 2;
+      width: 34px;
+      height: 34px;
+      margin-left:-17px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+      z-index: 2;
+      padding:0 !important;
+      cursor:pointer;
+      opacity: 0;
+      transform: scale(0);
+      left: 50%;
+       @media all and (min-width:640px) {
+          width: 44px;
+          height: 44px;
+          margin-left:-22px;
+      }
+
+      &:hover{
+         &:before{
+             opacity: 1;
+         }
+          &:after{
+             opacity: 1;
+         }
+      }
+    
+      &.at-max{
+       left:80% !important;
+      }
+
+      &:before{
+        content:url(/Assets/Images/svg/arrow.svg);
+        width:25%;
+        display:inline-block;
+         transition: opacity;
+        transform: rotate(270deg);
+        position:absolute;
+        top: 6px;
+        left: 2px;
+        right: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.5;
+         @media all and (min-width:640px) {
+           left: 0;
+           right: 0;
+        }
+      }
+
+      &:after{
+        content:url(/Assets/Images/svg/arrow.svg);
+        width:25%;
+        display:inline-block;
+        transform: rotate(270deg);
+        position:absolute;
+        top:14px;
+         left: 2px;
+           right: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.5;
+        transition: opacity;
+         @media all and (min-width:640px) {
+           left: 0;
+           right:0;
+        }
+      }
+
+      &.is-fixed{
+        position: fixed;
+        bottom: 20px;
+        left: 90%;
+        visibility: hidden;
+        transform: scale(0);
+        transition: transform 0.3s, visibility 0s 0.3s;
+
+         @media all and (min-width:$mobile-width) {
+            left: 95%;
+        }
+      }
+
+      &.is-visible{
+         visibility: visible;
+         transform: scale(1);
+         transition: transform 0.3s, visibility 0s 0s;
+      }
+
+      &.up{
+
+      }
+
+      &.down{
+         transform: rotate(180deg);
+
+          &:before{
+              top:0;
+          }
+
+
+           &:after{
+             top:8px;
+          }
+      }
+}

@@ -1,0 +1,324 @@
+.productdetail{
+  @import 'common-details';
+  input[type=text],
+    input[type=email],
+    input[type=password],
+    textarea {
+        -webkit-appearance: none;
+    }
+    input{
+      -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    }
+    .hero{
+        position: relative;
+        .heading-copy{
+          @include contentWidth(750px);
+          @include gutter(1rem);
+        }
+
+         .heading-block-01{
+          margin:0;
+        }
+
+        .scrollbtn{
+            bottom:100px;
+          }
+
+       @media all and (max-width:$mobile-width) {
+        .fs-vid{
+          height:505px;
+          height:calc(100vh - 50px);
+        }
+       }
+       @media all and (max-width:($iphone6) - 1px ){
+        .fs-vid{
+          height:475px;
+          height:calc(100vh - 50px);
+        }
+        .scrollbtn{
+          bottom:50px;
+        }
+       }
+    	.order-find{
+          background:transparent;
+      		position: absolute;
+      		bottom: 0px;
+          max-height:51px;
+          overflow: hidden;
+      		z-index: 2;
+      		width:auto;
+      		display: flex;
+      		align-items: center;
+      		justify-content: space-around;
+      		font-family: 'open_sans_condensedbold';
+      		text-transform: uppercase;
+      		font-size: 12px;
+          z-index: 2;
+          color:$white;
+          left:50%;
+          transform: translateX(-50%);
+      		@import 'components/social-share';
+          @media(min-width:768px){
+            width:465px;
+          }
+    		.social{
+    			padding:0;
+                                float: right;
+    		}
+        input{
+           margin-right:0;
+            @media all and (min-width:$mobile-width) {
+                margin-right:10px;
+            }
+        }
+        .inner{
+          background:white;
+          padding:10px 0;
+          @media all and (min-width:$mobile-width) {
+            background:rgba($black,.8);
+            padding:10px 15px;
+          }
+        }
+    		.drizly{
+            background:white;
+          padding:0;
+    			text-decoration: none;
+    			display: flex;
+    			align-items: center;
+          justify-content: center;
+          margin-right:15px;
+          color:$white;
+            &:hover{
+                color:$lightgold;
+              }
+    			&:before{
+    				content:' ';
+    				display: inline-block;
+    				width: 30px;
+    				height: 30px;
+    				margin-right: 0px;
+    				background: url(/assets/images/drizly-white.svg) no-repeat;
+    			}
+
+          @media all and (min-width:$mobile-width) {
+              color:white;
+              padding:9px 15px;
+              background:rgba($black,.8);
+          }
+    		}
+            input {
+                    padding:7px 8px;
+                    color:#aaa;
+                    width: auto;
+                    font-size:1.1em;
+                    font-family: 'open_sans_condensed_light';
+
+                    @media all and (min-width:$mobile-width) {
+                        width:185px;
+                    }
+                }
+        .find-this-beer-button {
+            background: $lightgold;
+            color: #fff;
+            padding:9px 5px;
+            margin-left:0;
+            text-decoration:none;
+            cursor:pointer;
+
+            @media all and (min-width:500px) {
+              padding:9px 9px;
+              margin-left:5px;
+            }
+        }
+
+        }
+           @media all and (max-width:$mobile-width) {
+                .order-find{
+                    position: relative;
+                    background: #fff;
+                    color:$black;
+                    left:0;
+                    transform: translateX(0);
+                    min-width:320px;
+                    @include gutter(1.25%);
+                    .drizly{
+                        color:$black;
+                        margin:0;
+                        //width:805px;
+                        height: 35px;
+                        &:before{
+                            background-image: url(/assets/images/svg/drizly.svg);
+                        }
+                    }
+                    .social{
+                  justify-content: center;
+                        width:50%;
+                        height: 35px;
+                        border-bottom: 1px solid $black;
+                    }
+                }
+           }
+
+    }
+.properties{
+	background: #fff;
+	.items{
+		@include contentWidth(1000px);
+		display: flex;
+		padding-top: 1em;
+		.item{
+			border-right:1px solid $black;
+			width:20%;
+			span{
+				display: block;
+				padding:5px;
+				&.value{
+					font-size: 2em;
+  					font-family: 'Cochin';
+  					color:$lightgold;
+                                                    @media all and (max-width:$mobile-width) {
+                                                        font-size:1.5em;
+                                                    }
+				}
+			}
+			&:last-child{
+				border-right: 0;
+			}
+
+		}
+	}
+}
+.order-find2{
+    	position: relative;
+    	bottom: 0px;
+    	z-index: 2;
+    	background:#fff;
+    	//width:90vw;
+      width:100%;
+    	display: flex;
+    	align-items: center;
+    	justify-content: space-between;
+    	padding:15px;
+    	font-family: 'open_sans_condensedbold';
+    	text-transform: uppercase;
+    	font-size: 12px;
+        border-top: 1px solid $black;
+        margin-top:20px;
+        padding-top:30px;
+        z-index: 2;
+        color:$black;
+        left:50%;
+        transform: translateX(-50%);
+        @media all and (min-width:767px) {
+            width:470px;
+            max-width:none;
+        }
+    		.drizly{
+    			text-decoration: none;
+    			display: flex;
+          width:100px;
+    			align-items: center;
+                justify-content: center;
+                margin-right:auto;
+                color:$black;
+                &:hover{
+                    color:$lightgold;
+                }
+    			&:before{
+    				content:' ';
+    				display: inline-block;
+    				width: 30px;
+    				height: 30px;
+    				//margin-right: 10px;
+    				background: url(/assets/images/drizly-white.svg) no-repeat;
+            background-image: url(/assets/images/svg/drizly.svg);
+    			}
+          @media all and (min-width:767px) {
+              width:130px;
+          }
+    		}
+            input {
+                    padding:7px;
+                    color:#aaa;
+                    width: 95px;
+                    font-size:1.1em;
+                    font-family: 'open_sans_condensed_light';
+
+                    @media all and (min-width:375px) {
+                        width:135px;
+                    }
+                    @media all and (min-width:500px) {
+                        width:185px;
+                    }
+                }
+        .find-this-beer-button {
+            background: $lightgold;
+            color: #fff;
+            padding:9px 5px;
+            margin-left:0;
+            text-decoration:none;
+            cursor:pointer;
+            @media all and (min-width:500px) {
+              padding:9px 9px;
+              margin-left:5px;
+            }
+        }
+
+}
+
+.packs{
+    background: #fff;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    @media all and (max-width:$mobile-width) {
+         flex-basis:50%;
+        }
+    ul{
+      display: inline-block;
+      margin:1rem 3rem;
+      width:110px;
+      @media all and (max-width:500) {
+          //margin:1rem;
+          flex: 0 1 calc(50%-10px);
+        }
+
+      &:before{
+        content:' ';
+        height: 300px;
+        display: block;
+        background: no-repeat bottom;
+        background-size: auto 100%;
+        padding-left:10px;
+      }
+      &.bottles[data-type="ambar"]:before{
+          background-image:  url(/assets/images/productdetail/pack-ambar-bottle.jpg);
+        }
+      &.bottles[data-type="lager"]:before{
+        background-image:  url(/assets/images/productdetail/pack-lager-bottle.jpg);
+        }
+
+      &.cans[data-type="ambar"]:before{
+          background-image: url(/assets/images/productdetail/pack-ambar-can.jpg);
+        }
+
+      &.cans[data-type="lager"]:before{
+          background-image: url(/assets/images/productdetail/pack-lager-can.jpg);
+        }
+      &.draught[data-type="ambar"]:before{
+          background-image: url(/assets/images/productdetail/pack-ambar-draught.jpg);
+        }
+
+      &.draught[data-type="lager"]:before{
+          background-image: url(/assets/images/productdetail/pack-lager-draught.jpg);
+        }
+    }
+
+  }
+  .beer{
+    padding-top: 2rem;
+  }
+}

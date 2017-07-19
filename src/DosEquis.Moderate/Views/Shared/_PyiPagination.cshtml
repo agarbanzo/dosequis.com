@@ -1,0 +1,18 @@
+﻿@model Havas.Social.Aggregator.Moderate.Models.CiRegistrationModel
+
+<div class="pageNav">
+    Pages:
+    <ul>
+        @for (var i = 1; i <= Model.Pages; i++)
+        {
+            if (Model.CurrentPage == i)
+            {
+                <li class="active">@i.ToString()</li>
+            }
+            else
+            {
+                <li><a href="@string.Format("/ProveYoureInteresting/?page={0}", i)">@i</a></li>
+            }
+        }
+    </ul>
+</div>

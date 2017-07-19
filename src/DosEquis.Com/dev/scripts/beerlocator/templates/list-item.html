@@ -1,0 +1,22 @@
+<div id="{{id}}" data-id="{{id}}" class="bar">
+  <div class="content-max-width center"><div class="col location">
+    <!-- <div>{{id}}</div> -->
+      <div class="colLft">
+        <img src="/Assets/Images/beerlocator/pin.png"></div><div class="colRgt">
+          <p class="name">{{Name}}</p>
+          <p>{{Address}} {{City}},{{State}} {{ZipCode}}</p>
+          <a data-ga="{&quot;category&quot;:&quot;list&quot;,&quot;label&quot;:&quot;get directions-{{Name}}&quot;}" class="button" href="https://maps.google.com?saddr=Current+Location&amp;daddr={{Latitude}},{{Longitude}}" target="_blank">Get directions</a>
+        </div>
+      </div>
+      <div class="col brands">
+        Available Products:<br/>
+        {{#DosBrands}}
+          {{.}}
+        {{/DosBrands}}
+      </div>
+      <div class="col distance">
+        <p>{{Distance}} miles</p>
+        </div>
+   </div>
+</div>
+<!-- <div>dist from center = {{total_distance}}</div> -->

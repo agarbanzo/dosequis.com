@@ -1,0 +1,63 @@
+/****** Object:  Table [dbo].[ServiceConversation]    Script Date: 05/15/2013 15:50:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[ServiceConversation](
+	[ServiceConversationID] [int] IDENTITY(1,1) NOT NULL,
+	[StartedOn] [datetime] NOT NULL,
+	[Url] [varchar](500) NOT NULL,
+	[Method] [varchar](50) NOT NULL,
+	[RequestBody] [varchar](max) NOT NULL,
+	[ResponseCode] [int] NULL,
+	[ResponseBody] [varchar](max) NULL,
+	[Successfull] [bit] NULL,
+ CONSTRAINT [PK_ServiceConversation] PRIMARY KEY CLUSTERED 
+(
+	[ServiceConversationID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  StoredProcedure [dbo].[SaveResponseToServiceConversation]    Script Date: 05/15/2013 15:50:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SaveResponseToServiceConversation] 
+	@ConversationID	int,
+	@ResponseBody	varchar(max),
+	@StatusCode		int,
+	@Successfull		bit
+	
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	UPDATE ServiceConversation SET ResponseBody = @ResponseBody, ResponseCode = @StatusCode, Successfull = @Successfull WHERE ServiceConversationID = @ConversationId
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SaveRequestToServiceConversation]    Script Date: 05/15/2013 15:50:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SaveRequestToServiceConversation] 
+	@StartedOn	DateTime, 
+	@Url		varchar(500),
+	@Method		varchar(50),
+	@RequestBody	varchar(max)
+	
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO ServiceConversation (StartedOn, Url, Method, RequestBody) VALUES (@StartedOn, @Url, @Method, @RequestBody);
+	
+	SELECT CAST(SCOPE_IDENTITY() as int);
+END
+GO

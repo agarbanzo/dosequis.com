@@ -1,0 +1,75 @@
+$size: 5%;
+$total: 1000;
+$slices: 40;
+$color: #000;
+$gap: 40px;
+
+#wavesMask {
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+  margin-left: -10%;
+  width: 120%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
+  //display: none;
+  > div {
+    position: relative;
+    display: block;
+    float: left;
+    width: 5%;
+    height: 10%;
+    //margin: -0.05%;
+    //padding: 5%;
+    //border-radius: 5%;
+
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    //transform: scale3d(3,3,0);
+    background-image: url(/Assets/Images/home/water.jpg);
+    // next 8 lines to get rid of artifacts!!!
+    box-sizing: border-box;
+    background-color: transparent!important;
+    -webkit-backface-visibility: hidden!important;;
+    backface-visibility: hidden!important;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    outline: 1px solid transparent;
+    // end of hack !!
+    //background: #000;
+    opacity: .4;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name: wave;
+  }
+}
+#water img {
+  position: relative;
+  //z-index: 20;
+  display: block;
+  height: 100%;
+  width: 120%;
+  margin-left:-10%;
+  //opacity: 0;
+  max-width: none !important;
+}
+
+
+// ANIMATION
+@keyframes wave {
+  0% {
+    transform: translate3d(0,0,0) scale(1.1, 1.1);
+  }
+  33% {
+    transform: translate3d(0,0,$gap) scale(1.1,1.1);
+  }
+  67% {
+    transform: translate3d(0,0,-$gap) scale(1.1,1.1);
+  }
+  100% {
+    transform: translate3d(0,0,0) scale(1.1,1.1);
+  }
+}

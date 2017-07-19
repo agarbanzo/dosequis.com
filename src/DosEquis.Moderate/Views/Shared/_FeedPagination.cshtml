@@ -1,0 +1,18 @@
+﻿@model Havas.Social.Aggregator.Moderate.Models.FeedModel
+
+<div class="pageNav">
+    Pages:
+    <ul>
+    @for (var i = 1; i <= Model.Pages; i++)
+    {
+        if (Model.CurrentPage == i)
+        {
+        <li class="active">@i.ToString()</li>
+        }
+        else
+        {
+        <li>@Html.ActionLink(i.ToString(), "Index", "Home", new { id = Model.FeedId.Replace(".", "-"), page = i }, null)</li>
+        }
+    }
+    </ul>
+</div>

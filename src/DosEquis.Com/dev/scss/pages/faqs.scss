@@ -1,0 +1,230 @@
+@import '../config/vars';
+@import '../components/slick';
+@import '../components/slick-theme';
+
+.faqs {
+  .question-gallery {
+    @include contentWidth(750px);
+  @include gutter(1rem);
+    color: #FFF;
+    margin:auto;
+    div.content{
+      margin-top:0;
+      padding: 0;
+      p.more{
+        padding-top: (60/24)*1rem;
+        padding-bottom:(120/24)*1rem;
+        @media screen and (max-width:$mobile-width){
+          padding-top:37.5px;
+          padding-bottom:37.5px;
+        }
+      }
+    }
+    .slick-arrow{
+        @media screen and (max-width:$mobile-width){
+                display: none;
+          }
+    }
+    .slick-next{
+      top:0;
+      transform:translateY(0);
+      right:-(90/24)*1rem;
+    }
+    .slick-prev{
+      top:0;
+      transform:translateY(0);
+      left:-(90/24)*1rem;
+    }
+    .slick-dotted.slick-slider{
+      margin:0;
+    }
+    .slick-dots{
+      bottom:-(45/24)*1rem;
+    }
+    .question-box {
+      border:1px solid $darkgrey;
+      background:rgba($black,.7);
+      margin: 2.5em auto 0;
+      padding: 0 1em;
+      padding-top: 1.25em;
+      .title{
+        font-size: .75rem;
+      } 
+      .headline{
+        text-align: left;
+        color:$lightgold;
+      }
+      .slide {
+        display: flex;
+        text-align: left;
+        padding-bottom:(45/24)*1rem;
+        .box {
+          width: 50%;
+          padding:0 30px; 
+          p{
+            padding-top:(30/24)*1rem;
+          }
+        }
+        @media screen and (max-width:$mobile-width){
+          display:block;
+          .box{
+            width:100%;
+            &:last-child{
+              padding-top:(30/24)*1rem;
+            }
+          }
+        }
+      }
+    }
+    .questions{
+      .question{
+        position: relative;
+        border-bottom:1px solid $darkgrey;
+        padding:(45/24)*1rem 0;
+        text-align: left;
+        div{
+            &:before{
+              @include cochin;
+              display: block; 
+              font-size:(34/24)*1rem;
+              color:$lightgold;
+            }
+          &.q{
+            position: relative;
+            &:before{
+              content:'Q:';
+              cursor: pointer;
+            }
+          }
+         &.a{
+            overflow: hidden;
+            max-height: 0;
+            transition:  max-height .4s;
+            &:before{
+              padding-top:(60/24)*1rem;
+              content:'A:';
+            }
+         } 
+          p{
+            padding-top: (30/24) * 1rem;
+            max-width: 80%;
+          }
+        }
+        .expand{
+          display: block;
+          position:absolute;
+          top:0;
+          right:0;
+          height: (30/24) * .5rem;
+          width:(277 / 150) *  ((30/24) * .5rem);
+          background: url(/assets/images/svg/arrow-gold-down.svg) no-repeat;
+          transition: transform .4s;
+          cursor: pointer;
+          background-size:  100% auto;
+        }
+        &.expanded{
+          div{
+            max-height: 500px!important;
+          }
+          .expand{
+            transform: scaleY(-1);
+            transform-origin: 50%;
+          }
+        }
+      }
+      .expandAll{
+        border-bottom:1px solid $darkgrey;
+        text-align: right;
+        padding:(75/24)*1rem 0 (30/24)*1rem;
+        a{
+
+        }
+      }
+    }
+  }
+}
+$starSize:(2217 / 1024) * 100%;
+$starSizeInverse: (1024 / 2217) / 2 * 100%;
+@keyframes spin {
+  from {
+            transform: rotate(0);
+  }
+
+  to {
+            transform: rotate(6deg);
+  }
+}
+
+#faqs{
+    .hero{
+        h5{
+          position: relative; 
+          z-index: 1;
+          color:#fff;
+        }
+        display: block;
+        margin:auto;
+        overflow: hidden;
+        position: relative;
+        @include contentWidth;
+        padding-bottom:40%;
+    }
+      .bg{
+        top:0;
+        @include contentWidth;
+        height:814px;
+        z-index: 0;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        &:after{
+          content:' ';
+          display:block;
+          position: absolute;
+          z-index: 1;
+          width:200%;
+          background:$black;
+          top:0;
+          left:-50%;
+          height:150%;
+          background: linear-gradient(to bottom,
+          rgba($black,.0) 0%,
+          rgba($black,.85) 50%,
+          rgba($black,1) 100%);
+          }
+        .mask{
+          max-width: 700px;
+          width: 90%;
+          height:100%;
+          display: block;
+          z-index: 2;
+          position: relative;
+          margin:auto;
+          background: url(/Assets/images/about/faq/faq-mask.png) center top no-repeat;
+          background-size: 100% auto;
+        }
+        .star{
+          width:150%;
+          height:150%;
+          padding-bottom: 45%;
+          display: block;
+          position: absolute;
+          z-index: 0;
+          top: -45%;
+          left: -25%;
+          opacity: .4;
+          background: center center no-repeat;
+          background-size: 100%;
+          background-position-y: 61%;
+          background-image: url(/Assets/images/svg/faq.svg);
+          &.spin{
+            transform-origin: 50% 50%;
+            animation-duration: 11s;
+            animation-name: spin;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+          }
+        }
+      }
+}

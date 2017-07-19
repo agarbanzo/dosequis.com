@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+ 
+To: @ViewBag.To
+From: register@dosequis.com
+Subject: Complete Registration Process
+ 
+Hello @ViewBag.UserName,
+ 
+To complete the registration process click on this link
+@String.Format("{0}://{1}",Request.Url.Scheme, Request.Url.Authority)/Account/RegisterConfirmation/@ViewBag.ConfirmationToken

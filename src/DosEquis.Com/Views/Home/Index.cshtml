@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Stay Thirsty";
+    ViewBag.HideBreadcrum = true;
+    ViewBag.Location = "home";
+    ViewBag.BodyClass = "home lightNav";
+    ViewBag.MetaDescription = "Welcome to the Dos Equis website. Discover our story. Explore our beer. Stay Thirsty.";
+
+
+}
+@section PageSpecificHeader {
+    <meta name="keywords" content="dos equis, stay thirsty, the most interesting man in the world, dos xx" />
+    }
+<div id="home" class="animation-element">
+
+        <div id="section1" class="summer-animation">
+          <div id="bgHero" class="animation-container">
+            <div id="sky"></div>
+            <div id="water">
+              <div id="wavesMask"></div>
+              <img id="wavesImage" src="/Assets/Images/home/water.jpg">
+            </div>
+            <div id="boat"></div>
+            <div id="dock"></div>
+          </div>
+           <div class="heading-block-01 darkText">
+               <h4 class="headline-01">SUMMER ADVENTURE</h4>
+               <span class="cta min"><a data-ga='{"category":"hero-summer"}' href="/summer">ENTER SWEEPS</a></span>
+           </div>
+           <div class="order-share">
+              <div class="save-coupon">
+                  SAVE ON DOS EQUIS. <a class="" href="http://dosequissummer17.com/" target="_blank" data-ga='{"category":"save-coupon"}' >Get coupon</a>
+               </div>
+          </div>
+        </div>
+
+        <section class="section videos-wrapper contentMax section2">
+          <div class="videos">
+            <div class="heading-block-03 content contentMax">
+                <h4 class="headline-04 title"><strong>THE MOST INTERESTING MAN CRASHES A WEDDING</strong></h4>
+                <divider></divider>
+            </div>
+            <div class="slider">
+                <div class="feature  video-player">
+                    <div class="player" id="video-1" data-vidid="FX4yPT4BJWk"></div>
+                    <div class="cover">
+                        <img src="/assets/images/home/weddingCrasher.jpg" />
+                        <span class="play">
+                            <svg class="video-overlay-play-button" viewBox="0 0 200 200" alt="Play video">
+                                <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff"></circle>
+                                <polygon points="70, 55 70, 145 145, 100" fill="#fff"></polygon>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <div id="mim" class="most-interesting-man section2">
+            <div class="most-interesting-gallery">
+                <div class="item four"></div>
+                <div class="item three"></div>
+                <div class="item two"></div>
+                <div class="item one"></div>
+            </div>
+            <div class="heading-block-03 content contentMax whiteText">
+                <h4 class="headline-04"><strong>THE MOST INTERESTING MAN</strong></h4>
+                <divider></divider>
+                <h2 class="headline-02">HIS WORLDLY ADVENTURES</h2>
+                <span class="cta dark"><a class="white" data-ga='{"category":"mim-module"}' href="/the-most-interesting-man">EXPLORE NOW</a></span>
+            </div>
+            <div class="copy-container">
+                <span class="pin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.22 85.72"><title>Asset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M25.11,0A25.3,25.3,0,0,0,0,25.11c0,13.73,25.11,60.6,25.11,60.6s25.11-46.88,25.11-60.6A25.08,25.08,0,0,0,25.11,0Zm0,37.17A12.05,12.05,0,1,1,37.17,25.11,12,12,0,0,1,25.11,37.17Z" /></g></g></svg></span>
+                <p class="real-copy"></p>
+            </div>
+        </div>
+
+
+    <div class="products section2">
+        <section class="section dark header">
+            <div class="heading-block-02 content contentMax">
+                <h4 class="headline-04"><strong>beers & recipes</strong></h4>
+                <divider></divider>
+                <h2 class="headline-02">IT CAN STAND OUT OR BLEND IN</h2>
+                <span class="cta dark"><a class="white" data-ga='{"category":"hp-products-viewall"}' href="/beers-and-recipes">VIEW ALL</a></span>
+            </div>
+        </section>
+        <section class="section toutsWrapper">
+            <div class="touts-static contentMax whiteText">
+
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+    <section id="history" class="history section lightBg">
+        @Html.Partial("_HistorySlider")
+    </section>
+    @Html.Partial("_BrewingPanel")
+    @Html.Partial("_EnjoyResponsiblyPanel")
+
+    <section id="bottom-touts" class="section toutsWrapper">
+        <div class="touts bottom-touts contentMax whiteText">
+            @Html.Partial("Touts/_BeerFinder")
+            @Html.Partial("Touts/_Faq")
+        </div>
+    </section>
+    <div id="social" class="social">
+        <span class="cochin"><strong>#STAYTHIRSTY</strong></span>
+        <divider></divider>
+        <div class="social-slider"></div>
+    </div>
+</div>

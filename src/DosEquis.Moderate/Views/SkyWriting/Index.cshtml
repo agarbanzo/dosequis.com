@@ -1,0 +1,76 @@
+﻿@model Havas.Social.Aggregator.Moderate.Models.SkyWritingsModel
+@using DosEquis.Com.Core.Entities;
+@using Havas.Common.Extensions;
+@using DosEquis.Com;
+@{
+    ViewBag.Title = "Skywriting";
+}
+
+
+@section scripts {
+    <script src="/scripts/scripts.js" type="text/javascript"></script>
+}
+    
+
+ @Html.Partial("_SkyWritingPagination")
+
+    
+        <div id="container" class="container centered adminScreen">
+            @foreach (SkyWritingContest feed in Model.Entries)
+            {
+                string check = feed.Approved == false ? "checked" : string.Empty;
+                
+            <div class="post @check" name="@feed.Id">
+                <div class="admin">
+                    <label>
+                         @if (feed.Approved == false)
+                         { 
+                         <input checked="checked" value="@feed.Id"  onclick="checkBox($(this), '/skywriting/update', 'approved');" type="checkbox"  />
+                         }
+                         else
+                         {
+                          <input value="@feed.Id"  onclick="checkBox($(this), '/skywriting/update', 'approved');" type="checkbox"  />
+                         }
+                       
+                        <span class="unchecked">check to hide post</span><span class="checked">uncheck to show post</span>
+                    </label>
+                   
+                     <label>
+                         @if (feed.Finalist == false)
+                         { 
+                         <input value="@feed.Id"  onclick="checkBox($(this), '/skywriting/update', 'finalist');" type="checkbox"  />
+                         }
+                         else
+                         {
+                          <input checked="checked" value="@feed.Id"  onclick="checkBox($(this), '/skywriting/update', 'finalist');" type="checkbox"  />
+                         }
+                       
+                              <span>finalist</span>
+                    </label>
+                    <label>
+                         @if (feed.Winner == false)
+                         { 
+                         <input  value="@feed.Id"  onclick="checkBox($(this), '/skywriting/update', 'winner');" type="checkbox"  />
+                         }
+                         else
+                         {
+                          <input checked="checked" value="@feed.Id"  onclick="checkBox($(this), '/skywriting/update', 'winner');" type="checkbox"  />
+                         }
+                       
+                        <span>winner</span>
+                    </label>
+                    <p>@feed.DateEntered.ToLongDateString()</p>
+                    <p>Submitted by: @string.Format("{0} {1}", feed.FirstName, feed.LastName)</p>
+                </div>
+                <div class="content" style="position: relative">
+                    <span style="padding-bottom:10px;">Click Image for full size</span>
+                    <a href="@string.Format("http://s3.amazonaws.com/dosequis_skywriting/large/{0}.png", feed.ImageId)" target="_blank" class="click">
+                    <img src="@string.Format("http://s3.amazonaws.com/dosequis_skywriting/large/{0}.png", feed.ImageId)" />    
+                    </a>
+                   
+                </div>
+
+            </div>
+            }
+
+ @Html.Partial("_SkyWritingPagination")

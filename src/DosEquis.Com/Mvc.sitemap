@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+    <mvcSiteMapNode title="Home" url="/" controller="Home">
+      <mvcSiteMapNode title="summer adventure" url="/summer" controller="Summer" action="Index" />
+      <mvcSiteMapNode key="about" title="About Dos Equis" url="/about" controller="About" action="Index">
+        <mvcSiteMapNode title="History" url="/about/history" controller="About" action="History" />
+        <mvcSiteMapNode title="Brewing" url="/about/brewing" controller="About" action="Brewing" />
+        <mvcSiteMapNode title="FAQs" url="/about/faq" controller="About" action="Faq" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="beers &amp; Recipes" url="/beers-and-recipes" controller="BeersAndRecipes" action="Index">
+        <mvcSiteMapNode title="Lager Especial" url="/beers-and-recipes/lager" controller="BeersAndRecipes" action="Lager" />
+        <mvcSiteMapNode title="Ambar" url="/beers-and-recipes/ambar" controller="BeersAndRecipes" action="Ambar" />
+        <mvcSiteMapNode title="Cervezas de México" url="/beers-and-recipes/cervezas-de-mexico" controller="BeersAndRecipes" action="CervezasDeMexico" />
+        <mvcSiteMapNode title="Dos a Rita" url="/beers-and-recipes/dos-a-rita" controller="BeersAndRecipes" action="DosARita" />
+        <mvcSiteMapNode title="Michelada" url="/beers-and-recipes/michelada" controller="BeersAndRecipes" action="Michelada" />
+        <mvcSiteMapNode title="Dos a Stormy" url="/beers-and-recipes/dos-a-stormy" controller="BeersAndRecipes" action="Michelada" />
+        <mvcSiteMapNode title="Dos Sidra" url="/beers-and-recipes/dos-sidra" controller="BeersAndRecipes" action="Michelada" />
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="the most interesting man" url="/the-most-interesting-man" controller="MostInterestingMan" action="Index" />
+      <mvcSiteMapNode title="Beer Finder" url="/beer-finder" controller="BeerFinder" action="Index" />
+      <mvcSiteMapNode title="Order Dos Equis" url="store.dosequis.com/"  key="Store" />
+      <mvcSiteMapNode title="Privacy Policy" key="privacy" url="/privacy-policy" controller="PrivacyPolicy" action="Index" />
+      <mvcSiteMapNode type="hide-main" title="Terms and Conditions" url="/terms-of-use" controller="TermsOfUse" action="Index" />
+    </mvcSiteMapNode>
+</mvcSiteMap>

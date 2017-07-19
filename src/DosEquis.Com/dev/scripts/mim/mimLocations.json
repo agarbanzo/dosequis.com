@@ -1,0 +1,197 @@
+[
+  {
+      "title":"Chula Vista, California",
+      "headline":"Wedding crasher",
+      "description":"A series of all day meetings on the ISS meant he was running late to Harry and Dana's wedding. Decisive action was necessary, because if you know Dana, you know she's not the type who tolerates tardiness. Especially not on her wedding day.",
+      "lat": 32.640420,
+      "long": -117.074439,
+      "id":"Wedding",
+      "videoId":"H7UY6xqmykw",
+      "imgUrl":"/Assets/Images/mim/weddingCrasher.jpg",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Chula Vista, California",
+              "img":"/Assets/Images/mim/share_weddingCrasher.jpg",
+              "copy":"A series of all day meetings on the ISS meant he was running late to Harry and Dana's wedding. Decisive action was necessary, because if you know Dana, you know she's not the type who tolerates tardiness. Especially not on her wedding day."
+          },
+          "tw":{
+              "copy":"A series of all day meetings on the ISS meant he was running late to Harry and Dana's wedding. "
+          }
+      }
+  },
+  {
+      "title":"Muskegon, Michigan",
+      "description":"Due in large part to the unorthodox playbook he devised for Coach Kirk and the Gophers, the team was undefeated going into their final regular season game. Here, he thought it’d be apropos to pop by and draw up how they would celebrate their 17th consecutive division title.",
+      "headline":"Coach",
+      "lat": 43.233767,
+      "long": -86.244170,
+      "id":"Coach",
+      "imgUrl":"/Assets/Images/mim/mim_coach.jpg",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Muskegon, Michigan",
+              "img":"/Assets/Images/mim/mim_coach.jpg",
+              "copy":"Due in large part to the unorthodox playbook he devised for Coach Kirk and the Gophers, the team was undefeated going into their final regular season game. Here, he thought it’d be apropos to pop by and draw up how they would celebrate their 17th consecutive division title."
+          },
+          "tw":{
+              "copy":"Due to the unorthodox playbook he devised, the team was undefeated going into their final regular season game."
+          }
+      }
+  },
+  {
+      "title":"Montevideo, Uruguay",
+      "headline":"Well",
+      "description":"After a football escaped into a well during a heated match between locals outside Montevideo, he felt obligated to retrieve the ball so they could complete their game. Locals quickly subbed him in afterwards.",
+      "lat": -34.902766,
+      "long": -56.163127,
+      "id":"Well",
+      "videoId":"p7AmW4YI3mw",
+      "imgUrl":"/Assets/Images/mim/mim_well.jpg",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Montevideo, Uruguay",
+              "img":"/Assets/Images/mim/mim_well.jpg",
+              "copy":"After a football escaped into a well during a heated match between locals outside Montevideo, he felt obligated to retrieve the ball so they could complete their game. Locals quickly subbed him in afterwards."
+          },
+          "tw":{
+              "copy":"A football escaped into a well during a heated match between locals outside Montevideo."
+          }
+      }
+  },
+  {
+      "title":"Nairobi, Kenya",
+      "description":"To show his loyalty and support for a certain unnamed dignitary letting the cat out of the bag, he offered to tattoo himself with a majestic cat resembling one he befriended while on safari in Southeastern Kenya.",
+      "headline":"Tattoo",
+      "lat":-1.291757,
+      "long":36.820604,
+      "id":"Tattoo",
+      "imgUrl":"/Assets/Images/mim/mim_tattoo.jpg",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Nairobi, Kenya",
+              "img":"/Assets/Images/mim/mim_tattoo.jpg",
+              "copy": "To show his loyalty and support for a certain unnamed dignitary letting the cat out of the bag, he offered to tattoo himself with a majestic cat resembling one he befriended while on safari in Southeastern Kenya."
+          },
+          "tw":{
+              "copy":"To show his loyalty and support for a certain unnamed dignitary, he offered to tattoo himself."
+          }
+      }
+  },
+  {
+      "title":"Tutuhan, Guam",
+      "description":"While on holiday in Guam he developed a culinary karate program that quickly became a worldwide fitness phenomenon popular among celebrities and professional athletes.",
+      "headline":"Coconut Smash ",
+      "lat": 13.467460,
+      "long": 144.745681,
+      "id":"Coconut",
+      "videoId":"ugs5ie3KxCc",
+      "imgUrl":"/Assets/Images/mim/mim_coconut.jpg",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Tutuhan, Guam",
+              "img":"/Assets/Images/mim/mim_coconut.jpg",
+              "copy":"While on holiday in Guam he developed a culinary karate program that quickly became a worldwide fitness phenomenon popular among celebrities and professional athletes. "
+          },
+          "tw":{
+              "copy":"He developed a culinary karate program that quickly became a worldwide fitness phenomenon."
+          }
+      }
+  },
+  {
+      "title":"Znojmo, Czech Republic",
+      "description":"Here he is in a knife-throwing competition. We’d give you more context, but he specifically asked that we not.",
+      "headline":"Knife Throw ",
+      "lat": 48.856118,
+      "long": 16.054339,
+      "id":"Knife",
+      "videoId":"ha4fJmm53wY",
+      "imgUrl":"/Assets/Images/mim/mim_knifeThrow.jpg",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Znojmo, Czech Republic",
+              "img":"/Assets/Images/mim/mim_knifeThrow.jpg",
+              "copy":"Here he is in a knife-throwing competition. We’d give you more context, but he specifically asked that we not."
+          },
+          "tw":{
+              "copy":"Here he is in a knife-throwing competition. We’d give you more context, but he specifically asked that we not."
+          }
+      }
+  },
+  {
+      "title":"Vancouver, Canada",
+      "description":"After he was overcome by an uncontrollable urge to swim during a water taxi ride in Vancouver, his phone was rendered waterlogged. So, naturally, he opted to build his own.",
+      "headline":"Tech",
+      "lat": 49.281196,
+      "long": -123.122876,
+      "id":"Tech",
+      "imgUrl":"/Assets/Images/mim/mim_tech.jpg",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Vancouver, Canada",
+              "img":"/Assets/Images/mim/mim_tech.jpg",
+              "copy":"After he was overcome by an uncontrollable urge to swim during a water taxi ride in Vancouver, his phone was rendered waterlogged. So, naturally, he opted to build his own."
+          },
+          "tw":{
+              "copy":"During a water taxi ride in Vancouver, his phone was rendered waterlogged. So, naturally, he opted to build his own."
+          }
+      }
+  },
+  {
+      "title":"Saint Petersburg, Russia",
+      "description":"His fortune cookies often include investment advice. In fact, while dining at a local hotspot in Saint Petersburg following an acrobatic zip-lining performance, he received a fortune cookie advising him to invest more time in drone videography.",
+      "headline":"Fortune Cookie",
+      "lat": 59.938481,
+      "long": 30.334649,
+      "id":"Cookie",
+      "imgUrl":"/Assets/Images/mim/mim_fortune.jpg",
+      "social":{
+          "fb":{
+              "title":"title",
+              "img":"/Assets/Images/mim/mim_fortune.jpg",
+              "copy":"facebokcopy"
+          },
+          "tw":{
+              "copy":" He received a fortune cookie advising him to invest more time in drone videography."
+          }
+      }
+  },
+  {
+      "title":"Simiyu, Tanzania",
+      "description":"He played college football in high school. But here, he’s actually working on his fourth PhD and decided he was in need of a well-deserved study break.",
+      "headline":"headline",
+      "lat": -2.553475,
+      "long": 33.446932,
+      "id":"football",
+      "imgUrl":"/Assets/Images/mim/mim_cfp.jpg",
+      "videoId":"91I855xMx2M",
+      "social":{
+          "fb":{
+              "title":"The Most Interesting Man in Simiyu, Tanzania",
+              "img":"/Assets/Images/mim/mim_cfp.jpg",
+              "copy":"He played college football in high school. But here, he’s actually working on his fourth PhD and decided he was in need of a well-deserved study break."
+          },
+          "tw":{
+              "copy":"He played college football in high school."
+          }
+      }
+  },
+  {
+      "title":" Waitomo Caves, New Zealand",
+      "description":"The recent rise in recreational spelunking is likely due to his fondness of the sport and the rumor that each time he embarks on a caving adventure, he leaves behind a pair of rare cufflinks in whichever rare cave he explores.",
+      "headline":"headline",
+      "lat": -38.261770,
+      "long": 175.113573,
+      "id":"cave",
+      "imgUrl":"/Assets/Images/mim/mim_cave.jpg",
+      "social":{
+          "fb":{
+              "title":"title",
+              "img":"/Assets/Images/mim/mim_cave.jpg",
+              "copy":"The recent rise in recreational spelunking is likely due to his fondness of the sport and the rumor that each time he embarks on a caving adventure, he leaves behind a pair of rare cufflinks in whichever rare cave he explores."
+          },
+          "tw":{
+              "copy":"He leaves behind a pair of rare cufflinks in whichever rare cave he explores."
+          }
+      }
+  }
+]

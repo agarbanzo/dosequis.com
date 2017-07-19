@@ -1,0 +1,174 @@
+@import 'config/vars.scss';
+  .brewing{
+    .hero{
+      background: $white;
+      padding-bottom: 3rem;
+      @include gutter(18.75%);
+    }
+    .steps{
+      @include contentWidth(1024px);
+      .content{
+      @include gutter(18.75%);
+        position: relative;
+        color:$white;
+        text-align: center;
+         @media all and (max-width:$mobile-width) {
+            h2.headline-01{
+              font-size: 1.5em;
+            }
+          }
+        .hop-top{
+          display:block;
+          margin:auto;
+          text-align: center;
+          max-width: 40%;
+          height: auto;
+        }
+        .bg{
+          position: relative;
+          z-index: 1;
+          &:before,&:after{
+            display:none;
+          }
+          .inner{
+            position: relative;
+            width:100%;
+            padding:0;
+            margin:0;
+            background: no-repeat center;
+            background-size: 100% auto;
+            box-shadow: 1px 2px 5px 0px rgba(#000, .65);
+            z-index: 1;
+            display: block;
+            &:before{
+              position:relative;
+              content:' ';
+              display: block;
+              padding-bottom:100%;
+            }
+            .block{
+              margin:auto;
+              position: absolute;
+              height: 100%;
+              width:100%;
+              top:0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+            }
+              }
+              .hop{
+                z-index:0;
+                display: block;
+                position:absolute;
+                top:0%;
+                display:block;
+                transform:scale(1);
+                transition: transform $aniSpeed;
+                transform-origin: right;
+                width:auto;
+                height: auto;
+                width:25%;
+                max-width: 162px;
+                &.hop-left{
+                  transform:translateX(-100%) scale(0);
+                }
+                &.hop-right{
+                  right:0;
+                  transform-origin: left;
+                  transform:translateX(100%) scale(0);
+                 transition-delay: .15s;
+                }
+              }
+          }
+          p{
+            color:$black;
+            padding:2rem 0;
+           @media all and (max-width:$mobile-width) {
+              margin:0 -18.75%
+            }
+          }
+          &.open{
+              &:before{
+                  transform:scale(1);
+                }
+                .bg .hop-left{
+                  transform:translateX(-99%) scale(1);
+                }
+                .bg .hop-right{
+                  right:0;
+                  transform-origin: left;
+                  transform:translateX(99%) scale(1);
+                }
+          }
+      }
+
+      &.step-1 .content{
+            .bg{
+                .hop-left{
+                  top:( 99 / 630 ) * 100%;
+                }
+                .hop-right{
+                  top:(288/630)*100%;
+                }
+                .inner{
+                    background-image:url(/assets/images/about/brewing/step-1.jpg);  
+                }
+              }
+         }
+      &.step-2 .content{
+            .bg{
+                .hop-left{
+                  top:( 198 / 630 ) * 100%;
+                }
+                .hop-right{
+                  top:( 70 / 630 ) * 100%;
+                }
+                .inner{
+                    background-image:url(/assets/images/about/brewing/step-2.jpg);  
+                }
+              }
+         }
+      &.step-3 .content{
+            .bg{
+                .hop-left{
+                  top:( 70 / 630 ) * 100%;
+                }
+                .hop-right{
+                  top:( 143 / 630 ) * 100%;
+                }
+                .inner{
+                    background-image:url(/assets/images/about/brewing/step-3.jpg);  
+                }
+              }
+         }
+      &.step-4 .content{
+            .bg{
+                .hop-left{
+                  top:( 235 / 630 ) * 100%;
+                }
+                .hop-right{
+                  top:( 65 / 630 ) * 100%;
+                }
+                .inner{
+                    background-image:url(/assets/images/about/brewing/step-4.jpg);  
+                }
+              }
+         }
+      &.step-5 .content{
+            .bg{
+                .hop-left{
+                  top:( 135 / 630 ) * 100%;
+                }
+                .hop-right{
+                  top:( 246 / 630 ) * 100%;
+                }
+                .inner{
+                    background-image:url(/assets/images/about/brewing/step-5.jpg);  
+                }
+              }
+         }
+
+    }
+  }

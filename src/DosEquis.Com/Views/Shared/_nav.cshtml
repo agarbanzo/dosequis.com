@@ -1,0 +1,25 @@
+<nav id="main-navigation">
+    <div class="header-container @ViewBag.HeaderClass">
+            <div class="wrapper">
+                <div class="content">
+                    <div class="header-site-navbutton">
+                        <span id="nav-icon1">
+                            <span class="burger" href="#">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </span>
+                        <a class="home hideMobile" href="/"><img src="/assets/images/svg/home.svg" />Home</a>                     </div>
+                    <div>
+                        <a class="logo" href="/"></a>
+                    </div>
+                    <div class="header-site-links">
+                        <a class="finder" href="/BeerFinder"><img class="pin-icon" src="/Assets/Images/svg/pin.svg" /><span class="hideMobile">BEER<br />FINDER</span></a>
+                        <a class="drizly" href="http://store.dosequis.com/" onClick="fbq('track', 'Search');"><img class="drizly-icon" src=""/><span>ORDER<br />NOW</span></a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- header-container -->
+    @Html.MvcSiteMap().Menu(false)
+</nav>

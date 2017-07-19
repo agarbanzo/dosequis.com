@@ -1,0 +1,39 @@
+@import "config/vars";
+@import 'components/brewingPanel';
+.content-main{
+
+        divider,hr {
+            margin-bottom:1rem;
+        }
+        .heading-block-02{
+            padding-bottom: 1rem;
+        }
+}
+.ingredients{
+    @include gutter(6.25%);
+    background: #fff;
+        ul{
+            li{
+                        line-height: 1.5;
+                 } 
+        }
+    }
+
+.coupon{
+    color:$white;
+    padding:3rem;
+    display: flex;
+    justify-content: center;
+    &:before{
+        content:' ';
+        display: inline-block;
+        height: 28px;
+        width: 42px;
+        background: url(/assets/images/productdetail/scissors-white.png) no-repeat center;
+        background-size: auto 100%;
+        margin-right:10px;
+    }
+    a{
+        margin-left: .2em;
+    }
+}

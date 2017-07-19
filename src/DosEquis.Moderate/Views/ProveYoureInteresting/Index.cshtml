@@ -1,0 +1,64 @@
+﻿@model Havas.Social.Aggregator.Moderate.Models.CiRegistrationModel
+@using DosEquis.Com;
+@{
+    ViewBag.Title = "Interesting Index - Meme Moderation";
+}
+
+
+@section scripts {
+    <script src="/scripts/scripts.js" type="text/javascript"></script>
+}
+<div>Total Registrations: @Model.Count</div>
+<div>Total Invalid Registrations: @Model.InvalidMemeCount</div>
+@*<div>Default Meme Count: @Model.DefaultMemeCount</div>
+<div>Moderated Count: @Model.ModCount</div>*@
+@Html.Partial("_PyiPagination")
+<div id="container" class="container centered adminScreen">
+    @foreach (var item in Model.Entries)
+    {
+        string modCheck = item.IsModerated ? "checked" : string.Empty;
+
+        <div class="post meme @modCheck" name="@item.FacebookId">
+            <div class="admin">
+                <label>
+                    @Html.CheckBox("moderate", !item.IsModerated, new
+                    {
+                        onclick = "modCheckBox($(this));",
+                        value = item.FacebookId
+                    })
+                    <span class="unchecked">Uncheck to hide post</span><span class="checked">Check to show post</span>
+                </label>
+                <label>
+                    @Html.CheckBox("banned", item.IsBanned, new
+                    {
+                        onclick = "banCheckBox($(this));",
+                        value = item.FacebookId
+                    }) Banned
+                </label>
+                <div>
+                    <div>@item.Add_Dttm.ToLocalTime()</div>
+                    <div class="full-name">@(item.FirstName + " " + item.LastName)</div>
+                    <div>
+                        @(string.Format("{0:n0}", item.Rank))
+                    </div>
+                </div>
+            </div>
+            <div class="content meme" style="position: relative">
+                <span style="padding-bottom: 10px;">Click Image for full size</span>
+                <a href="@item.MemeUrl" target="_blank" class="click">
+                    <img class="meme-img" src="@item.MemeUrl" />
+                </a>
+                @if (Request.Url.Host.Contains("local") || Request.Url.Host.Contains("tech.ny.havasww.com"))
+                {
+                    <a href="@string.Format("http://chooseinteresting.dosequis.qa.tech.ny.havasww.com/interestingindex/profile/{0}/", item.PubKey)" target="_blank">Go to page</a>
+                }
+                else
+                {
+                    <a href="@string.Format("http://www.dosequis.com/interestingindex/profile/{0}/", item.PubKey)" target="_blank">Go to page</a>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@Html.Partial("_PyiPagination")

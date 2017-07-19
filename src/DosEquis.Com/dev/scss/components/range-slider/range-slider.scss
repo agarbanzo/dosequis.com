@@ -1,0 +1,205 @@
+@import './jquery-ui';
+@import './jquery-ui-slider-pips';
+@import "config/vars";
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.date-range-gallery{
+
+	input[type=range]:focus {
+	  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+	}
+	.bottle-items{
+		.item{
+			.info{
+				margin-top:15px;
+				transition: opacity .5s ease-in-out;
+				opacity:0;
+
+				@media all and (min-width:767px) {
+					font-size: 	100%;	
+				}
+
+				h3{
+					color:$lightgold;
+				}
+			}
+		}
+	}
+
+	.slick-dots{
+		display: none !important;
+	}
+
+	.slick-slide{
+		img{
+			margin:0 auto;
+			transition: all .5s ease-in-out;
+			transform: translate3d(0, 0, 0);
+			transform: scale(.85);
+			opacity:.5 !important;
+		}
+
+		&.selected{
+			img{
+				margin:0 auto;
+				transform: scale(1);
+				opacity:1 !important;
+			}
+
+			.info{
+				opacity: 1;
+			}
+
+			@media all and (min-width:767px) {
+				img{
+					opacity:1;
+					transform: scale(1);
+				}
+			}
+		}
+	}
+
+	.range-slider{
+		background:none;
+		height:3px;
+		max-width:80vw;
+		margin:0 auto;
+		padding-bottom:100px;
+		border-top:2px solid black;
+
+		@media all and (min-width:767px) {
+			max-width:60vw;
+		}
+
+	.ui-slider-range{
+			background: linear-gradient(to right,#434d5a 0,#00c7d7 50%,#434d5a 100%);
+		    border: 1px solid rgba(67,77,90,.5);
+		    height: 2px;
+		    top: -1px;
+		    transition: all .2s ease-out;
+		}
+
+	.ui-slider {
+	  border-radius: 20px;
+	  background: #434d5a;
+	  border: none;
+	  height: 10px;
+	  margin: 1em 4em 4em; 
+	  border:10px solid red;
+	}
+
+	.ui-slider-label{
+		transform: 	rotate(-45deg);	
+
+		 @media all and (min-width:767px) {
+		 	transform: 	rotate(0deg);		
+		 }
+	}
+	                    
+	.ui-slider-handle {
+		  border-radius: 50%;
+		  height: 40px;
+		  width: 40px;
+		  top: -20px;
+		  background: $white;
+		  cursor:pointer;
+		  outline: none;
+		  background:url(/Assets/Images/partials/packaging/arrows.png) no-repeat;
+
+		  @media all and (min-width:767px) {
+ 				height: 40px;
+		  		width: 40px;
+		  		top: -20px;
+		  }
+	}
+		}
+		.rangeSlider,
+        .rangeSlider__fill {
+            background: #7f8c8d;
+            display: block;
+            height: 2px;
+            width: 90%;
+            margin:0 auto;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .rangeSlider {
+            position: relative;
+        }
+
+        .rangeSlider--disabled {
+            opacity: 0.4;
+        }
+
+        .rangeSlider__fill {
+            background: #16a085;
+            position: absolute;
+            top: 0;
+            z-index: 2;
+        }
+
+        .rangeSlider__handle {
+            background: white;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: -20px;
+            z-index: 3;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+        }
+
+        .rangeSlider__handle:after {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 18px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(255, 255, 255, 0));
+            border-radius: 50%;
+        }
+
+        .rangeSlider__handle:active {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.12));
+        }
+
+        input[type="range"]:focus + .rangeSlider .rangeSlider__handle {
+            box-shadow: 0 0 8px rgba(142, 68, 173, 0.9);
+        }
+
+        .rangeSlider__buffer {
+            z-index: 1;
+            position: absolute;
+            top: 3px;
+            height: 14px;
+            background: #2c3e50;
+            border-radius: 10px;
+        }
+}
+

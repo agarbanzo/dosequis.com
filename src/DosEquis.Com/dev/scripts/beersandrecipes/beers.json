@@ -1,0 +1,52 @@
+{
+        "lager":{
+                    "id":"lager",
+                    "el":"#lager",
+                    "type":"beer",
+                    "name":"DOS EQUIS LAGER ESPECIAL",
+                    "title":"DOS EQUIS LAGER ESPECIAL",
+                    "bg":"/Assets/Images/beersandrecipes/bg_lager.jpg",
+                    "product":"/Assets/Images/beersandrecipes/lager/product.png",
+                    "copy":"A golden pilsner-style beer made from pure spring water and the choicest hops.",
+                    "cta":"see beer",
+                    "link":"/beers-and-recipes/lager",
+                    "drizly":"https://drizly.com/dos-equis-lager/p3113",
+                    "recipes":["dos-sidra","dos-a-rita"],
+                    "fbShare":{
+                        "method": "share",
+                        "title":"DOS EQUIS LAGER ESPECIAL",
+                        "description":"data.copy",
+                        "hashtag":"hashtag",
+                        "picture":"image location"
+                      },
+                    "twShare":{
+                        "text":"copy"
+                    }
+                },
+           "ambar":{
+                    "id":"ambar",
+                    "el":"#ambar",
+                    "type":"beer",
+                    "name":"DOS EQUIS Ambar",
+                    "title":"DOS EQUIS Ambar",
+                    "bg":"/Assets/Images/beersandrecipes/bg_ambar.jpg",
+                    "product":"/Assets/Images/beersandrecipes/ambar/product.png",
+                    "productlarge":"/Assets/Images/beersandrecipes/ambar/product-lg.png",
+                    "copy":"A classic Vienna-style lager with a full body and a smooth finish.",
+                    "cta":"see beer",
+                    "link":"/beers-and-recipes/ambar",
+                    "drizly":"https://drizly.com/dos-equis-amber-lager/p3115",
+                    "recipes":["dos-a-stormy","michelada"],
+                    "fbShare":{
+                        "method": "share",
+                        "title":"DOS EQUIS Ambar",
+                        "description":"data.copy",
+                        "hashtag":"hashtag",
+                        "picture":"image location"
+                      },
+                    "twShare":{
+                        "text":"copy"
+                    }
+                }
+}
+                  

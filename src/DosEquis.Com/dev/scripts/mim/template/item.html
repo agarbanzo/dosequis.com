@@ -1,0 +1,34 @@
+<li class="event" id="{{id}}" data-index="{{index}}">
+    <h2><span class="pin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.22 85.72"><title>Asset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M25.11,0A25.3,25.3,0,0,0,0,25.11c0,13.73,25.11,60.6,25.11,60.6s25.11-46.88,25.11-60.6A25.08,25.08,0,0,0,25.11,0Zm0,37.17A12.05,12.05,0,1,1,37.17,25.11,12,12,0,0,1,25.11,37.17Z"/></g></g></svg></span>{{title}}</h2>
+    <div class="feature  {{#videoId}}video{{/videoId}}">
+        {{#videoId}}
+        <div class="player" id="video-{{id}}"></div>
+        <div class="cover">
+            <img src="{{imgUrl}}" />
+            <span class="play">
+                <svg class="video-overlay-play-button" viewBox="0 0 200 200" alt="Play video">
+                    <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff"></circle>
+                    <polygon points="70, 55 70, 145 145, 100" fill="#fff"></polygon>
+                </svg>
+            </span>
+        </div>
+        {{/videoId}}
+        {{^videoId}}
+        <img src="{{imgUrl}}" />
+        {{/videoId}}
+    </div>
+    <div class="info">
+        <span class="more"></span>
+        <div class="description">
+        <p class="copy">{{description}}</p>
+
+            <div class="social">
+                <a class="fb" href="#" data-fbShare=' {"copy":"{{description}}","img":"{{imgUrl}}","title":"The Most Interesting Man in {{title}}" }' data-ga='{"category":"mim-{{title}}","label":"facebook-share"}'><img src="/assets/images/svg/fb.svg" /></a>
+                {{#social.tw}}
+                <a class="tw" href="#" data-twShare=' {"text":"{{copy}}" }' data-ga='{"category":"mim-{{title}}","label":"twitter-share"}'><img src="/assets/images/svg/twitter.svg" /></a>
+                {{/social.tw}}
+            </div>
+        
+        </div>
+    </div>
+</li>

@@ -1,0 +1,18 @@
+﻿@model Havas.Social.Aggregator.Moderate.Models.SkyWritingsModel
+
+<div class="pageNav">
+    Pages:
+    <ul>
+    @for (var i = 1; i <= Model.Pages; i++)
+    {
+        if (Model.CurrentPage == i)
+        {
+        <li class="active">@i.ToString()</li>
+        }
+        else
+        {
+        <li>@Html.ActionLink(i.ToString(), "Index", "SkyWriting", new { page = i }, null)</li>
+        }
+    }
+    </ul>
+</div>

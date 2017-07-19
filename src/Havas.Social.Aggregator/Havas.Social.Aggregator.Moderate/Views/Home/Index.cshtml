@@ -1,0 +1,139 @@
+﻿@model Havas.Social.Aggregator.Moderate.Models.FeedModel
+@using Havas.Social.Aggregator;
+@using Havas.Social.Aggregator.Model;
+@using Havas.Social.Aggregator.Constant;
+@using Havas.Common.Extensions;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Nav
+{
+    <nav>
+        <ul id="menu">
+
+            @foreach (var feed in Model.FeedConfig)
+            {
+                var active = (Model.FeedId == feed.FeedId) ? "active" : string.Empty;
+                <li class="@active">@Html.ActionLink(feed.FeedId.Replace(".", "-"), "Index", "Home", new { id = feed.FeedId.Replace(".", "-"), page = 1 }, null)</li>
+                            
+            }
+
+        </ul>
+    </nav>
+
+
+}
+
+@section featured {
+    
+}
+
+@section scripts {
+    <script src="/scripts/scripts.js" type="text/javascript"></script>
+}
+    
+
+ @Html.Partial("_FeedPagination")
+
+<div id="container" class="container centered adminScreen">
+
+@foreach (SocialFeed feed in Model.Feeds)
+{
+    string check = feed.Approved == false ? "checked" : string.Empty;
+    <div class="post @feed.SocialNetwork @check" name="@feed.Id">
+            <div class="admin">
+                <label>
+                    @if(feed.Approved == false){ 
+                        <input checked="checked" value="@feed.Id"  onclick="checkBox($(this));" type="checkbox"  />
+                     }
+                    else{
+                        <input value="@feed.Id"  onclick="checkBox($(this));" type="checkbox"  />
+                    }
+                    <span class="unchecked">check to hide post</span><span class="checked">uncheck to show post</span>
+                </label>
+                 <p>@feed.PostedOn.ToString()</p>            
+             </div>
+            <div class="content" style="position:relative">
+                @if (feed.SocialNetwork == SocialNetworks.Instagram.GetStringValue())
+                {
+                    if (feed.FeedType == FeedTypes.Image.GetStringValue())
+                    {
+                     <a href="@feed.ImageUrl" target="_blank" class="click"> <img src="@feed.ImageUrl" alt="@feed.Text" title="@feed.Text" /></a>
+                     <a  href="@feed.Link" target="_blank">Instagram</a>
+                    }
+
+                    if (feed.FeedType == FeedTypes.Video.GetStringValue())
+                    {
+                     <video controls="" muted="" poster=@feed.ImageUrl><source src="@feed.VideoUrl" type="video/mp4">Your browser does not support the video tag.</video>
+                    <a  href="@feed.Link" target="_blank">Instagram</a>
+                    }
+
+                }
+
+                @if (feed.SocialNetwork == SocialNetworks.Twitter.GetStringValue())
+                {
+                    if (feed.FeedType == FeedTypes.Image.GetStringValue())
+                    {
+                     <p class="text image" style="background-image:url('@feed.ImageUrl:small')!important;" >
+                        <span>@Html.Raw(feed.Text)</span>
+                        <span class="profile" target="_blank" href="@feed.LinkToProfile">
+                            <img width="48" height="48" alt="@feed.UserName" src="@feed.UserProfileImageUrl" />
+                            <span>@feed.UserName</span>
+                        </span>
+                         <a href="@feed.ImageUrl" target="_blank" class="click"> full Image</a>
+                     </p>
+                    }
+
+                    if (feed.FeedType == FeedTypes.Text.GetStringValue())
+                    {
+                        <p class="text">@Html.Raw(feed.Text)</p>
+                         <a href="@feed.LinkToProfile"class="profile" target="_blank">
+                            <img width="48" height="48" alt=" @feed.UserName" src="@feed.UserProfileImageUrl" />
+                            <span>@feed.UserName</span>
+                          </a>
+                    }
+                }
+
+                @if (feed.SocialNetwork == SocialNetworks.Facebook.GetStringValue())
+                {
+                    if (feed.FeedType == FeedTypes.Image.GetStringValue())
+                    {
+                     <p class="text image" style="background-image:url('@feed.ImageUrl')!important;" >
+                        <span>@Html.Raw(feed.Text)</span>
+                          <a class="profile" target="_blank" href="http://@feed.LinkToProfile">
+                            <span>Submitted by: @feed.UserName</span>
+                          </a>
+                         <a href="@feed.ImageUrl" target="_blank" class="click"> full Image</a>
+                     </p>
+                    }
+                    
+                    if (feed.FeedType == FeedTypes.Text.GetStringValue())
+                    {
+                        <p class="text">@Html.Raw(feed.Text)</p>
+                          <a class="profile" target="_blank" href="http://@feed.LinkToProfile">
+                            <span>Submitted by: @feed.UserName</span>
+                          </a>
+                    }
+                    
+                     if (feed.FeedType == FeedTypes.Video.GetStringValue())
+                    {
+                         if(feed.VideoUrl.Contains("youtube")){
+                        <iframe id="ytplayer" type="text/html" style="width:100%" src="@feed.VideoUrl.Replace("autoplay=1","autoplay=0")" frameborder="0"></iframe>
+                         <a href="@feed.Link" target="_blank"> video on Youtube</a>
+                }
+                else{
+                     <video poster=""  controls="" muted="" poster="@feed.ImageUrl"><source src="@feed.VideoUrl" type="video/mp4">Your browser does not support the video tag.</video>
+                    <a  href="@feed.Link" target="_blank">View on Facebook</a>
+                         }
+                    }
+                    
+                }
+                   
+            </div>  
+
+</div>
+}
+    
+@Html.Partial("_FeedPagination")

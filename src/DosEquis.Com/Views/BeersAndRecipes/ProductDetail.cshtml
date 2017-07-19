@@ -1,0 +1,152 @@
+﻿@model DosEquis.Com.Core.Entities.Beer
+@{
+    ViewBag.Title = @Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyClass = "productdetail darkNav ";
+    ViewBag.Location = "productdetail";
+    ViewBag.ShareImage = Model.ShareImage;
+    ViewBag.MetaDescription = Model.MetaDescription;
+}
+
+@section PageSpecificHeader {
+    <meta name="keywords" content="stay thirsty my friend" />
+}
+<div id="productdetail" data-productId="@Model.Id" class="animation-element">
+<section id="videocontainer" class="hero">
+   <div class="fs-vid">
+       <video playsinline autoplay muted loop id="bgvid"  poster="/Assets/Images/video-thumbs/@(Model.Id).jpg" src="/Assets/videos/products/@(Model.Id).mp4">
+      </video>
+       <div class="heading-block-01 whiteText vid-content ">
+           <h2 class="headline-01 video">@Model.Name</h2>
+           <p class="heading-copy">@Model.Description</p>
+       </div>
+   </div>
+   <div class="order-find">
+       <a class="drizly" href="http://store.dosequis.com/" onClick="fbq('track', 'Search');">Order Now</a>
+       <div class="searchbox">
+          <div class='inner'>
+           <input class="black lager zipcode" id="zipcode" name=""  type="text" onfocus="this.value='';" value="Zipcode" maxlength="5"/>
+           <a class="find-this-beer-button" name="@Model.Id" id="find-this-beer-button">FIND THIS BEER</a>
+           </div>
+      </div>
+   </div>
+   </section>
+   <div class="content-main">
+       <section class="section ingredients">
+            <div class="heading-block-02 content contentMax">
+                <h4 class="headline-04"><strong>Taste Profile</strong></h4>
+                <divider></divider>
+                <ul>
+                    @foreach (var item in Model.Profiles)
+                    {
+                        <li>&ndash; @item</li>
+                    }
+                </ul>
+            </div>
+            <div class="heading-block-02 content contentMax">
+                    <h4 class="headline-04"><strong>Ingredients</strong></h4>
+                    <divider></divider>
+                    <ul>
+                        @foreach (var item in Model.Ingredients)
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+             </div>
+
+        </section>
+       <section class="section properties">
+            <div class="heading-block-02 content contentMax">
+                <h4 class="headline-04"><strong>Nutritional Facts</strong></h4>
+                <divider></divider>
+                <div class="items">
+                    <div class="item">
+                        <span class="type">Calories</span>
+                        <span class="value">@Model.Calories</span>
+                    </div>
+                    <div class="item">
+                        <span class="type">Fat</span>
+                        <span class="value">@Model.Fat</span>
+                    </div>
+                    <div class="item">
+                        <span class="type">Carbs</span>
+                        <span class="value">@Model.Carbs</span>
+                    </div>
+                    <div class="item">
+                        <span class="type">ABV</span>
+                        <span class="value">@Model.Abv</span>
+                    </div>
+                    <div class="item">
+                        <span class="type">IBU</span>
+                        <span class="value">@Model.Ibu</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <section class="section whiteBg">
+       <div>
+               <h4 class="headline-04"><strong>PACK TYPES</strong></h4>
+               <divider></divider>
+               <div class="packs">
+                   @if (Model.BottlePacks.Length > 0)
+                    {
+                       <ul class="bottles" data-type="@Model.Id">
+                           @foreach (var item in Model.BottlePacks)
+                        {
+                               <li>@item</li>
+                           }
+                       </ul>
+                   }
+                   @if (Model.CanPacks.Length > 0)
+                   {
+                       <ul class="cans" data-type="@Model.Id">
+                           @foreach (var item in Model.CanPacks)
+                        {
+                               <li>@item</li>
+                           }
+                       </ul>
+                   }
+                   @if (Model.DraughtPacks.Length > 0)
+                   {
+                       <ul class="draught" data-type="@Model.Id">
+                           @foreach (var item in Model.DraughtPacks)
+                           {
+                               <li>@item</li>
+                           }
+                       </ul>
+                   }
+               </div>
+           <div class="order-find2">
+               <a class="drizly" href="http://store.dosequis.com/" onClick="fbq('track', 'Search');"><strong>Order Now</strong></a>
+               <div class="searchbox">
+                   <input class="black zipcode" id="zipcode2" name="" type="text" onfocus="this.value='';" value="Zipcode" maxlength="5"/>
+                   <a class="find-this-beer-button" name="@Model.Id" id="find-this-beer-button2">FIND THIS BEER</a>
+               </div>
+           </div>
+
+        </div>
+        </section>
+    </div>
+    <section class="section recipes lightBg" id="recipes">
+        <div class="heading-block-02 content contentMax">
+            <h4 class="headline">Crafted Cocktails</h4>
+        </div>
+        <section>
+            <div class="touts-static contentMax whiteText">
+            </div>
+        </section>
+     </section>
+    @Html.Partial("_BrewingPanel")
+        <section id="beer" class="section darkBg beer">
+            <section>
+                <div class="touts-static touts-large">
+                </div>
+            </section>
+        </section>
+    <section id="bottom-touts" class="section toutsWrapper">
+        <div class="touts contentMax whiteText animation-element">
+            @Html.Partial("Touts/_BeerFinder")
+            @Html.Partial("Touts/_Faq")
+        </div>
+    </section>
+</div>

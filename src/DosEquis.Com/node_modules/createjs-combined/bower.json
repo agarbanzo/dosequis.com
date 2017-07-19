@@ -1,0 +1,21 @@
+{
+  "name": "createjs-combined",
+  "version": "2015.11.26",
+  "description": "Combined files for CreateJS",
+  "main": "createjs-2015.11.26.min.js",
+  "authors": [
+    "Leonardo Gatica <lgatica@protonmail.com> (https://about.me/lgatica)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "createjs"
+  ],
+  "homepage": "https://github.com/escaleno-ltda/createjs-combined",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

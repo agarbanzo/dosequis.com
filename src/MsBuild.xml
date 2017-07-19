@@ -1,0 +1,108 @@
+<Project DefaultTargets="Run" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v11.0\Web\Microsoft.Web.Publishing.Tasks.dll"/>
+  <PropertyGroup>
+	<TransformConfigFiles>true</TransformConfigFiles>
+	<AutoParameterizationWebConfigConnectionStrings>false</AutoParameterizationWebConfigConnectionStrings>
+	<BindingHostDomainSuffix>tech.ny.havasww.com</BindingHostDomainSuffix>
+	<WebSiteUrl Condition="'$(WebSiteUrl)' == ''">$(SiteName).$(Environment).$(BindingHostDomainSuffix)</WebSiteUrl>
+	<RuntimeVersion>v4.0</RuntimeVersion>
+	<WebSiteName>$(SiteName)-$(Environment)</WebSiteName>
+	<AppPoolName>$(SiteName)-$(Environment)</AppPoolName>
+	<BuildTarget Condition="'$(BuildTarget)' == ''">$(WebsiteRootDir)\*.*proj</BuildTarget>
+	<SSLCertificateHash Condition="'$(SSLCertificateHash)' == ''">24a7140cdb46da57c67a90db4b7ad06dcac2fcf2</SSLCertificateHash>
+	<HttpsBindingExist>false</HttpsBindingExist>
+	<HttpsBindingInformation>:443:$(WebSiteUrl)</HttpsBindingInformation>
+	<WindowsAuth Condition="'$(WindowsAuth)' == ''">false</WindowsAuth>
+	<AnonymousAuth>!$(WindowsAuth)</AnonymousAuth>
+  </PropertyGroup>
+  <Target Name="Run">
+    <ItemGroup>
+		<ProjectReferences Include="$(BuildTarget)" />
+    </ItemGroup>
+    <!-- Get the full path of the web site root directory -->
+    <ConvertToAbsolutePath Paths="$(WebsiteRootDir)">
+		<Output TaskParameter="AbsolutePaths" PropertyName="FullProjectFolderPath"/>
+    </ConvertToAbsolutePath>
+
+    <!-- Get the full path of the web deploy package destination directory -->
+    <ConvertToAbsolutePath Paths="$(WebsiteRootDir)\..\deploy\$(WebSiteName)">
+		<Output TaskParameter="AbsolutePaths" PropertyName="FullDeployFolderPath"/>
+    </ConvertToAbsolutePath>
+
+    <!-- Build the project -->
+    <MSBuild Projects="@(ProjectReferences)"
+		Properties="Configuration=$(Configuration);CreatePackageOnPublish=false;"/>
+    <!-- Copying to deploy folder. -->
+    <CreateItem Include="$(FullProjectFolderPath)\**\*.*">
+		<Output TaskParameter="Include" ItemName="YourFilesToCopy" />
+    </CreateItem>
+    <Copy SourceFiles="@(YourFilesToCopy)"
+		DestinationFiles="@(YourFilesToCopy->'$(FullDeployFolderPath)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <!-- Config Transform if existing -->
+    <TransformXml
+		Source="$(FullProjectFolderPath)\Web.config"
+		Transform="$(FullProjectFolderPath)\Web.$(Configuration).config"
+		Destination="$(FullDeployFolderPath)\Web.config"
+		StackTrace="true"/>
+    <!-- Check if App Pool already exists -->
+    <MSBuild.ExtensionPack.Web.Iis7AppPool TaskAction="CheckExists" Name="$(AppPoolName)">
+		<Output PropertyName="AppPoolExist" TaskParameter="Exists"/>
+    </MSBuild.ExtensionPack.Web.Iis7AppPool>
+    <Message Text="AppPool Exists: $(AppPoolExist)"/>
+    <!--Check if web site already exists-->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="CheckExists" Name="$(WebSiteName)">
+		<Output PropertyName="WebSiteExist" TaskParameter="Exists"/>
+    </MSBuild.ExtensionPack.Web.Iis7Website>
+    <Message Text="Web Site Exists: $(WebSiteExist)"/>
+    <!--Check if the old https binding exists-->
+    <MSBuild.ExtensionPack.Web.Iis7Binding TaskAction="CheckExists" Name="$(WebSiteName)" BindingInformation="$(HttpsBindingInformation)" BindingProtocol="https" Condition="'$(WebSiteExist)' == 'true'">
+		<Output TaskParameter="Exists" PropertyName="HttpsBindingExist"/>
+    </MSBuild.ExtensionPack.Web.Iis7Binding>
+    <Message Text="Https Binding Exists: $(HttpsBindingExist)"/>
+    <!--Remove the old https binding if existing (doing the command line way because the other way will affect the other web sites when removing)-->
+    <Exec
+		Command="C:\Windows\System32\inetsrv\appcmd set site /site.name:&quot;$(WebSiteName)&quot; /-bindings.[protocol='https',bindingInformation='$(HttpsBindingInformation)']"
+		Condition="'$(HttpsBindingExist)' == 'true'">
+    </Exec>
+    <!--Delete the web site if existing-->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Delete" Name="$(WebSiteName)" Condition="'$(WebSiteExist)' == 'true'" />
+    <!--Delete the existing App Pool-->
+    <MSBuild.ExtensionPack.Web.Iis7AppPool TaskAction="Delete" Name="$(AppPoolName)" Condition="'$(AppPoolExist)' == 'true'" />
+    <!--Create app pool if not exist-->
+    <MSBuild.ExtensionPack.Web.Iis7AppPool TaskAction="Create" Name="$(AppPoolName)" ManagedRuntimeVersion="$(RuntimeVersion)" PipelineMode="Integrated"/>
+    <!--Create web site if not exist-->
+    <MSBuild.ExtensionPack.Web.Iis7Website
+		TaskAction="Create"
+		Name="$(WebSiteName)"
+		AppPool="$(AppPoolName)"
+		Path="$(FullDeployFolderPath)"
+		Port="80"
+		ServerAutoStart="true"
+		WindowsAuthentication="$(WindowsAuth)"
+		AnonymousAuthentication="$(AnonymousAuth)">
+			<Output TaskParameter="SiteId" PropertyName="WebSiteId"/>
+    </MSBuild.ExtensionPack.Web.Iis7Website>
+    <!--Remove the Default Binding-->
+    <MSBuild.ExtensionPack.Web.Iis7Binding
+		TaskAction="Remove"
+		Name="$(WebSiteName)"
+		BindingInformation="*:80:"
+		BindingProtocol="http"/>
+    <!--Create Binding-->
+	<MSBuild.ExtensionPack.Web.Iis7Binding
+		TaskAction="Add"
+		Name="$(WebSiteName)"
+		BindingInformation=":80:$(WebSiteUrl)"
+		BindingProtocol="http" />
+    <!--
+	<MSBuild.ExtensionPack.Web.Iis7Binding
+		TaskAction="Add"
+		Name="$(WebSiteName)"
+		BindingInformation="$(HttpsBindingInformation)"
+		CertificateHash="$(SSLCertificateHash)" 
+		BindingProtocol="https" />
+	-->
+  </Target>
+</Project>

@@ -1,0 +1,68 @@
+@import './config/vars';
+@media screen and (max-width: 500px){
+    html {
+        font-size:15px;
+
+        .small-text{
+            font-size: 70%;
+        }
+    }
+}
+
+@media screen and (min-width: 501px){
+    html {
+        font-size:15px;
+
+       .small-text{
+            font-size: 90%;
+        }
+    }
+}
+
+@media screen and (min-width: 600px){
+    html {
+        font-size:16px;
+       .small-text{
+            font-size: 80%;
+        }
+    }
+}
+
+@media screen and (min-width:$mobile-width){
+    html {
+        font-size:16px;
+        .small-text{
+            font-size: 70%;
+        }
+    }
+}
+
+@media screen and (min-width: 800px){
+    html {
+        font-size:18px;
+       .small-text{
+            font-size: 60%;
+        }
+    }
+}
+
+@media screen and (min-width: ($mid-width + 1) ){
+    html {
+        font-size:20px;
+
+        .small-text{
+            font-size: 70%;
+        }
+    }
+}
+/*
+@media screen and (min-width: $max-width){
+    html {
+        font-size:28px;
+
+         .small-text{
+            font-size: 70%;
+        }
+    }
+}
+*/
