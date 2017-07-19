@@ -1,0 +1,11 @@
+'use strict';
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+require('components/touts/touts');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+require('scss/pages/legal.scss');

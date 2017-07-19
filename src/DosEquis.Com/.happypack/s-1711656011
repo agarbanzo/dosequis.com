@@ -1,0 +1,62 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require('scss/components/loader');
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var template = require('components/loader/loader.html');
+require('jquery.transit');
+var imagesrc = require("./logo-white.png");
+
+var Loader = function () {
+    function Loader(selector) {
+        _classCallCheck(this, Loader);
+
+        this.$el = selector;
+        this.render();
+    }
+
+    _createClass(Loader, [{
+        key: 'render',
+        value: function render() {
+            this.div = $('<div class="site-loader">');
+            var d = {
+                img: imagesrc
+            };
+            var html = $(template(d)).prependTo(this.div);
+            $(this.$el).append(this.div);
+        }
+    }, {
+        key: 'show',
+        value: function show(parent) {
+            this.div.transition({ scale: 0.5, opacity: 1 });
+        }
+    }, {
+        key: 'hide',
+        value: function hide(parent) {
+            var self = this;
+            // $(self.wrapper).fadeOut(function () {
+            //     self.wrapper.css('z-index', -1)
+            //     if (parent) self.wrapper.parent(parent).remove();
+            // });
+            this.div.transition({
+                opacity: 0, scale: 0,
+                duration: 500,
+                easing: 'in',
+                complete: function complete() {
+                    if (parent) self.wrapper.parent(parent).remove();
+                }
+            });
+        }
+    }]);
+
+    return Loader;
+}();
+
+exports.default = Loader;

@@ -1,0 +1,102 @@
+.video-player {
+    display: block;
+    margin:auto;
+    width:100%;
+    position: relative;
+    padding:0!important;
+    &:before{
+        content:' ';
+        display:block;
+        padding-bottom:100% * (353/628);
+        width:100%;
+        background: #000;
+    }
+    .player{
+        position: absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width: 100%;
+    }
+      .cover{
+              display: block;
+              height: 100%;
+              width:100%;
+              position: absolute;
+              top:0;
+              left:0;
+              overflow: hidden;
+              opacity: 1;
+              transition: opacity $aniSpeed;
+              img{
+                height: 100%;
+                width:100%;
+              }
+          span.play{
+                  content:' ';
+                  display: block;
+                  height: 100%;
+                  width:100%;
+                  z-index: 10;
+                  top:0;
+                  position: absolute;
+                  z-index: 1;
+                  //background:rgba(yellow,.5);
+                  cursor: pointer;
+            /*      &:after{
+                      content:url('/Assets/Images/svg/wheel.svg');
+                      display: block;
+                      width:45px;
+                      height: 45px;
+                      top:50%;
+                      left:50%;
+                      position: absolute;
+                      transform: translate(-50%,-50%);
+                      transition: opacity $aniSpeed;
+                  }*/
+              svg.video-overlay-play-button{
+                  width:45px;
+                  height: 45px;
+                  top:50%;
+                  left:50%;
+                  position: absolute;
+                  transform: translate(-50%,-50%);
+                  transition: opacity $aniSpeed;
+                  opacity: 0;
+                  circle{
+                  transition: stroke $aniSpeed;
+                      stroke: $white;
+                  }
+                  polygon{
+                  transition: fill $aniSpeed;
+                      fill: $white;
+                  }
+              }
+              &:hover svg.video-overlay-play-button{
+                  circle{
+                      stroke: $lightgold;
+                  }
+                  polygon{
+                      fill: $lightgold;
+                  }
+              }
+          }
+      }
+      &.ready{
+          span.play{
+                  //background:rgba(green,.5);
+                /*  &:after{
+                      opacity:0;
+                  }*/
+                  svg.video-overlay-play-button{
+                      opacity: 1;
+                  }
+          }
+      }
+      &.playing{
+          .cover{
+          //    opacity: 0;
+         //     overflow: hidden;
+          }
+      }
+  }//video

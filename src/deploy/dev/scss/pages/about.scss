@@ -1,0 +1,138 @@
+@import 'config/vars.scss';
+@import 'components/slick';
+@import 'components/slick-theme';
+@import 'components/historyslider';
+@import 'components/brewingPanel';
+
+ @keyframes animatedBackground {//952/543
+ 	0% { background-position: 0px 0px; }
+       50% { background-position: 952px 225px;}
+       100% { background-position: 1904px 0px; }
+ }
+
+.about{
+  .hero{ //1500/1220
+      height: 100vh;
+      min-height: 660px;
+      background: url(/assets/images/about/clouds1.jpg) top;
+	animation: animatedBackground 60s linear infinite;
+      position:relative;
+      // #about-steam {
+      //   position: absolute;
+      //   top: 0;
+      // }
+      .fg,#about-steam {
+        display: block;
+        position: absolute;
+        width:100%;
+        height:auto;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        max-width: none;
+        background: none;
+        @media screen and (max-aspect-ratio:1500/1220){
+          width:auto;
+          height:100%;
+        } 
+        @media screen and (min-aspect-ratio:1500/1220){
+          width:100%;
+          height:auto;
+        } 
+
+      }
+      img.bg{
+        display: none!important;
+        position: absolute;
+        display: block;
+        left:50%;
+        width:100%;
+        min-width: $max-width;
+        transform: translate(-50%,20%);
+        bottom:0;
+        @media screen and (max-width:$mobile-width){
+          //min-width: $mobile-width;
+          transform: translate(-50%,0%);
+        }
+        @media screen and (max-width:$mobile-width - 1){
+          min-width: $mobile-width;
+          transform: translate(-50%,0%);
+        }
+        @media screen and (max-width:($iphone6) -  1){
+          min-width: $iphone6P;
+        }
+      }
+      
+    .content{
+      padding-top:0;
+      p{
+        @include contentWidth(600px);
+        @include gutter(2rem);
+      }
+    }
+    
+    .scroll-to-top-btn{
+     //bottom: 20px;
+      transform: rotate(180deg);
+    }
+        @media screen and (max-width:($iphone6)){
+          min-height:505px;
+          height:505px;
+       }
+  }//hero
+  .history{
+    >div{
+      padding-bottom:  (90/24)*1rem;
+    }
+  }
+  .gallery{
+    @include contentWidth(600px);
+    padding-top: (45/24)*1rem;
+    .slider{
+      //box-shadow: 2px 2px 4px $black;
+    }
+    nav{
+      display:block;
+      width:100%;
+      padding: (30/24)*1rem 0  (45/24)*1rem;
+      a{
+        @include cochin;
+        display:inline-block;
+        text-align: center;
+        color:$black; 
+        text-decoration: none;
+        padding:0 1em;
+        border:solid $black;
+        border-width: 0 1px;
+        &:first-child{
+          border-left: 0;
+        }
+        &:last-child{
+          border-right: 0;
+        }
+        &.active{
+          color:$lightgold;
+        }
+      }
+    }
+  }
+  .brewing,.faq{
+    padding:0;
+    .headline{
+      padding-bottom: (60/24)*1rem;
+    }
+  }
+
+  .faq{
+    padding: (120/24)*1rem 0;
+    max-height: 600px;
+    min-height: 400px;
+    height:100%;
+    background-size:auto 100% ;
+    background:no-repeat url(/assets/images/about/faqBg.png) $black center;    
+  }
+
+  .touts{
+    padding-top:0;
+  }
+}

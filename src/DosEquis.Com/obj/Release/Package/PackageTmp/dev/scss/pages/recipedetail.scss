@@ -1,0 +1,175 @@
+.recipedetail{
+	@import 'common-details';
+
+	&[data-recipe="michelada"] .hero .contentWrap{
+		background-image: url('/Assets/Images/beersandrecipes/bg_michelada.jpg') 
+	}
+
+	&[data-recipe="dos-a-stormy"] .hero .contentWrap{
+		background-image: url('/Assets/Images/beersandrecipes/bg_dosastormy.jpg') 
+	}
+
+	&[data-recipe="dos-a-rita"] .hero .contentWrap{
+		background-image: url('/Assets/Images/beersandrecipes/bg_dosarita.jpg') 
+	}
+
+	&[data-recipe="dos-sidra"] .hero .contentWrap{
+		background-image: url('/Assets/Images/beersandrecipes/bg_sidra.jpg') 
+	}
+	.hero{
+		position: relative;
+		min-height: 525px;
+		background: $white;
+		.contentWrap{
+			min-height: 525px;
+			background: url('/Assets/Images/beersandrecipes/stormy/background.png') center no-repeat;
+          			background-size: cover;
+			overflow: hidden;
+		}
+		.item{
+			position: absolute;
+			bottom:-30%;
+			left:50%;
+			transform: translateX(-50%);
+			height:100%;
+			width: auto;
+			max-width: none;
+		}
+	    	.order-share{
+	    		position: absolute;
+	    		bottom: 0px;
+	    		z-index: 2;
+	    		width:100%;
+	    		display: block;
+	    		align-items: center;
+	    		justify-content: space-between;
+	    		font-family: 'open_sans_condensedbold';
+	    		text-transform: uppercase;
+	                            padding:0;
+	    		@include contentWidth;
+	    		@include gutter(6.25%);
+	    		font-size: 12px;
+	                            z-index: 2;
+	                            color:$white;
+	                            bottom:0;
+	                            left:50%;
+	                            transform: translateX(-50%);
+	    		@import 'components/social-share';
+	    		.social{
+	    			background:rgba($black,.8);
+	    			padding:15px;
+	                                	float: right;
+	    		}
+
+	        }
+	           @media all and (max-width:$mobile-width) {
+	                .order-share{
+	                    position: relative;
+	                    background: #fff;
+	                    color:$black;
+	                    left:0;
+	                    transform: translateX(0);
+	                    @include gutter(6.25%);
+	                    background: transparent;
+	                    .social{
+	                    background: transparent;
+	                        float: none;
+	                        margin:auto;
+	                        border-bottom: 1px solid $black;
+	                        padding-bottom:10px;
+	                        width: 100%;
+	                        display: block;
+	                        text-align: center;
+	                        &:before{
+	                            top:-5px;
+	                            position: relative;
+	                        }
+	                    }
+	                }
+	           }
+	}
+	.recipe{
+		background: #fff;
+		.directions{
+		    ol{
+		        counter-reset: section; 
+		        list-style-type: none;
+		        padding:0;
+		        margin:0;
+		        li{
+		        	padding-bottom:2em;
+			        &:before{
+	  			font-family: 'open_sans_condensedbold';
+			        	counter-increment: section;
+				content: counters(section,".") " ";
+				display: block;
+				font-size: 18px;
+				color:$lightgold;
+				padding-bottom:1em;
+			        }
+		        }
+		    }
+		   /*    @media all and (max-width:$mobile-width) {
+		       	max-width:60%;
+		       	ol li{
+		       		display: inline;
+		       		&:before{
+			       		display: none;
+			       	}
+		       	}
+		       }*/
+		}
+	}
+	.preptime{
+		h3{
+			font-size: 2em;
+			font-family: 'Cochin';
+			color:$lightgold;
+		}
+	}
+	.skill{
+		ul{
+			display: block;
+			li{
+				background: url(/assets/images/recipedetail/skill-full.png) no-repeat;
+				height: 56px;
+				width:17px;
+				display: inline-block;
+				margin:10px;
+				transform-origin: bottom;
+				visibility: hidden;
+				transform: scale(0);
+				transition: transform .25s cubic-bezier(.27,2,.58,1);
+				        @for $i from 0 through (4){
+				            &:nth-child(#{$i}){
+						transition-delay: ( $i / 10) * 1s;
+				            }
+				        }
+			}
+			&.skill-4{
+				li:nth-child(n+5){
+				background-image:url(/assets/images/recipedetail/skill-empty.png) ;
+				}
+			}
+			&.skill-3{
+				li:nth-child(n+4){
+				background-image:url(/assets/images/recipedetail/skill-empty.png) ;
+				}
+			}
+			&.skill-2{
+				li:nth-child(n+3){
+				background-image:url(/assets/images/recipedetail/skill-empty.png) ;
+				}
+			}
+			&.skill-1{
+				li:nth-child(n+2){
+				background-image:url(/assets/images/recipedetail/skill-empty.png) ;
+				}
+			}
+			&.show li{
+				visibility: visible;
+				transform: scale(1);
+			}
+		}
+	}
+}

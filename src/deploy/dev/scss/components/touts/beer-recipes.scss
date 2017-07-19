@@ -1,0 +1,14 @@
+.beer-recipe-tout {
+    .desc {
+        position: absolute;
+        bottom: 18px;
+        right: 15px;
+        text-align: right;
+        opacity: 0;
+        transition: opacity 1s;
+        &.in {
+            opacity: 1;
+            transition: opacity 1s;
+        }
+    }
+}

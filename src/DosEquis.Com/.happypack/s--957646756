@@ -1,0 +1,57 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require('scss/pages/brewing.scss');
+
+require('components/touts/touts');
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Brewing = function () {
+    function Brewing(selector) {
+        _classCallCheck(this, Brewing);
+
+        this.stepScrollListener();
+    }
+
+    _createClass(Brewing, [{
+        key: 'stepScrollListener',
+        value: function stepScrollListener() {
+            var _this = this;
+
+            this.scroller = new _scrollmagic2.default.Controller();
+            $('.steps').each(function (i, e) {
+                var el = e;
+                var scene = new _scrollmagic2.default.Scene({
+                    triggerElement: el,
+                    //        offset:($(el).height() / 5),
+                    duration: $(el).height()
+                }).addTo(_this.scroller);
+                scene.on("enter", function (event) {
+                    var hopLeft = $('.hop-left', el);
+                    $('.content', el).addClass('open');
+                });
+                scene.on("leave", function (event) {
+                    if (event.scrollDirection == "REVERSE") $('.content', el).removeClass('open');
+                });
+            });
+        }
+    }]);
+
+    return Brewing;
+}();
+
+exports.default = Brewing;
+
+var brewing = new Brewing();

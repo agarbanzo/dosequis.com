@@ -1,0 +1,101 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+require('../../scss/pages/recipedetail.scss');
+
+var _product = require('components/product');
+
+var _product2 = _interopRequireDefault(_product);
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+var _socialSharing = require('services/social-sharing');
+
+require('components/touts/full-page/full-page-tout-loader');
+
+require('components/touts/touts');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var makeVideoPlayableInline = require('iphone-inline-video');
+
+var recipes = require('./recipes.json');
+var beers = require('./beers.json');
+
+var RecipeDetail = function () {
+  function RecipeDetail(selector) {
+    _classCallCheck(this, RecipeDetail);
+
+    this.recipeId = $(selector).data('recipe');
+    this.addProducts();
+    this.addScrollController();
+  }
+
+  _createClass(RecipeDetail, [{
+    key: 'addProducts',
+    value: function addProducts() {
+
+      var beerData;
+      var beerToutWrap = $('#beer .touts-static');
+      console.log(beerToutWrap.data('productUsed'));
+      if (beerToutWrap.data('productUsed') == 'Ambar') {
+        beerData = beers['ambar'];
+        /* Ambar has different large product image */
+        beerData.product = beerData.productlarge;
+      } else {
+        beerData = beers['lager'];
+      }
+      beerData.title = "Beer Used in Cocktail";
+      var beerTout = new _product2.default(beerData);
+      beerToutWrap.append(beerTout.div);
+
+      // show random recipe
+      // first remove current recipe
+      delete recipes[this.recipeId];
+      var recipeArray = Object.keys(recipes).map(function (key) {
+        return recipes[key];
+      });
+      var recipeData = recipeArray[Math.floor(Math.random() * recipeArray.length)];
+      var recipe = new _product2.default(recipeData);
+      $('#recipes .touts-static').append(recipe.div);
+    }
+  }, {
+    key: 'addScrollController',
+    value: function addScrollController() {
+      this.scroller = new _scrollmagic2.default.Controller();
+      this.onSkillScroll('.skill ul');
+    }
+  }, {
+    key: 'onSkillScroll',
+    value: function onSkillScroll(el) {
+      var scene = new _scrollmagic2.default.Scene({
+        triggerElement: el,
+        offset: $(el).height() / 5,
+        duration: $(el).height()
+      }).addTo(this.scroller);
+      scene.on("enter", function (event) {
+        $(el).addClass('show');
+      });
+    }
+  }]);
+
+  return RecipeDetail;
+}();
+
+exports.default = RecipeDetail;
+
+
+var recipedetail = new RecipeDetail('.recipedetail');

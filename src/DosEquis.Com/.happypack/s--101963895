@@ -1,0 +1,207 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _product = require('components/product');
+
+var _product2 = _interopRequireDefault(_product);
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+var _fullscreenVideo = require('components/fullscreen-video');
+
+var _fullscreenVideo2 = _interopRequireDefault(_fullscreenVideo);
+
+var _socialSharing = require('services/social-sharing');
+
+require('components/touts/touts');
+
+var _util_play_video_inline = require('utils/util_play_video_inline');
+
+require('components/touts/full-page/full-page-tout-loader');
+
+var _doubleArrowButton = require('components/doubleArrowButton');
+
+var _doubleArrowButton2 = _interopRequireDefault(_doubleArrowButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+require('scss/pages/productdetail.scss');
+var makeVideoPlayableInline = require('iphone-inline-video');
+
+var recipes = require('./recipes.json');
+var beers = require('./beers.json');
+
+var product = $();
+
+var ProductDetail = function () {
+	function ProductDetail(selector) {
+		var _this2 = this;
+
+		_classCallCheck(this, ProductDetail);
+
+		var _this = this;
+		this.prodId = $(selector).attr('data-productId');
+		this.intiVideo();
+		this.addProducts();
+		this.herobutton = new _doubleArrowButton2.default({
+			el: ".fs-vid",
+			target: ".content-main",
+			direction: "down",
+			animate: true,
+			ga: {
+				category: 'hero',
+				label: 'scrollButton'
+			}
+		});
+		$(document).ready(function () {
+			_this.video = document.getElementById('bgvid');
+			window.dispatcher.on('ageGateHidden', function () {
+				console.log('agegatge is hidden so play video');
+				_this.video.play();
+			});
+		});
+		$('#find-this-beer-button').on('click', function (e) {
+			var pathArray = window.location.pathname.split('/');
+			var secondLevelLocation = pathArray[2];
+			var zip = _this2.getZipCode($("#zipcode"));
+
+			if (zip == 'Zipcode' || zip == '') {
+				window.location.href = '/beer-finder?zipcode=10013&product=' + secondLevelLocation;
+			} else {
+				window.location.href = '/beer-finder?zipcode=' + zip + '&product=' + secondLevelLocation;
+			}
+		});
+		$('#find-this-beer-button2').on('click', function (e) {
+			var pathArray = window.location.pathname.split('/');
+			var secondLevelLocation = pathArray[2];
+			var zip = _this2.getZipCode($("#zipcode2"));
+			if (zip == 'Zipcode' || zip == '') {
+				window.location.href = '/beer-finder?zipcode=10013&product=' + secondLevelLocation;
+			} else {
+				window.location.href = '/beer-finder?zipcode=' + zip + '&product=' + secondLevelLocation;
+			}
+		});
+		document.getElementById("zipcode").addEventListener("keyup", function (event) {
+			event.preventDefault();
+			if (event.keyCode == 13) {
+				document.getElementById("find-this-beer-button").click();
+			}
+		});
+		document.getElementById("zipcode2").addEventListener("keyup", function (event) {
+			event.preventDefault();
+			if (event.keyCode == 13) {
+				document.getElementById("find-this-beer-button2").click();
+			}
+		});
+
+		$("#zipcode").keypress(function (e) {
+			//if the letter is not digit then display error and don't type anything
+			if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+				//display error message
+				return false;
+			}
+		});
+
+		$("#zipcode2").keypress(function (e) {
+			//if the letter is not digit then display error and don't type anything
+			if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+				//display error message
+				return false;
+			}
+		});
+	}
+
+	_createClass(ProductDetail, [{
+		key: 'getZipCode',
+		value: function getZipCode(input) {
+			var zip = $(input).val();
+			return zip;
+		}
+	}, {
+		key: 'gotoBeerPage',
+		value: function gotoBeerPage(el) {
+			var zip = $(el).val();
+			if (zip == '' || zip == 'Zipcode') {
+				window.location.assign("/beer-finder");
+			} else {
+				console.log('user added a zipcode');
+				window.location.assign('beer-finder?zipcode=' + zip);
+			}
+		}
+	}, {
+		key: 'addProducts',
+		value: function addProducts() {
+			// add other beer tout and get associated recipes
+			var beerToutData, beerData, fbShareData;
+			if (this.prodId == 'lager') {
+				beerToutData = beers['ambar'];
+				/* Ambar has different large product image */
+				beerToutData.product = beerToutData.productlarge;
+				beerData = beers['lager'];
+			} else {
+				beerToutData = beers['lager'];
+				beerData = beers['ambar'];
+			}
+			beerToutData.drizly = null;
+			var tout = new _product2.default(beerToutData);
+			$('#beer .touts-static').append(tout.div);
+			// add associated recipes touts
+			$(beerData.recipes).each(function (i, e) {
+				var recipeTout = new _product2.default(recipes[e]);
+				$('#recipes .touts-static').append(recipeTout.div);
+			});
+		}
+	}, {
+		key: 'addScrollController',
+		value: function addScrollController() {
+			this.scroller = new _scrollmagic2.default.Controller();
+			this.onBeerScroll();
+		}
+	}, {
+		key: 'onBeerScroll',
+		value: function onBeerScroll() {
+			var _this = this;
+			var video = document.getElementById('bgvid');
+			var scene = new _scrollmagic2.default.Scene({
+				triggerElement: '#videocontainer',
+				triggerHook: 'onLeave',
+				duration: getElHeight
+			}).addTo(this.scroller);
+			scene.on("enter", function (event) {
+				console.log('enter');
+				_.defer(function () {
+					video.play();
+				});
+			});
+			scene.on("leave", function (event) {
+				_.defer(function () {
+					video.pause();
+				});
+			});
+
+			function getElHeight() {
+				return $("section#beer").height();
+			}
+		}
+	}, {
+		key: 'intiVideo',
+		value: function intiVideo() {
+			(0, _util_play_video_inline.playVideoInline)('bgvid');
+		}
+	}]);
+
+	return ProductDetail;
+}();
+
+exports.default = ProductDetail;
+
+var productdetail = new ProductDetail('#productdetail');

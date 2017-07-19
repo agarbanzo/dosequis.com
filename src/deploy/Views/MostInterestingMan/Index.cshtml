@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "The Most Interesting Man";
+    ViewBag.Location = "mim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyClass = "mim light lightNav";
+    ViewBag.ShareImage = "/assets/images/mim/share_mim.jpg";
+    ViewBag.MetaDescription = "He’s a legend, an icon and a symbol of mankind’s absolute potential.";
+}
+@section PageSpecificHeader {
+    <meta name="keywords" content="most interesting, interesting, most interesting man, dos equis, videos, map" />				
+}
+<div id="mim" class="mim">
+    <section class="section hero top">
+        <div class="content">
+            <div class="intro">
+                <div class="heading-block-02">
+                    <h4 class="headline-04"><strong>The Most Interesting Man</strong></h4>
+                    <divider></divider>
+                    <p class="copy">He’s a legend, an icon and a symbol of mankind’s absolute potential. Learn more about him and his worldly adventures.</p>
+                </div>
+            </div>
+            <ul class="list"></ul>
+            <div class="filler heading-block-0 whiteText">
+                    <p class="headline-01">Check back soon to see more of his adventures.</p>
+            </div>
+        </div>
+        <div class="mapWrap"><div id="map"></div></div>
+    </section>
+</div>
+<section id="bottom-touts" class="section toutsWrapper">
+    <div class="touts contentMax whiteText animation-element">
+        @Html.Partial("Touts/_BeerFinder")
+        @Html.Partial("Touts/_BeerRecipe")
+    </div>
+</section>

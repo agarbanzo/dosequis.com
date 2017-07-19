@@ -1,0 +1,501 @@
+@import "config/vars";
+@import 'components/slick';
+@import 'components/slick-theme';
+@import 'components/touts';
+@import 'components/enjoyResponsibly';
+@import 'components/historyslider';
+@import 'components/brewingPanel';
+@import "../../sprites/sprite.css";
+#home{
+  height:100%;
+  text-align: center;
+
+  hr{
+    width:55px;
+    margin: 0.625rem auto 1.83333rem;
+
+    &.divider{
+      margin:25px auto;
+      color: $black;
+      background: $black !important;
+    }
+  }
+
+  .summer-animation {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    color:white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    .animation-container{
+      position: absolute;
+      z-index: -100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      opacity: 0;
+      transition: opacity 2s;
+      //background: url(/Assets/Images/home/thailand.jpg);
+      //background-repeat: no-repeat!important;
+      //background-size: cover !important;
+
+      > div {
+        position: absolute;
+        background-repeat: no-repeat!important;
+        background-size: cover !important;
+      }
+
+      #sky {
+        z-index: 8;
+        width: 100%;
+        height: 34%;
+        background: url(/Assets/Images/home/mountains2.png);
+        background-position: center bottom;
+      }
+
+      #dock {
+        z-index: 10;
+        bottom: 0;
+        width: 100%;
+        height: 40%;
+        background: url(/Assets/Images/home/dock-bucket.png);
+        background-position: center top;
+      }
+
+      #water {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 57%;
+        width: 100%;
+        bottom: 12%;
+        overflow: hidden;
+      }
+
+      @keyframes bob {
+        0% {
+          transform: translate3d(0,0,0);
+        }
+
+        50% {
+          transform: translate3d(0,5px,0);
+        }
+        100% {
+          transform: translate3d(0,0,0) ;
+        }
+      }
+
+      #boat {
+        z-index: 9;
+        bottom: 5%;
+        right: 0;
+        width: 100%;
+        height: 60%;
+        background: url(/Assets/Images/home/boat2.png);
+        background-position: right bottom;
+        background-size: contain!important;
+        animation: bob 4s ease-in-out infinite;
+      }
+
+      @media all and (orientation:portrait){
+        #boat {
+          height: 50%;
+          bottom: 3%;
+
+          @media all and (min-width:$mobile-width){
+            bottom: 6%;
+          }
+        }
+        #dock{
+          height: 28%;
+        }
+      }
+      @media all and (min-aspect-ratio: 16/10){
+        #dock{
+          height: 35%;
+
+          @media all and (min-width: $lg-screens){
+            height: 45%;
+          }
+        }
+        #boat {
+          height: 65%;
+          bottom: 0;
+        }
+
+        #water {
+          height: 73%;
+          bottom: 0;
+        }
+      }
+    }
+
+    .heading-block-01{
+        position:absolute;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media all and (orientation:portrait){
+          top: 32%;
+
+          @media all and (max-width: 359px){
+            top: 25%;
+          }
+        }
+
+        .cta {
+          padding-top: 20px !important;
+        }
+      }
+
+      .headline-02{
+        max-width: 500px;
+        margin:0 auto;
+      }
+
+    .content{
+      padding:50px 20px;
+    }
+
+    .header{
+      margin-top: 100px;
+    }
+
+    .scrollbtn{
+      bottom:90px;
+      left:50%;
+      margin-left: -22px;
+
+       @media all and (min-width:767px) {
+        //  bottom:90px;
+       }
+    }
+
+    .scroll-to-top-btn{
+        transform: rotate(180deg);
+
+         @media all and (min-width:767px) {
+           // bottom: -200px;
+        }
+      }
+
+    .order-share{
+      position: absolute;
+      bottom: 0px;
+      z-index: 2;
+      background:rgba($black,.8);
+      width:auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:15px 20px;
+      font-family: 'open_sans_condensedbold';
+      text-transform: uppercase;
+      font-size: 12px;
+      z-index: 2;
+      color:$white;
+      left:50%;
+      transform: translateX(-50%);
+        .save-coupon {
+          text-decoration: none;
+          display: inline-flex;
+          white-space: nowrap;
+          align-items: center;
+          justify-content: center;
+          width:auto;
+          color:$white;
+
+          .coupon-desktop {
+            display:none;
+          }
+
+          a {
+            margin-left: 6px;
+          }
+
+          &:hover a {
+            text-decoration: none;
+              //color:$lightgold;
+          }
+          &:before{
+            content:'';
+            display: inline-block;
+            width: 30px;
+            height: 21px;
+            margin-left: -4px;
+            margin-right: 10px;
+            background: url(/Assets/Images/promotions/cinco/scissors.svg) no-repeat;
+          }
+
+          &.hide-mobile {
+            width:240px;
+
+            .coupon-desktop {
+              display:block;
+            }
+
+            .coupon-mobile  {
+              display:none;
+            }
+
+          }
+        }
+      }
+    }
+
+    .heading-copy{
+      margin:0 auto;
+      max-width:90%;
+
+      @media all and (min-width:767px) {
+         max-width:60%;
+      }
+    }
+
+    .headline{
+      //padding-bottom:.5em;
+      line-height: 1.25;
+      margin:0 auto;
+
+      &.video{
+        padding-bottom:0;
+      }
+    }
+
+  }
+
+  .heading-block-03 {
+  //  color: $white;
+  width: 90%;
+    padding: 20px 0 20px;
+
+    h4 {
+      //font-size: .9rem;
+      margin-bottom: 15px!important;
+    }
+  }
+
+  .videos-wrapper {
+  //  background: $white;
+
+    max-width: 100%;
+    padding: 0;
+    padding-bottom:1px;
+    .videos{
+      padding:0;
+      > div{
+        padding:0;
+      }
+
+      .heading-block-03 {
+        color: $white;
+        padding: 50px 0 15px;
+
+        @media all and (min-width:$mobile-width) {
+          padding-top: 80px;
+        }
+
+       }
+
+      @include contentWidth(1100px);
+      @include gutter(1rem);
+      @import "components/video-player";
+    }
+  }
+      //===========================================MIM
+      $mim-gallery-width: $max-width*.954;
+
+      .most-interesting-man {
+        padding: 30px;
+        margin-top: 50px;
+        position: relative;
+        .content {
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          position: absolute;
+          top: 185px;
+        }
+        .copy-container {
+          opacity: 0;
+          color: white;
+          position: relative;
+          bottom: 40px;
+          text-align: left;
+          max-width: $mim-gallery-width;
+          margin: 0 auto;
+          .real-copy {
+            padding-left: 0;
+            display: inline;
+            font-size: 0.8rem;
+          }
+          span.pin{
+            margin-right:(5/23)*1rem;
+            height: 14px;
+            max-width: 4px;
+            display: inline-block;
+            svg{
+              height: 100%;
+              width:auto;
+              display: block;
+            }
+            path{
+              fill: $lightgold;
+              stroke: $lightgold;
+              stroke-width: 2px;
+            }
+          }
+        }
+
+        .most-interesting-gallery {
+          margin: 0 auto;
+          height: 100%;
+          min-height: 540px;
+          max-width: $mim-gallery-width;
+          overflow: hidden;
+          position: relative;
+          z-index: 0;
+
+          @media all and (max-width: 768px) {
+            min-height: 400px;
+          }
+        }
+      }
+
+      //========================================================products
+
+      .products{
+        width: 100%;
+        height: 100%;
+        color:white;
+        position: relative;
+        color:white;
+        padding-left:20px;
+        padding-right:20px;
+        padding-top:20px;
+
+        .section > div {
+            padding:10px 0;
+        }
+
+        .header{
+          padding:0;
+        }
+
+      }
+
+     ///=============================================================touts
+
+      .touts-static{
+        .drizly{
+          display: none;
+        }
+      }
+      #bottom-touts {
+         @media all and (max-width:767px) {
+          margin-bottom: 20px;
+        }
+      }
+
+    //============================================================history
+
+    #history{
+      padding:0 20px;
+    }
+     .toutsWrapper{
+      min-height: 50vh;
+
+       @media all and (min-width:640px) {
+            min-height: 20vh;
+      }
+     }
+
+      //=========================section brewing
+
+      //===============================social
+
+       .social{
+        @include contentWidth;
+         border-top:1px solid $grey-dark;
+         //border-bottom:1px solid $grey-dark;
+         color:  $white;
+         padding:40px 0;
+         margin: 0 auto!important;
+         //min-height: 320px;
+          position: relative;
+
+          .social-slider{
+             position: relative;
+             opacity: 0;
+          }
+
+          .cochin{
+           font-size: 0.70rem;
+           letter-spacing: .2em;
+          }
+         #scroller {
+            position: relative;
+            width:100%;
+            height: 100%;
+          }
+          .scrollitem {
+             position: relative;
+              padding: 0;
+              margin: 0;
+              list-style-type: none;
+              border:10px solid $black;
+
+              i{
+                position: absolute;
+                bottom:2.5%;
+                right:2.5%;
+                z-index: 1;
+                transform:scale(.5);
+              }
+              a{
+                display: block;
+                background-size:100% auto;
+                background-repeat: no-repeat;
+                &:after{
+                  display: block;
+                  content:' ';
+                  padding-bottom:100%;
+                }
+
+              }
+              &.hor a{
+                background-size:auto 100%;
+              }
+              &.vert a{
+              }
+              &[data-type=Text]{
+                background-color: #8a0703;
+                div {
+                    position: absolute;
+                    color: white;
+                    font-family: Georgia, Times New Roman;
+                    font-size: 12px;
+                    line-height: 20px;
+                    text-transform: uppercase;
+                    padding: 30px 0;
+                     @media all and (min-width:767px) {
+                         font-size: 15px;
+                    }
+                }
+          }
+        @media all and (max-width:767px) {
+
+        }
+        }
+
+
+}

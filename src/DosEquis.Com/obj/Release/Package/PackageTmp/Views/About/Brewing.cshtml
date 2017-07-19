@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Brewing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Location = "brewing";
+    ViewBag.BodyClass = "brewing lightBg lightNav";
+    ViewBag.ShareImage = "/assets/images/about/brewing/share_brewing.jpg";
+    ViewBag.MetaDescription = "Dos Equis is brewed today just as it was first brewed in 1897 – in 5 steps.";
+}
+@section PageSpecificHeader {
+   <title>Brewing | Dos Equis</title>
+    <meta name="keywords" content="brewing, malting, fermentation, lagering, filtration" />
+}
+<div class="brewing">
+    <section class="section top hero">
+            <h1 class="headline">Brewing Process</h1>
+            <p class="copy">Dos Equis is brewed today just as it was first brewed in 1897 – in 5 steps.</p>
+    </section>
+    <section class="steps step-1 brewingPanel">
+            <div class="content">
+                <img src="/assets/images/about/brewing/step1-top.png" class="hop-top" />
+                <div class="bg">
+                    <div class="inner">
+                        <div class="block">
+                            <h4 class="headline-04 title"><strong>Step 1</strong></h4>
+                            <divider></divider>
+                            <h2 class="headline-01">Malting</h2>
+                        </div>
+                    </div>
+                    <img src="/assets/images/about/brewing/step1-left.png" class="hop hop-left" />
+                    <img src="/assets/images/about/brewing/step1-right.png" class="hop hop-right" />
+                </div>
+                <p>First, barley grains are germinated by immersing them in water. This encourages the barley to sprout. The barley is then dried to halt the process of sprouting completely in order to release the enzymes necessary for brewing.</p>
+            </div>
+    </section>
+    <section class="steps step-2 brewingPanel">
+            <div class="content">
+                <img src="/assets/images/about/brewing/step2-top.png" class="hop-top" />
+                <div class="bg">
+                    <div class="inner">
+                        <div class="block">
+                            <h4 class="headline-04 title"><strong>Step 2</strong></h4>
+                            <divider></divider>
+                            <h2 class="headline-01">Brewing</h2>
+                        </div>
+                    </div>
+                    <img src="/assets/images/about/brewing/step2-left.png" class="hop hop-left" />
+                    <img src="/assets/images/about/brewing/step2-right.png" class="hop hop-right" />
+                </div>
+                <p>Next, starch made from the malted barley is converted into fermentable sugars and hops are added. The mixture is set to boil and at this point in the process, it becomes what is known as wort.</p>
+            </div>
+    </section>
+    <section class="steps step-3 brewingPanel">
+            <div class="content">
+                <img src="/assets/images/about/brewing/step3-top.png" class="hop-top" />
+                <div class="bg">
+                    <div class="inner">
+                        <div class="block">
+                            <h4 class="headline-04 title"><strong>Step 3</strong></h4>
+                            <divider></divider>
+                            <h2 class="headline-01">Fermentation</h2>
+                        </div>
+                    </div>
+                    <img src="/assets/images/about/brewing/step3-left.png" class="hop hop-left" />
+                    <img src="/assets/images/about/brewing/step3-right.png" class="hop hop-right" />
+                </div>
+                <p>Brewer’s yeast is added, and instantly, the yeast begins converting the sugars into alcohol and carbon dioxide. This is what makes beer carbonated. Different strains of yeast have different flavor compounds, so this is also where beers get their different and distinct flavor profiles.</p>
+            </div>
+    </section>
+    <section class="steps step-4 brewingPanel">
+            <div class="content">
+                <img src="/assets/images/about/brewing/step4-top.png" class="hop-top" />
+                <div class="bg">
+                    <div class="inner">
+                        <div class="block">
+                            <h4 class="headline-04 title"><strong>Step 4</strong></h4>
+                            <divider></divider>
+                            <h2 class="headline-01">Lagering</h2>
+                        </div>
+                    </div>
+                    <img src="/assets/images/about/brewing/step4-left.png" class="hop hop-left" />
+                    <img src="/assets/images/about/brewing/step4-right.png" class="hop hop-right" />
+                </div>
+                <p>The beer is kept at a low temperature for a set period of time. Once the beer is saturated with carbon dioxide, the yeast settles to the bottom of the tank.</p>
+            </div>
+    </section>
+    <section class="steps step-5 brewingPanel">
+            <div class="content">
+                <img src="/assets/images/about/brewing/step5-top.png" class="hop-top" />
+                <div class="bg">
+                    <div class="inner">
+                        <div class="block">
+                            <h4 class="headline-04 title"><strong>Step 5</strong></h4>
+                            <divider></divider>
+                            <h2 class="headline-01">Filtration</h2>
+                        </div>
+                    </div>
+                    <img src="/assets/images/about/brewing/step5-left.png" class="hop hop-left" />
+                    <img src="/assets/images/about/brewing/step5-right.png" class="hop hop-right" />
+                </div>
+                <p>The remaining yeast cells are filtered out, leaving clear beer that’s ready to be filled into bottles, cans and kegs.</p>
+            </div>
+    </section>
+</div>
+<section id="bottom-touts" class="section toutsWrapper">
+    <div class="touts contentMax whiteText animation-element">
+        @Html.Partial("Touts/_BeerFinder")
+        @Html.Partial("Touts/_BeerRecipe")
+    </div>
+</section>

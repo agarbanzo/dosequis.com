@@ -1,0 +1,12 @@
+<div class="pop_up_info">
+  <h3 class="caps_large"><strong>{{Name}}</strong></h3>
+  <div class="address">{{Address}}<br/> {{City}}, {{State}} {{ZipCode}}</div>
+  <div class="distance">{{Distance}} miles / <a href="https://maps.google.com?saddr=Current+Location&amp;daddr={{Latitude}},{{Longitude}}" target="_blank">Get directions</a></div>
+  <br/>
+    <div class="products">
+      Available Products:
+      {{#DosBrands}}
+        {{.}}
+      {{/DosBrands}}
+    </div>
+</div>

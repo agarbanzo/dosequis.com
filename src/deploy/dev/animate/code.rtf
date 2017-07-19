@@ -1,0 +1,188 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww20080\viewh15860\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf0 Instructions for 
+\b new
+\b0  tout:\
+
+\b add create.js
+\b0  ==> <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>\
+
+\b add canvas tag to HTML
+\b0  ==> <canvas class="hero-graphic" id="aboutTout" width="458" height="558"></canvas>\
+
+\b Create files
+\b0  ==> components/touts/about_tout.js 
+\b and
+\b0  about.js\
+
+\b add tout_js to HTML
+\b0  ==> <script src="/dev/scripts/components/touts/about_tout.js"></script>\
+
+\b Create card
+\b0  ==> Views/Shared/Touts/_About\
+
+\b Add include in DosEquis.com.scproj
+\b0  ==> Views/Shared/Touts/_About.cshtml\
+
+\b Import your card\'92s sass (about) into touts.scss
+\b0  ==> @import components/touts/about. If needed.\
+
+\b Import about.js into beerlocator.js
+\b0  ==> const AboutTout = require('../components/touts/about\'92);\
+Copy images and add to SVN\
+\
+Instructions for 
+\b adding
+\b0  tout:\
+Add <script> tag to HTML for create.js\
+Add <script> tag to HTML for tout (beer_finder_tout)\
+Import touts.scss to sass page (fan.scss) \'91./components/touts\'92\
+Add \'91import\'92 statement to javascript for that tout (faq.js) (import \'85 beer-finder)\
+Modify tout scripts (beer_finder_tout.js) from Adobe Animate and copy over the code\
+Copy images and add to SVN\
+\
+\
+====================== HISTORY 2011 ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/2011/history_2011_atlas_P_.png?1474318184484", id:"history_2011_atlas_P_"\},\
+		\{src:"/Assets/Images/touts/2011/history_2011_atlas_NP_.jpg?1474318184484", id:"history_2011_atlas_NP_"\}\
+	]\
+\
+\})(window.historyElevenLib = window.historyElevenLib||\{\}, window.historyElevenImages = window.historyElevenImages||\{\}, createjs = createjs||\{\}, window.historyElevenSs = window.historyElevenSs||\{\});\
+\
+\
+====================== HISTORY 2016 ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/2016/spacerjpg.jpg?1476287063137", id:"spacerjpg"\},\
+		\{src:"/Assets/Images/touts/2016/history_2016_atlas_P_.png?1476287063133", id:"history_2016_atlas_P_"\}\
+	]\
+\
+\})(window.history16Lib = window.history16Lib ||\{\}, window.history16Images = window.history16Images ||\{\}, createjs = createjs||\{\}, window.history16Ss = window.history16Ss||\{\});\
+\
+\
+====================== BEER RECIPE TOUT ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/beer-recipe/bg.jpg?1474495288316", id:"bg"\},\
+		\{src:"/Assets/Images/touts/beer-recipe/beer_recipe_tout_atlas_P_.png?1474495288313", id:"beer_recipe_tout_atlas_P_"\}\
+	]\
+\
+\})(window.beerRecipeToutLib = window.beerRecipeToutLib||\{\}, window.beerRecipeToutImages = window.beerRecipeToutImages||\{\}, createjs = createjs||\{\}, window.beerRecipeToutSs = window.beerRecipeToutSs||\{\});\
+\
+====================== BEER FINDER ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/beer-finder/map.png?1474650282789", id:"map"\},\
+		\{src:"/Assets/Images/touts/beer-finder/spacerjpg.jpg?1474650282789", id:"spacerjpg"\}\
+	]\
+\
+\})(window.beerFinderToutLib = window.beerFinderToutLib||\{\}, window.beerFinderToutImages = window.beerFinderToutImages||\{\}, createjs = createjs||\{\}, window.beerFinderToutSs = window.beerFinderToutSs||\{\});\
+\
+====================== FAQ ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/faq/spacerjpg.jpg?1475257636261", id:"spacerjpg"\},\
+		\{src:"/Assets/Images/touts/faq/spacerpng.png?1475257636261", id:"spacerpng"\}\
+	]\
+\
+\})(window.faqToutLib = window.faqToutLib||\{\}, window.faqToutImages = window.faqToutImages||\{\}, createjs = createjs||\{\}, window.faqToutSs = window.faqToutSs||\{\});\
+\
+====================== BREWING TOUT ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/brewing/flowersuse.png?1475274572605", id:"flowersuse"\},\
+		\{src:"/Assets/Images/touts/brewing/brewing_tout_atlas_NP_.jpg?1475274572602", id:"brewing_tout_atlas_NP_"\}\
+	]\
+\
+\})(window.brewingToutLib = window.brewingToutLib||\{\}, window.brewingToutImages = window.brewingToutImages||\{\}, createjs = createjs||\{\}, window.brewingToutSs = window.brewingToutSs||\{\});\
+\
+====================== ABOUT ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/about/foreground.png?1475279034140", id:"foreground"\},\
+		\{src:"/Assets/Images/touts/about/sky.jpg?1475279034140", id:"sky"\}\
+	],\
+\
+\})(window.aboutToutLib = window.aboutToutLib ||\{\}, window.aboutToutImages = window.aboutToutImages ||\{\}, createjs = createjs||\{\}, window.aboutToutSs = window.aboutToutSs ||\{\});\
+\
+====================== US MAP ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/us-map/label.jpg?1475703005434", id:"label"\},\
+		\{src:"/Assets/Images/touts/us-map/spacerpng.png?1475703005434", id:"spacerpng"\}\
+	]\
+\
+\})(window.usMapLib = window.usMapLib ||\{\}, window.usMapImages = window.usMapImages ||\{\}, createjs = createjs||\{\}, window.usMapSs = window.usMapSs ||\{\});\
+\
+====================== ES CERVEZA ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/es-cerveza/spacerpng.png?1476223385917", id:"spacerpng"\},\
+		\{src:"/Assets/Images/touts/es-cerveza/es_cerveza_atlas_NP_.jpg?1476223385914", id:"es_cerveza_atlas_NP_"\}\
+	]\
+\
+\})(window.esCervezaLib = window.esCervezaLib ||\{\}, window.esCervezaImages = window.esCervezaImages ||\{\}, createjs = createjs||\{\}, window.esCervezaSs = window.esCervezaSs ||\{\});\
+\
+====================== GLASS OF LAGER ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/glass-of-lager/spacerjpg.jpg?1476386728929", id:"spacerjpg"\},\
+		\{src:"/Assets/Images/touts/glass-of-lager/glass_of_lager_atlas_P_.png?1476386728926", id:"glass_of_lager_atlas_P_"\}\
+	]\
+\
+\})(window.glassOfLagerLib = window.glassOfLagerLib ||\{\}, window.glassOfLagerImages = window.glassOfLagerImages ||\{\}, createjs = createjs||\{\}, window.glassOfLagerSs = window.glassOfLagerSs ||\{\});\
+\
+====================== STEAM ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/steam/spacerjpg.jpg?1476470297885", id:"spacerjpg"\},\
+		\{src:"/Assets/Images/touts/steam/spacerpng.png?1476470297885", id:"spacerpng"\}\
+	]\
+\
+\})(window.steamLib = window.steamLib ||\{\}, window.steamImages = window.steamImages ||\{\}, createjs = createjs||\{\}, window.steamSs = window.steamSs ||\{\});\
+\
+====================== STEAM ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/steam/spacerjpg.jpg?1476470297885", id:"spacerjpg"\},\
+		\{src:"/Assets/Images/touts/steam/spacerpng.png?1476470297885", id:"spacerpng"\}\
+	]\
+\
+\})(window.steamLib = window.steamLib ||\{\}, window.steamImages = window.steamImages ||\{\}, createjs = createjs||\{\}, window.steamSs = window.steamSs ||\{\});\
+\
+====================== MOCTEZUMA ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/moctezuma/rings.png?1477167284383", id:"rings"\},\
+		\{src:"/Assets/Images/touts/moctezuma/spacerjpg.jpg?1477167284383", id:"spacerjpg"\}\
+	]\
+\
+\})(window.moctezumaLib = window.moctezumaLib ||\{\}, window.moctezumaImages = window.moctezumaImages ||\{\}, createjs = createjs||\{\}, window.moctezumaSs = window.moctezumaSs ||\{\});\
+\
+\
+====================== BREWING LEFT ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/brewing-fullpage/spacerjpg.jpg?1477074713656", id:"spacerjpg"\},\
+		\{src:"/Assets/Images/touts/brewing-fullpage/brewingleft_atlas_P_.png?1477074713653", id:"brewingleft_atlas_P_"\}\
+	]\
+\
+\})(window.brewingleftLib = window.brewingleftLib ||\{\}, window.brewingleftImages = window.brewingleftImages ||\{\}, createjs = createjs||\{\}, window.brewingleftSs = window.brewingleftSs ||\{\});\
+\
+====================== BREWING RIGHT ======================\
+\
+manifest: [\
+		\{src:"/Assets/Images/touts/brewing-fullpage/spacerjpg.jpg?1477079965226", id:"spacerjpg"\},\
+		\{src:"/Assets/Images/touts/brewing-fullpage/brewingright_atlas_P_.png?1477079965221", id:"brewingright_atlas_P_"\}\
+	]\
+\
+\
+\})(window.brewingrightLib = window.brewingrightLib ||\{\}, window.brewingrightImages = window.brewingrightImages ||\{\}, createjs = createjs||\{\}, window.brewingrightSs = window.brewingrightSs ||\{\});\
+}

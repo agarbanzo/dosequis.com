@@ -1,0 +1,60 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require('scss/components/pop-up');
+
+var _cookies = require('../utils/cookies');
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var template = require('../templates/pop-up.html');
+
+var Popup = function () {
+	function Popup(data) {
+		_classCallCheck(this, Popup);
+
+		this.div = template(data);
+		this.build();
+	}
+
+	_createClass(Popup, [{
+		key: 'build',
+		value: function build() {
+			var _this = this;
+
+			var popup = $(this.div);
+			$('body').prepend(popup);
+			var id = $(popup).attr('id');
+			$('#' + id + ' > .close-pop-up').on('click', function () {
+				(0, _cookies.setCookie)("newterms", 'true', 730);
+				_tracking2.default.trackEvent({
+					label: 'new terms closed',
+					category: 'newterms pop-up'
+				});
+				_this.hide();
+			});
+		}
+	}, {
+		key: 'hide',
+		value: function hide() {
+			var popup = document.getElementsByClassName("pop-up")[0];
+			popup.style.opacity = 0;
+			popup.style.height = 0;
+		}
+	}]);
+
+	return Popup;
+}();
+
+exports.default = Popup;

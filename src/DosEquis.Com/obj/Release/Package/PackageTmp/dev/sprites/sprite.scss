@@ -1,0 +1,343 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$arrow-gold-down-name: 'arrow-gold-down';
+$arrow-gold-down-x: 80px;
+$arrow-gold-down-y: 207px;
+$arrow-gold-down-offset-x: -80px;
+$arrow-gold-down-offset-y: -207px;
+$arrow-gold-down-width: 46px;
+$arrow-gold-down-height: 25px;
+$arrow-gold-down-total-width: 297px;
+$arrow-gold-down-total-height: 243px;
+$arrow-gold-down-image: '~sprite.png';
+$arrow-gold-down: (80px, 207px, -80px, -207px, 46px, 25px, 297px, 243px, '~sprite.png', 'arrow-gold-down', );
+$arrow-gold-up-name: 'arrow-gold-up';
+$arrow-gold-up-x: 34px;
+$arrow-gold-up-y: 207px;
+$arrow-gold-up-offset-x: -34px;
+$arrow-gold-up-offset-y: -207px;
+$arrow-gold-up-width: 46px;
+$arrow-gold-up-height: 25px;
+$arrow-gold-up-total-width: 297px;
+$arrow-gold-up-total-height: 243px;
+$arrow-gold-up-image: '~sprite.png';
+$arrow-gold-up: (34px, 207px, -34px, -207px, 46px, 25px, 297px, 243px, '~sprite.png', 'arrow-gold-up', );
+$double-arrows-name: 'double-arrows';
+$double-arrows-x: 271px;
+$double-arrows-y: 185px;
+$double-arrows-offset-x: -271px;
+$double-arrows-offset-y: -185px;
+$double-arrows-width: 20px;
+$double-arrows-height: 22px;
+$double-arrows-total-width: 297px;
+$double-arrows-total-height: 243px;
+$double-arrows-image: '~sprite.png';
+$double-arrows: (271px, 185px, -271px, -185px, 20px, 22px, 297px, 243px, '~sprite.png', 'double-arrows', );
+$facebook-footer-name: 'facebook-footer';
+$facebook-footer-x: 0px;
+$facebook-footer-y: 207px;
+$facebook-footer-offset-x: 0px;
+$facebook-footer-offset-y: -207px;
+$facebook-footer-width: 34px;
+$facebook-footer-height: 36px;
+$facebook-footer-total-width: 297px;
+$facebook-footer-total-height: 243px;
+$facebook-footer-image: '~sprite.png';
+$facebook-footer: (0px, 207px, 0px, -207px, 34px, 36px, 297px, 243px, '~sprite.png', 'facebook-footer', );
+$feed-facebook-name: 'feed-facebook';
+$feed-facebook-x: 256px;
+$feed-facebook-y: 90px;
+$feed-facebook-offset-x: -256px;
+$feed-facebook-offset-y: -90px;
+$feed-facebook-width: 10px;
+$feed-facebook-height: 19px;
+$feed-facebook-total-width: 297px;
+$feed-facebook-total-height: 243px;
+$feed-facebook-image: '~sprite.png';
+$feed-facebook: (256px, 90px, -256px, -90px, 10px, 19px, 297px, 243px, '~sprite.png', 'feed-facebook', );
+$feed-instagram-name: 'feed-instagram';
+$feed-instagram-x: 271px;
+$feed-instagram-y: 207px;
+$feed-instagram-offset-x: -271px;
+$feed-instagram-offset-y: -207px;
+$feed-instagram-width: 18px;
+$feed-instagram-height: 18px;
+$feed-instagram-total-width: 297px;
+$feed-instagram-total-height: 243px;
+$feed-instagram-image: '~sprite.png';
+$feed-instagram: (271px, 207px, -271px, -207px, 18px, 18px, 297px, 243px, '~sprite.png', 'feed-instagram', );
+$feed-twitter-name: 'feed-twitter';
+$feed-twitter-x: 271px;
+$feed-twitter-y: 225px;
+$feed-twitter-offset-x: -271px;
+$feed-twitter-offset-y: -225px;
+$feed-twitter-width: 18px;
+$feed-twitter-height: 15px;
+$feed-twitter-total-width: 297px;
+$feed-twitter-total-height: 243px;
+$feed-twitter-image: '~sprite.png';
+$feed-twitter: (271px, 225px, -271px, -225px, 18px, 15px, 297px, 243px, '~sprite.png', 'feed-twitter', );
+$icon-arrow-black-next-name: 'icon-arrow-black-next';
+$icon-arrow-black-next-x: 271px;
+$icon-arrow-black-next-y: 93px;
+$icon-arrow-black-next-offset-x: -271px;
+$icon-arrow-black-next-offset-y: -93px;
+$icon-arrow-black-next-width: 25px;
+$icon-arrow-black-next-height: 46px;
+$icon-arrow-black-next-total-width: 297px;
+$icon-arrow-black-next-total-height: 243px;
+$icon-arrow-black-next-image: '~sprite.png';
+$icon-arrow-black-next: (271px, 93px, -271px, -93px, 25px, 46px, 297px, 243px, '~sprite.png', 'icon-arrow-black-next', );
+$icon-arrow-black-prev-name: 'icon-arrow-black-prev';
+$icon-arrow-black-prev-x: 271px;
+$icon-arrow-black-prev-y: 47px;
+$icon-arrow-black-prev-offset-x: -271px;
+$icon-arrow-black-prev-offset-y: -47px;
+$icon-arrow-black-prev-width: 25px;
+$icon-arrow-black-prev-height: 46px;
+$icon-arrow-black-prev-total-width: 297px;
+$icon-arrow-black-prev-total-height: 243px;
+$icon-arrow-black-prev-image: '~sprite.png';
+$icon-arrow-black-prev: (271px, 47px, -271px, -47px, 25px, 46px, 297px, 243px, '~sprite.png', 'icon-arrow-black-prev', );
+$icon-arrow-white-next-name: 'icon-arrow-white-next';
+$icon-arrow-white-next-x: 271px;
+$icon-arrow-white-next-y: 0px;
+$icon-arrow-white-next-offset-x: -271px;
+$icon-arrow-white-next-offset-y: 0px;
+$icon-arrow-white-next-width: 26px;
+$icon-arrow-white-next-height: 47px;
+$icon-arrow-white-next-total-width: 297px;
+$icon-arrow-white-next-total-height: 243px;
+$icon-arrow-white-next-image: '~sprite.png';
+$icon-arrow-white-next: (271px, 0px, -271px, 0px, 26px, 47px, 297px, 243px, '~sprite.png', 'icon-arrow-white-next', );
+$icon-arrow-white-prev-name: 'icon-arrow-white-prev';
+$icon-arrow-white-prev-x: 271px;
+$icon-arrow-white-prev-y: 139px;
+$icon-arrow-white-prev-offset-x: -271px;
+$icon-arrow-white-prev-offset-y: -139px;
+$icon-arrow-white-prev-width: 25px;
+$icon-arrow-white-prev-height: 46px;
+$icon-arrow-white-prev-total-width: 297px;
+$icon-arrow-white-prev-total-height: 243px;
+$icon-arrow-white-prev-image: '~sprite.png';
+$icon-arrow-white-prev: (271px, 139px, -271px, -139px, 25px, 46px, 297px, 243px, '~sprite.png', 'icon-arrow-white-prev', );
+$inst-name: 'inst';
+$inst-x: 0px;
+$inst-y: 147px;
+$inst-offset-x: 0px;
+$inst-offset-y: -147px;
+$inst-width: 60px;
+$inst-height: 60px;
+$inst-total-width: 297px;
+$inst-total-height: 243px;
+$inst-image: '~sprite.png';
+$inst: (0px, 147px, 0px, -147px, 60px, 60px, 297px, 243px, '~sprite.png', 'inst', );
+$instagram-footer-name: 'instagram-footer';
+$instagram-footer-x: 226px;
+$instagram-footer-y: 170px;
+$instagram-footer-offset-x: -226px;
+$instagram-footer-offset-y: -170px;
+$instagram-footer-width: 36px;
+$instagram-footer-height: 36px;
+$instagram-footer-total-width: 297px;
+$instagram-footer-total-height: 243px;
+$instagram-footer-image: '~sprite.png';
+$instagram-footer: (226px, 170px, -226px, -170px, 36px, 36px, 297px, 243px, '~sprite.png', 'instagram-footer', );
+$list-selected-name: 'list-selected';
+$list-selected-x: 226px;
+$list-selected-y: 0px;
+$list-selected-offset-x: -226px;
+$list-selected-offset-y: 0px;
+$list-selected-width: 45px;
+$list-selected-height: 45px;
+$list-selected-total-width: 297px;
+$list-selected-total-height: 243px;
+$list-selected-image: '~sprite.png';
+$list-selected: (226px, 0px, -226px, 0px, 45px, 45px, 297px, 243px, '~sprite.png', 'list-selected', );
+$listunselected-name: 'listunselected';
+$listunselected-x: 150px;
+$listunselected-y: 147px;
+$listunselected-offset-x: -150px;
+$listunselected-offset-y: -147px;
+$listunselected-width: 45px;
+$listunselected-height: 45px;
+$listunselected-total-width: 297px;
+$listunselected-total-height: 243px;
+$listunselected-image: '~sprite.png';
+$listunselected: (150px, 147px, -150px, -147px, 45px, 45px, 297px, 243px, '~sprite.png', 'listunselected', );
+$logo-agegate-name: 'logo-agegate';
+$logo-agegate-x: 87px;
+$logo-agegate-y: 0px;
+$logo-agegate-offset-x: -87px;
+$logo-agegate-offset-y: 0px;
+$logo-agegate-width: 139px;
+$logo-agegate-height: 89px;
+$logo-agegate-total-width: 297px;
+$logo-agegate-total-height: 243px;
+$logo-agegate-image: '~sprite.png';
+$logo-agegate: (87px, 0px, -87px, 0px, 139px, 89px, 297px, 243px, '~sprite.png', 'logo-agegate', );
+$logo-name: 'logo';
+$logo-x: 87px;
+$logo-y: 89px;
+$logo-offset-x: -87px;
+$logo-offset-y: -89px;
+$logo-width: 68px;
+$logo-height: 42px;
+$logo-total-width: 297px;
+$logo-total-height: 243px;
+$logo-image: '~sprite.png';
+$logo: (87px, 89px, -87px, -89px, 68px, 42px, 297px, 243px, '~sprite.png', 'logo', );
+$mapselected-name: 'mapselected';
+$mapselected-x: 60px;
+$mapselected-y: 147px;
+$mapselected-offset-x: -60px;
+$mapselected-offset-y: -147px;
+$mapselected-width: 45px;
+$mapselected-height: 45px;
+$mapselected-total-width: 297px;
+$mapselected-total-height: 243px;
+$mapselected-image: '~sprite.png';
+$mapselected: (60px, 147px, -60px, -147px, 45px, 45px, 297px, 243px, '~sprite.png', 'mapselected', );
+$mapunselected-name: 'mapunselected';
+$mapunselected-x: 105px;
+$mapunselected-y: 147px;
+$mapunselected-offset-x: -105px;
+$mapunselected-offset-y: -147px;
+$mapunselected-width: 45px;
+$mapunselected-height: 45px;
+$mapunselected-total-width: 297px;
+$mapunselected-total-height: 243px;
+$mapunselected-image: '~sprite.png';
+$mapunselected: (105px, 147px, -105px, -147px, 45px, 45px, 297px, 243px, '~sprite.png', 'mapunselected', );
+$mapview-name: 'mapview';
+$mapview-x: 226px;
+$mapview-y: 45px;
+$mapview-offset-x: -226px;
+$mapview-offset-y: -45px;
+$mapview-width: 45px;
+$mapview-height: 45px;
+$mapview-total-width: 297px;
+$mapview-total-height: 243px;
+$mapview-image: '~sprite.png';
+$mapview: (226px, 45px, -226px, -45px, 45px, 45px, 297px, 243px, '~sprite.png', 'mapview', );
+$pin-name: 'pin';
+$pin-x: 0px;
+$pin-y: 0px;
+$pin-offset-x: 0px;
+$pin-offset-y: 0px;
+$pin-width: 87px;
+$pin-height: 147px;
+$pin-total-width: 297px;
+$pin-total-height: 243px;
+$pin-image: '~sprite.png';
+$pin: (0px, 0px, 0px, 0px, 87px, 147px, 297px, 243px, '~sprite.png', 'pin', );
+$searchbtn-name: 'searchbtn';
+$searchbtn-x: 226px;
+$searchbtn-y: 90px;
+$searchbtn-offset-x: -226px;
+$searchbtn-offset-y: -90px;
+$searchbtn-width: 30px;
+$searchbtn-height: 46px;
+$searchbtn-total-width: 297px;
+$searchbtn-total-height: 243px;
+$searchbtn-image: '~sprite.png';
+$searchbtn: (226px, 90px, -226px, -90px, 30px, 46px, 297px, 243px, '~sprite.png', 'searchbtn', );
+$twitter-footer-name: 'twitter-footer';
+$twitter-footer-x: 226px;
+$twitter-footer-y: 136px;
+$twitter-footer-offset-x: -226px;
+$twitter-footer-offset-y: -136px;
+$twitter-footer-width: 40px;
+$twitter-footer-height: 34px;
+$twitter-footer-total-width: 297px;
+$twitter-footer-total-height: 243px;
+$twitter-footer-image: '~sprite.png';
+$twitter-footer: (226px, 136px, -226px, -136px, 40px, 34px, 297px, 243px, '~sprite.png', 'twitter-footer', );
+$youtube-name: 'youtube';
+$youtube-x: 155px;
+$youtube-y: 89px;
+$youtube-offset-x: -155px;
+$youtube-offset-y: -89px;
+$youtube-width: 48px;
+$youtube-height: 36px;
+$youtube-total-width: 297px;
+$youtube-total-height: 243px;
+$youtube-image: '~sprite.png';
+$youtube: (155px, 89px, -155px, -89px, 48px, 36px, 297px, 243px, '~sprite.png', 'youtube', );
+$spritesheet-width: 297px;
+$spritesheet-height: 243px;
+$spritesheet-image: '~sprite.png';
+$spritesheet-sprites: ($arrow-gold-down, $arrow-gold-up, $double-arrows, $facebook-footer, $feed-facebook, $feed-instagram, $feed-twitter, $icon-arrow-black-next, $icon-arrow-black-prev, $icon-arrow-white-next, $icon-arrow-white-prev, $inst, $instagram-footer, $list-selected, $listunselected, $logo-agegate, $logo, $mapselected, $mapunselected, $mapview, $pin, $searchbtn, $twitter-footer, $youtube, );
+$spritesheet: (297px, 243px, '~sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

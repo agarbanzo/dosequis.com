@@ -1,0 +1,54 @@
+﻿<div id="agegate" class="agegate">
+
+    <video playsinline autoplay muted loop id="agegatebgvid" class="agegatevid" src="/Assets/videos/Bubbles.mp4"></video>
+    <div class="gateway unit">
+        <div class="agegate-container">
+            <div class="logoholder">
+                <i class="icon icon-logo-agegate desktop-only"></i>
+                <i class="icon icon-logo mobile-only"></i>
+            </div>
+
+            <div class="entry hide">
+                <div class="heading-block-01">
+                    <h2 class="headline-02">Things are about to get interesting.</h2>
+                </div>
+                <br/>
+                <h5 class="heading-05">Tell us your date of birth</h5>
+                <form>
+                    <input id="month" minlemgth="1" maxlength="2" name="month" size="2" type="tel" placeholder="MM" required onKeyPress="return numbersonly(this, event)">
+                    <input id="day" name="day" minlemgth="1" maxlength="2" size="2" type="tel" placeholder="DD" required onKeyPress="return numbersonly(this, event)">
+                    <input id="year" maxlength="4" name="year" size="4" type="tel" placeholder="YYYY" required onKeyPress="return numbersonly(this, event)">
+                    <div id="input-date-submit" class="cta">
+                        <a href="javascript:void(0)" class="disabled">enter site</a>
+                    </div>
+                </form>
+            </div>
+            <div class="notlegal hide">
+                <h2 class="cochin heading-02">Sorry, come back when you’re of legal drinking age. We’ll keep the Dos Equis cold.</h2>
+            </div>
+            <div class="ag-footer">
+                <ul class="subnav">
+                    <li><a class="copy" href="/privacy-policy" data-ga='{"category":"agegate-footer"}'>PRIVACY POLICY</a></li>
+                    <li><a class="copy" href="/terms-of-use" data-ga='{"category":"agegate-footer"}'>TERMS OF USE</a></li>
+                    <li><a class="copy" href="http://www.heineken.com/us/We-are-heineken/Enjoy-Heineken-Responsibly" target="_blank">ENJOY DOS EQUIS RESPONSIBLY</a></li>
+                    <li><a class="copy" href="/privacy-policy#our-advertising" data-ga='{"category":"footer"}'>ABOUT OUR ADVERTISING</a></li>
+                </ul>
+                <p class="copy-small">By clicking “ENTER SITE” you agree to our site's <a class="" href="/terms-of-use" data-ga='{"category":"agegate-smallprint"}' >Terms of Use</a> and acknowledge our <a class="" href="/privacy-policy" data-ga='{"category":"cinco-smallprint"}' >Privacy Policy</a></p>
+            </div>
+        </div>
+     </div>
+</div>
+
+<script>
+    function numbersonly(myfield, e, dec) {
+        var key;
+        var keychar;
+        if (window.event) key = window.event.keyCode;
+        else if (e) key = e.which;
+        else return true;
+        keychar = String.fromCharCode(key);
+        if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27)) return true;
+
+        else if ((("0123456789").indexOf(keychar) > -1)) return true;
+        else if (dec && (keychar == ".")) { myfield.form.elements[dec].focus(); return false; } else return false;}
+</script>

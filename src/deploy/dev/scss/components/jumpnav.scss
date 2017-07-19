@@ -1,0 +1,83 @@
+@import "config/vars";
+@import "config/global";
+
+.jumpnav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >a{
+        @extend .text-uc;
+       color:$black;
+        text-decoration: none;
+        display: inline-block;
+        border-right:1px solid $black;
+        width:auto;
+        padding:0 15px;
+
+        &:last-child{
+             border-right:none;
+        }
+
+        &:after{
+            @extend .centered;
+            @extend .text-center;
+            content:url(/Assets/Images/about/timeline/anchorArrows.svg);
+            display:block;
+            width:20px;
+            height:20px;
+            margin-top:15px;
+        }
+    }
+
+    &.sticky{
+        display:none;
+        position:fixed;
+        top:$navHeight;
+        padding: 20px 20px 0 20px;
+        width:100%;
+        justify-content: centered;
+        z-index: 10;
+        background-color: $white;
+        box-shadow: -1px 2px 3px 0px rgba(0,0,0,0.50);
+
+        >a{
+            width:auto;
+            border-right:none;
+            margin:0 15px;
+            border-bottom:4px solid  $white;
+            padding:0;
+
+             &:after{
+                content:'';
+                display:none;
+            }
+
+            &.selected{
+                border-bottom:4px solid $lightgold;
+            }
+        }
+    }
+
+    &.dark{
+         background-color: $black;
+        a{
+           color:$white;
+           border-bottom:4px solid  $black;
+           border-bottom:4px solid  $black;
+           border-right:1px solid $white;
+
+            &:last-child{
+                border-right:none;
+            }
+        }
+
+        &.sticky{
+            a{
+                width:auto;
+                border-right:none;
+                padding:0;
+            }
+        }
+    }
+}

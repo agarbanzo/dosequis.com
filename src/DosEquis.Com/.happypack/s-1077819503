@@ -1,0 +1,146 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+        value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+var _historySlider = require('components/historySlider');
+
+var _historySlider2 = _interopRequireDefault(_historySlider);
+
+var _product = require('components/product');
+
+var _product2 = _interopRequireDefault(_product);
+
+require('components/touts/touts');
+
+var _jumpnav = require('components/jumpnav/jumpnav');
+
+var _jumpnav2 = _interopRequireDefault(_jumpnav);
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+var _goToScroll = require('utils/goToScroll');
+
+var _cssEditSvg = require('utils/css-edit-svg');
+
+require('scss/pages/beersandrecipes.scss');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+require("vendor/jquery.parallax-scroll");
+require("vendor/jquery.easing.1.3");
+var recipes = require('./recipes.json');
+var beers = require('./beers.json');
+var lazyLoadImages = require('lazy-load-images');
+
+var Products = function () {
+        function Products(selector) {
+                _classCallCheck(this, Products);
+
+                var self = this;
+                this.$el = $(selector);
+                this.addJumpNav();
+                this.addProducts();
+                this.addScrollController();
+                this.addUIListeners();
+                this.initSlick();
+
+                //css_editsvg('img.drizly-icon');
+        }
+
+        _createClass(Products, [{
+                key: 'addUIListeners',
+                value: function addUIListeners() {
+                        var _this = this;
+                        $(".jumpnav").eq(0).find(".jumplink").on('click', function (e) {
+                                e.preventDefault();
+                                $(this).addClass('selected').siblings().removeClass('selected');
+                                (0, _goToScroll.scrollTo)($(this).data("target"));
+                        });
+                }
+        }, {
+                key: 'removeUIListeners',
+                value: function removeUIListeners() {
+                        $(".jumpnav").eq(0).find(".jumplink").off('click');
+                }
+        }, {
+                key: 'addJumpNav',
+                value: function addJumpNav() {
+                        this.stickyjumpnav = new _jumpnav2.default({
+                                el: '.jumpnav',
+                                theme: 'dark',
+                                triggers: ['section#beer', "section#variety-pack", "section#recipes"]
+                        });
+                }
+        }, {
+                key: 'addProducts',
+                value: function addProducts() {
+                        // add beers
+                        var lager = new _product2.default(beers['ambar']);
+                        var ambar = new _product2.default(beers['lager']);
+
+                        $('#beer .touts-static').append(ambar.div);
+                        $('#beer .touts-static').append(lager.div);
+
+                        //add recipes
+                        var dosarita = new _product2.default(recipes['dos-a-rita']);
+                        var michelada = new _product2.default(recipes['michelada']);
+                        var sidra = new _product2.default(recipes['dos-sidra']);
+                        var stormy = new _product2.default(recipes['dos-a-stormy']);
+
+                        $('#recipes .touts-static.group1').append(dosarita.div);
+                        $('#recipes .touts-static.group1').append(michelada.div);
+                        $('#recipes .touts-static.group2').append(sidra.div);
+                        $('#recipes .touts-static.group2').append(stormy.div);
+                }
+        }, {
+                key: 'addScrollController',
+                value: function addScrollController() {
+                        this.scroller = new _scrollmagic2.default.Controller();
+
+                        var _this = this;
+                        var scene = new _scrollmagic2.default.Scene({
+                                triggerElement: '#jump-nav',
+                                triggerHook: 'onLeave',
+                                duration: getElHeight
+                        }).addTo(this.scroller);
+
+                        scene.on("enter", function (event) {
+                                _this.stickyjumpnav.show();
+                                _this.removeUIListeners();
+                        });
+
+                        scene.on("leave", function (event) {
+                                _this.stickyjumpnav.hide();
+                                _this.addUIListeners();
+                        });
+
+                        function getElHeight() {
+                                return $("#productcontainer").height();
+                        }
+                }
+        }, {
+                key: 'initSlick',
+                value: function initSlick() {
+                        var slider = new _historySlider2.default({ el: '.gallery' });
+                }
+        }]);
+
+        return Products;
+}();
+
+exports.default = Products;
+
+
+var products = new Products('.products');

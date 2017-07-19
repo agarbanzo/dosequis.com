@@ -1,0 +1,69 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+require('scss/pages/about.scss');
+
+require('utils/goToScroll');
+
+var _historySlider = require('components/historySlider');
+
+var _historySlider2 = _interopRequireDefault(_historySlider);
+
+var _doubleArrowButton = require('components/doubleArrowButton');
+
+var _doubleArrowButton2 = _interopRequireDefault(_doubleArrowButton);
+
+require('../components/page-animations/page-animation-loader');
+
+require('components/touts/touts');
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+require('components/touts/full-page/full-page-tout-loader');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+require('jquery.transit');
+
+var Aboutdos = function () {
+    function Aboutdos(selector) {
+        _classCallCheck(this, Aboutdos);
+
+        this.num = 0;
+        this.createGallery();
+
+        this.scrollbtn = new _doubleArrowButton2.default({
+            el: ".hero",
+            target: "#history",
+            direction: "down"
+        });
+    }
+
+    _createClass(Aboutdos, [{
+        key: 'createGallery',
+        value: function createGallery() {
+            var slider = new _historySlider2.default({ el: '.gallery' });
+            console.log('gallery created');
+        }
+    }]);
+
+    return Aboutdos;
+}();
+
+exports.default = Aboutdos;
+
+
+var aboutdos = new Aboutdos();

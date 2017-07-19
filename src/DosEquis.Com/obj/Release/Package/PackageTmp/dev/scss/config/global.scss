@@ -1,0 +1,574 @@
+@import "vars";
+
+ .IIV::-webkit-media-controls-play-button,
+ .IIV::-webkit-media-controls-start-playback-button {
+      opacity: 0;
+      pointer-events: none;
+      width: 5px;
+  }
+
+  input {
+    border-radius: 0;
+}
+
+  .show-for-medium,
+  .show-for-medium-up,
+  .show-for-large,
+  .show-for-large-up,
+  .show-for-xlarge { display: none !important; }
+
+.text-uc{
+  text-transform: uppercase;
+}
+
+.hide{
+  display:none;
+}
+.hideMobile{
+  @media all and (max-width:$mobile-width) {
+      display:none!important;
+  }
+}
+
+.disable-and-hide{
+  visibility:hidden;
+  cursor:default;
+}
+.guidName{
+  text-transform:none!important;
+}
+
+@keyframes animateScrollButton {
+	0% {
+    transform:translateY(0%);
+  }
+	100% {
+    transform:translateY(100%);
+  }
+}
+.scrollTo{
+  display: inline-block;
+  cursor:pointer;
+  width:1em;
+  img{
+    width:100%;
+  }
+
+  &.animated img{
+	    animation: animateScrollButton 1.5s infinite alternate;
+      animation-delay: 2s;
+  }
+}
+.section{
+  position: relative;
+  z-index: 1;
+  display: block;
+  text-align: center;
+  > div{
+   padding: (70/24)*1rem 0;
+
+    @media screen and (max-width:$mobile-width){
+        padding: (40/24)*1rem 0;
+    }
+  }
+  p{
+    font-size:18px;
+    position: relative;
+    z-index: 1;
+    padding-top: .85em;
+   @media all and (max-width:$mobile-width) {
+       font-size:15px;
+     }
+  }
+  &.top{
+    padding-top:$navHeight + 62px;
+    @media screen and (max-width:$mobile-width){
+      padding-top:$navHeight;
+    }
+  }
+  &.alignV{
+    padding: 10em 0;
+  }
+  &.center{
+    display: flex;
+    padding:2em 0;
+    > div{
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.bold{
+  font-family:'open_sans_condensedbold' !important;
+}
+
+.padd20{
+  padding:0 20px;
+}
+
+.contentMax{
+    width:100%;
+    margin:auto;
+    @include contentWidth;
+}
+.contentMid{
+    width:100%;
+    margin:auto;
+    @include contentWidth(800px);
+}
+.darkBg{
+      background-color: $black;
+      color:$white;
+}
+.lightBg{
+   background-color: $white;
+    color:$black;
+}
+.whiteBg{
+    background-color: #fff;
+    color:$black;
+}
+
+.gold{
+  color:$lightgold !important;
+}
+
+/********
+  Text Styles
+    *********/
+.cochin{
+  @include cochin;
+}
+.darkText *{
+  color:$black;
+}
+.lightText,.whiteText{
+  color:$white;
+}
+.headline{
+  @extend .cochin;
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  margin:0 auto;
+ @media all and (max-width:$mobile-width) {
+     font-size:20px;
+   }
+}
+.title{
+  @extend .cochin;
+  display: block;
+  text-align: center;
+  font-size:  16px;
+  letter-spacing:.2em;
+ @media all and (min-width:$mobile-width) {
+    font-size:  22px;
+  }
+}
+
+divider,hr{
+  width:46px;
+  display: block;
+  height:1px;
+  margin: (15/24)*1rem auto  (20/24)*1rem;
+    background:$grey!important;
+}
+/*****
+  cta styles
+      ******/
+.cta{
+  display: block;
+  text-align: center;
+  padding:30px;
+    @media all and (min-width:$mobile-width) {
+     padding:40px 0;
+  }
+
+      a{
+        //transform: translate3d(0, 0, 0);
+        transition: background-color 0.5s ease;
+        text-decoration: none;
+        display: inline-block;
+        font-size:1.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border:1px solid $lightgold;
+        cursor:pointer;
+        padding:.5em .95em;
+        color:$black;
+        width:auto;
+        &.block{
+          &:after,&:before{
+            content:' ';
+            display: block;
+          }
+        }
+        &:hover{
+          background-color:$lightgold;
+            color:#fff;
+        }
+
+        @media (hover:on-demand) {
+            background-color:none;
+            color:$black;
+        }
+
+         @media all and (min-width:$mobile-width) {
+            font-size: 22px;
+        }
+
+        @media all and (min-width:$max-width) {
+           // font-size: 26px;
+        }
+    }
+}
+
+.cta.dark {
+  a{
+    color: purple;
+  }
+}
+.cta.gold{
+  a{
+     color:$lightgold;
+      text-decoration: underline;
+
+       &:hover{
+        background-color:transparent !important;
+      }
+  }
+}
+
+.lightText,.whiteText,.darkBg{
+  .cta{
+    a{
+      color:#fff;
+    }
+  }
+}
+.black{
+  color:$black !important;
+}
+
+.white{
+  color:white !important;
+}
+
+.cta{
+  a.gold{
+    color:$lightgold;
+    border:none;
+    text-decoration: underline;
+  }
+}
+
+  // Miscellaneous useful HTML classes
+  .left         { float: left !important; }
+  .right        { float: right !important; }
+  .text-left    { text-align: left !important; }
+  .text-right   { text-align: right !important; }
+  .text-center  { text-align: center !important; }
+  .text-justify { text-align: justify !important; }
+  .hide         { display: none !important;}
+
+  // Font smoothing
+  // Antialiased font smoothing works best for light text on a dark background.
+  // Apply to single elements instead of globally to body.
+  // Note this only applies to webkit-based desktop browsers on the Mac.
+  .antialiased { -webkit-font-smoothing: antialiased; }
+
+.page-container{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  &.hide{
+    display:none !important;
+  }
+}
+
+.desktop-only{
+  display:none;
+  @media all and (min-width:$mobile-width) {
+     display:block;
+     margin:0 auto;
+  }
+}
+
+.mobile-only{
+  display:block;
+  @media all and (min-width:$mobile-width) {
+     display:none;
+  }
+}
+
+
+// #loader {
+//    display:none;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     margin-left:-37px;
+//     z-index: 100;
+//     border: 4px solid $white; /* Light grey */
+//     border-top: 4px solid $lightgold; Blue
+//     border-radius: 50%;
+//     width: 120px;
+//     height: 120px;
+//     animation: spin 2s linear infinite;
+// }
+
+// @keyframes spin {
+//     0% { transform: rotate(0deg); }
+//
+  100% { transform: rotate(360deg); }
+// }
+
+
+.drizzly-bear{
+  display:inline-block;
+}
+
+.drizzly a{
+ &:hover{
+  text-decoration: none;
+ }
+}
+
+.header{
+  padding:7% 0 3% 0;;
+  max-width: 80%;
+  margin:0 auto;
+}
+
+.centered{
+  margin:0 auto;
+}
+
+.copy{
+   font-size: 1rem;
+  line-height: 1.2;
+
+
+}
+
+.copy-small{
+    max-width: 90%;
+    font-size:10px !important;
+    margin: 0 auto;
+    padding:0 10px;
+
+    @media all and (min-width:$mobile-width) {
+      font-size:12px !important;
+    }
+}
+
+//base
+
+     .headline-01{
+      @extend .cochin;
+       font-size: 2rem;
+       line-height: 1.5;
+    @media all and (max-width:$mobile-width) {
+       font-size: 1.75rem;
+       line-height: 1.1;
+    }
+     }
+
+     .headline-02{
+      @extend .cochin;
+       font-size: 1.32rem;
+       line-height: 1.5;
+     }
+     .headline-03{
+       @extend .cochin;
+        margin-bottom: .5em;
+     }
+     .headline-04{
+       @extend .cochin;
+       font-size: 0.70rem;
+       letter-spacing: .2em;
+     }
+     .headline-05{
+        @extend .cochin;
+        font-size: 11px;
+        margin-bottom: .42em;
+     }
+.heading-block{
+  margin:auto;
+  text-align: center;
+     width:90%;
+     .heading-copy{
+        @extend .centered;
+       @extend .copy;
+       margin-bottom:0;
+     }
+
+     divider{
+      margin: 0.5rem auto 0.5rem;
+     }
+
+     .cta{
+      padding-top:30px;
+     }
+
+     .locatorCta{
+       font-size: 22px;
+       cursor:pointer;
+     }
+
+     @media all and (min-width:$mobile-width) {
+        //width:60%;
+      .heading-01{
+          //padding-top:110px;
+       }
+
+       .headline-05{
+          font-size: 16px;
+       }
+
+       .cta{
+        padding-top:30px;
+
+       }
+    }
+}
+
+//headline,copy, button
+.heading-block-01{
+   @extend .heading-block;
+   .headline-01{
+    font-size: 1.70em;
+    line-height: 1.2;
+   }
+     .headline-02{
+       margin-bottom: 0;
+       line-height: 1.2;
+     }
+     .headline-03{
+       @extend .cochin;
+        margin-bottom: .42em;
+     }
+     .headline-04{
+        margin-bottom: .42em;
+     }
+     .heading-copy{
+       @extend .copy;
+       margin-bottom:0;
+     }
+
+     .cta{
+      padding-top:30px !important;
+
+     }
+
+     span{
+      text-transform: none;
+     }
+
+     @media all and (min-width:$mobile-width) {
+        max-width:70%;
+         .heading-01{
+          padding-top:110px;
+       }
+    }
+}
+
+//headline,button
+.heading-block-02{
+   @extend .heading-block;
+     width:90%;
+
+     .headline-01{
+        padding-top:100px;
+        margin-bottom: 0;
+     }
+     .headline-02{
+       margin-bottom: 0;
+       line-height: 1.2;
+     }
+     .headline-03{
+        margin-bottom: .42em;
+     }
+     .headline-04{
+        margin-bottom: .42em;
+     }
+     .heading-copy{
+       margin-bottom:1.78em;
+     }
+
+     .cta{
+
+     }
+
+     @media all and (min-width:$mobile-width) {
+        max-width:90%;
+         .heading-01{
+          padding-top:110px;
+       }
+    }
+}
+
+//small headline, dash, big headline, button
+.heading-block-03{
+  @extend .heading-block;
+     .headline-01{
+        padding-top:100px;
+        margin-bottom: 0;
+     }
+     .headline-02{
+       margin-bottom: 0;
+       line-height: 1.2;
+     }
+     .headline-05{
+        margin-bottom: .42em;
+     }
+     .heading-copy{
+       margin-bottom:1.78em;
+     }
+     .cta{
+      padding:30px !important;
+     }
+
+     @media all and (min-width:$mobile-width) {
+        width:60%;
+         .heading-01{
+          padding-top:110px;
+       }
+    }
+}
+
+.heading-block-04{
+   @extend .heading-block;
+     .headline-01{
+        padding-top:100px;
+        margin-bottom: 0;
+     }
+     .headline-02{
+       margin-bottom: 0;
+       line-height: 1.2;
+     }
+     .headline-03{
+        margin-bottom: .42em;
+     }
+     .headline-05{
+        margin-bottom: .42em;
+     }
+     .heading-copy{
+        margin-bottom:0;
+     }
+     .cta{
+      margin-top:0 !important;
+     }
+
+     @media all and (min-width:$mobile-width) {
+        width:60%;
+         .heading-01{
+          padding-top:110px;
+       }
+    }
+}

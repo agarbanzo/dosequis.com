@@ -1,0 +1,120 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BrewingFullRightTout = require('./brewingright');
+var BrewingFullLeftTout = require('./brewingleft');
+
+var FullToutsLoader = function () {
+    function FullToutsLoader() {
+        var _this = this;
+
+        _classCallCheck(this, FullToutsLoader);
+
+        this.toutsClassesArray = [];
+        this.isPlaying;
+        // this.createToutClassesArray(); 
+        $(function () {
+            _this.scroller = new _scrollmagic2.default.Controller();
+            _this.toutsClassesArray.push(BrewingFullRightTout);
+            _this.toutsClassesArray.push(BrewingFullLeftTout);
+            _this.createScenes();
+        });
+    }
+
+    _createClass(FullToutsLoader, [{
+        key: 'createScenes',
+        value: function createScenes() {
+            var self = this;
+            var touts = self.toutsClassesArray;
+            var playedOnce = false;
+            var preloadScene = new _scrollmagic2.default.Scene({
+                triggerElement: '.full-width-tout',
+                duration: $(".full-width-tout").height(),
+                offset: -500
+            }).addTo(this.scroller);
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '.full-width-tout',
+                duration: $(".full-width-tout").height() * 5,
+                offset: -100
+            }).addTo(this.scroller);
+
+            preloadScene.on("enter", function (event) {
+                // console.log("======= PRELOAD FULL PAGE TOUTS");
+                var touts = self.toutsClassesArray;
+                for (var i in touts) {
+                    touts[i].create();
+                }
+            });
+            scene.on("enter", function (event) {
+                // console.log("======= PLAY FULL PAGE TOUTS");
+                self.isPlaying = true;
+                for (var i in touts) {
+                    touts[i].create(true);
+                    touts[i].playTimeline();
+                }
+                setTimeout(function () {
+                    // in case preload and load happen at same time
+                    for (var i in touts) {
+                        touts[i].create(true);
+                        touts[i].playTimeline();
+                    }
+                }, 2000);
+            });
+            scene.on("leave", function (event) {
+                // console.log("======= PAUSEFULL PAGE TOUTS");
+                self.isPlaying = false;
+                for (var i in touts) {
+                    touts[i].pause();
+                }
+            });
+            scene.on("progress", function () {
+                // console.log("======= PROGRESS");
+                self.isPlaying = true;
+                if (touts[0].canvasObj.isEnabled) {
+                    if (!playedOnce) {
+                        // console.log("play it...")
+                        for (var i in touts) {
+                            touts[i].playTimeline();
+                        }
+                        playedOnce = true;
+                    }
+                }
+            });
+        }
+        // createToutClassesArray() {
+
+        // let self = this
+        // var touts = $('.full-width-tout');
+        // touts.each(function() {
+        //     var toutName = $(this).data('tout');
+        //     var toutClass;
+        //     switch (toutName) {
+        //         case "brewing-full":
+        //             toutClass = BrewingFullRightTout;
+        //             break;
+        //     }
+        //     self.toutsClassesArray.push(toutClass);
+        // });
+        // }
+
+    }]);
+
+    return FullToutsLoader;
+}();
+
+exports.default = FullToutsLoader;
+
+var fullToutsLoader = new FullToutsLoader();

@@ -1,0 +1,196 @@
+@import "config/vars";
+@import "config/global";
+@import 'components/brewingPanel';
+
+.cervezasdemexico{
+	text-align:center;
+		    background: url(/Assets/Images/cervezasdemexico/brick-bg.jpg) top center repeat;
+			background-size:100%;
+	.hero{
+		width:100%;
+		
+		background-size:cover;
+		position:relative;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		flex-direction:column;
+
+		>div{
+			padding:0 40px;
+		}
+
+		 @media all and (min-width:767px) {
+			background-size:cover;
+			padding-top:120px;
+		 }
+
+		.imageholder{
+			img{
+				width:100%;
+			}
+
+			@media all and (min-width:767px) {
+				width:80%;
+				margin:0 auto;
+			}
+		}
+
+		 .copy{
+		 	padding-bottom:	25px;
+		 	 @media all and (min-width:767px) {
+		 	 	padding-bottom:	50px;
+		 		max-width: 	650px;
+		 	 }
+		 }
+
+		 .order-share{
+		 	text-transform: uppercase;
+		 	position:relative;
+		 	bottom:0;
+		 	background-color:rgba(0,0,0,0.65);
+		    width:125px;
+		 	display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		padding:0;
+    		font-family: 'open_sans_condensedbold';
+
+    		 @media all and (min-width:767px) {
+			   width:125px;
+			   left:0;
+			   background-color:rgba(0,0,0,0.65);
+			   margin-top:0;
+			 }
+
+		 	.social{
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    padding:13px;
+			    width:100%;
+				color:white;
+			    border-bottom:1px solid $black;
+			     @media all and (min-width:767px) {
+
+			     }
+			    &:before{
+			        content:'Share:';
+			        margin-right:.5em;
+			        font-size: 	12px;
+			         @media all and (min-width:767px) {
+			          margin-right:.5em;
+			         }
+			    }
+			    a{
+			        img{
+			            display: inline-block;
+			            height:100%;
+			            width:auto;
+			        }
+			        display: inline-block;
+			        height:20px;
+			        width:auto;
+			        margin-right: .5rem;
+			    }
+			    @media all and (min-width:767px) {
+			    	
+				   border-bottom: none;
+				 }
+			}
+		 }
+	}
+
+	.insidethepack{
+		padding-top: 50px;
+
+		.jumptobeer{
+			padding:30px 0 20px 0;
+		}
+
+		.jumpnav:not(.sticky){
+			padding-bottom: 45px;
+		}
+	}
+
+    .productcontainer{
+    	h4{
+    		font-weight: 600;
+    		line-height: 1.4;
+    	}
+
+    	.beer{
+    		padding-top:40px;
+    		//height:450px;
+    		///border:1px solid red;
+    		@media all and (min-width:767px) {
+			    height:520px;
+			}
+
+    		.headline-02,.headline-03,.headline-04{
+    			font-family: 'open_sans_condensedbold'
+    		}
+    		.headline-03{
+    			margin-bottom: 1.2em;
+    		}
+    		.headline-04{
+    			font-size: 	100%;
+    			text-transform: none;
+    			letter-spacing: normal;
+    		}
+    		.ingredients{
+    			margin-top: 10px;
+    			ul{
+    			
+	    			li{
+	    				display: inline-block;
+	    				&:after{
+	    					content:' -';
+	    				}
+
+	    				&:last-child{
+	    					&:after{
+	    					content:'';
+	    				}
+	    			  }
+	    			}
+
+	    		}
+    		}
+
+    		.nutritional-facts{
+    			margin-top: 10px;
+    		}
+
+    		.fact{
+    			display: inline-block;
+    		}
+    	}
+
+    	.copy-small{
+    		padding:100px 0 20px 0;
+    	}
+    }
+
+    .products{
+		background:$white;
+    	padding:50px 6.25%;
+    	.toutsWrapper{
+    		background:$white;
+    	}
+
+    	.headline-02{
+    		padding-bottom:30px;
+    	}
+    }
+
+    .recipe-tout{
+    	//padding-top:40px;
+
+    	
+    }
+
+    .drizly{
+	    display: none;		
+	}
+}

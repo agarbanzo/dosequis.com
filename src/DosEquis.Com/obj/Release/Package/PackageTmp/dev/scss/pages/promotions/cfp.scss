@@ -1,0 +1,191 @@
+@import 'config/vars.scss';
+  @import 'components/enjoyresponsibly';
+  .cfp{
+     a{
+      &:hover{
+        text-decoration:none;
+      }
+    }
+    .hero{
+      $heroRatio: (1700/996);
+          background:url(/Assets/Images/promotions/cfp/heroBg.jpg) no-repeat #fff;
+          background-size: 100% auto;
+          background-position: bottom;
+          position: relative;
+          z-index: 0;
+          padding-bottom: 25%;
+      >div{
+        padding-top:0;
+      }
+      p{
+        @include contentWidth(650px);
+        @include gutter(2rem);
+      }
+      img{
+        padding-top:25px;
+      }
+      .flash{
+        background: url(/assets/images/promotions/cfp/flash.png) no-repeat;
+        background-size:cover;
+        display: block;
+        height: 3rem;
+        width:3rem;
+        position: absolute;
+      }
+    }
+    .main-cta{
+      position: relative;
+      z-index: 1;
+        @include gutter(2rem);
+        @include contentWidth(1000px);
+      .content{
+        padding-bottom:0;
+        background: $white;
+        position: relative;
+        margin-top:-2rem;
+        @media screen and (max-width:($mobile-width)){
+          margin-top:-1rem;
+          }
+        }
+
+      .heading-block-01{
+        width:100%;
+      }
+      .cta{
+        padding-bottom: 0;
+      }
+    }
+    @import "components/social-share";
+    .social{
+      align-items: center;
+      justify-content: center;
+      padding:3rem 0;
+      }
+    .slider{
+      position: relative;
+    }
+    .slick-arrow{
+        top:50%;
+        transform:translateY(-50%);
+        @media screen and (max-width:$mobile-width){
+                display: none;
+          }
+    }
+    .slick-next{
+      right:-(90/24)*1rem;
+    }
+    .slick-prev{
+      left:-(90/24)*1rem;
+    }
+    .slick-dotted.slick-slider{
+      margin:0;
+    }
+    .slick-dots{
+      bottom:-35px;
+    }
+
+  .videos{
+    > div{
+      padding:0;
+    }
+    @include contentWidth(750px);
+    @include gutter(1rem);
+    @import "components/video-player";
+  }
+
+
+  .schedule{
+    @include contentWidth(720px);
+    @include gutter(1rem);
+    margin-top:60px;
+    .title{
+      line-height: 1.5;
+    }
+      ul{
+        display: flex;
+        align-items:stretch;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        li{
+            width:30%;
+            margin:auto;
+            padding:2rem 0 0;
+            &:before{
+              content:' ';
+              display: block;
+              height:155px;
+              width:100%;
+              background: no-repeat center url(/assets/images/promotions/cfp/championship-game.png);
+            }
+            &.orange:before{
+              background-image: url(/assets/images/promotions/cfp/orange-bowl.png);
+            }
+            &.peach:before{
+              background-image: url(/assets/images/promotions/cfp/peach-bowl.png);
+            }
+            &.fiesta:before{
+              max-width:205px;
+              background-image: url(/assets/images/promotions/cfp/fiesta-bowl.png);
+              background-size:100%;
+            }
+            &.cotton:before{
+              background-image: url(/assets/images/promotions/cfp/cotton-bowl.png);
+            }
+            &.rose:before{
+              background-image: url(/assets/images/promotions/cfp/rose-bowl.png);
+            }
+            &.sugar:before{
+              background-image: url(/assets/images/promotions/cfp/sugar-bowl.png);
+            }
+            span{
+              display: block;
+              font-size: 18px;
+              line-height: 1.1em;
+              &.game{
+                  font-family: "open_sans_condensedbold";
+              }
+            }
+            @media screen and (max-width:($mobile-width)){
+                width:45%;
+            }
+        }
+      }
+    }
+  .newCan{
+    position: relative;
+    padding:60px 0;
+    background: #fff;
+    text-align: center;
+    .can{
+      max-width: 40%;
+    }
+
+
+    div.flex{
+    @include contentWidth(650px);
+      display: flex;
+      text-align: center;
+      @media screen and (max-width:($mobile-width)){
+        display: block;
+      }
+      >div{
+        padding-top:85px;
+        width:50%;
+        background: no-repeat top;
+        background-size:auto 60px;
+        margin:auto;
+        a{
+          text-transform: uppercase;
+          margin:1.8rem auto;
+          display: block;
+        }
+        &.coupon{
+          background-image:url('/assets/images/promotions/cfp/scissor.gif'); 
+        }
+        &.drizly{
+          background-image:url(/Assets/Images/svg/drizly.svg); 
+        }
+      }
+    }
+  }
+}

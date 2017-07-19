@@ -1,0 +1,121 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var AboutTout = require('./about');
+var BeerFinderTout = require('./beer-finder');
+var BeerRecipeTout = require('./beer-recipe');
+var BrewingTout = require('./brewing');
+var FaqTout = require('./faq');
+
+var ToutsLoader = function () {
+    function ToutsLoader() {
+        var _this = this;
+
+        _classCallCheck(this, ToutsLoader);
+
+        this.toutsClassesArray = [];
+        this.createToutClassesArray();
+        $(function () {
+            _this.scroller = new _scrollmagic2.default.Controller();
+            _this.createScenes();
+        });
+    }
+
+    _createClass(ToutsLoader, [{
+        key: 'createScenes',
+        value: function createScenes() {
+            var self = this;
+            var touts = self.toutsClassesArray;
+            var playedOnce = false;
+            var preloadScene = new _scrollmagic2.default.Scene({
+                triggerElement: '#bottom-touts',
+                duration: $("#bottom-touts").height(),
+                offset: -700
+            }).addTo(this.scroller);
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '#bottom-touts',
+                duration: $("#bottom-touts").height(),
+                offset: -100
+            }).addTo(this.scroller);
+
+            preloadScene.on("enter", function (event) {
+                var touts = self.toutsClassesArray;
+                for (var i in touts) {
+                    touts[i].create();
+                }
+            });
+            scene.on("enter", function (event) {
+                // console.log("======= PLAY TOUTS");
+                for (var i in touts) {
+                    touts[i].create(true);
+                    touts[i].playTimeline();
+                }
+            });
+            scene.on("leave", function (event) {
+                // console.log("======= PAUSE TOUTS");
+                for (var i in touts) {
+                    touts[i].pause();
+                }
+            });
+            scene.on("progress", function () {
+                // console.log("======= PROGRESS");
+                if (touts[0].canvasObj.isEnabled) {
+                    if (!playedOnce) {
+                        // console.log("play it...")
+                        for (var i in touts) {
+                            touts[i].playTimeline();
+                        }
+                        playedOnce = true;
+                    }
+                }
+            });
+        }
+    }, {
+        key: 'createToutClassesArray',
+        value: function createToutClassesArray() {
+            var self = this;
+            var touts = $('#bottom-touts .tout');
+            touts.each(function () {
+                var toutName = $(this).data('tout');
+                var toutClass;
+                switch (toutName) {
+                    case "about":
+                        toutClass = AboutTout;
+                        break;
+                    case "beerfinder":
+                        toutClass = BeerFinderTout;
+                        break;
+                    case "beerrecipe":
+                        toutClass = BeerRecipeTout;
+                        break;
+                    case "brewing":
+                        toutClass = BrewingTout;
+                        break;
+                    case "faq":
+                        toutClass = FaqTout;
+                        break;
+                }
+                self.toutsClassesArray.push(toutClass);
+            });
+        }
+    }]);
+
+    return ToutsLoader;
+}();
+
+exports.default = ToutsLoader;
+
+var toutsLoader = new ToutsLoader();

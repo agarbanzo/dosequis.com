@@ -1,0 +1,60 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+        value: true
+});
+
+exports.default = function (obj) {
+        var historySlider = $('.history-slider .slider');
+        var galleryNav = $('.gallery nav a');
+        historySlider.slick({
+                dots: false,
+                lazyLoad: 'ondemand',
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: 'true'
+        }).on('afterChange', function (ev, slick, currentSlide) {
+                highlightActive($('.gallery nav a[data-slide="' + currentSlide + '"]'));
+        }).on('beforeChange', function (ev, slick, currentSlide, nextSlide) {
+                highlightActive($('.gallery nav a[data-slide="' + nextSlide + '"]'));
+        });
+
+        galleryNav.on('click', function (e) {
+                e.preventDefault();
+                var slide = $(this).data('slide');
+                historySlider.slick('slickGoTo', slide);
+                highlightActive($(this));
+                _tracking2.default.trackEvent({
+                        category: 'historyPanel',
+                        label: e.currentTarget.text
+                });
+        });
+
+        historySlider.on('swipe', function (event, slick, direction) {
+                var index = $(event.currentTarget).find('.slick-current').data('slick-index');
+                _tracking2.default.trackEvent({
+                        action: 'swipe',
+                        category: "historyPanel",
+                        label: galleryNav.eq(index).text()
+                });
+        });
+
+        function highlightActive(el) {
+                galleryNav.removeClass('active');
+                el.addClass('active');
+        }
+};
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+require('scss/components/historyslider.scss');

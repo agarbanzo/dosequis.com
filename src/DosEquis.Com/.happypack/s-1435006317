@@ -1,0 +1,185 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+require('components/touts/touts');
+
+var _jumpnav = require('components/jumpnav/jumpnav');
+
+var _jumpnav2 = _interopRequireDefault(_jumpnav);
+
+require('../components/page-animations/page-animation-loader');
+
+var _goToScroll = require('utils/goToScroll');
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var lazyLoadImages = require('lazy-load-images');
+require('scss/pages/history.scss');
+
+var History = function () {
+    function History(selector) {
+        var _this = this;
+
+        _classCallCheck(this, History);
+
+        var self = this;
+        $(document).ready(function () {
+            _this.addUIListeners();
+            _this.addScrollController();
+            _this.addJumpnavScroll();
+            _this.addJumpNav();
+            _this.onRangeGalleryScroll();
+            lazyLoadImages.init();
+        });
+
+        $(window).on('load', function () {
+            _this.createGallery1890Slider();
+        });
+    }
+
+    _createClass(History, [{
+        key: 'addUIListeners',
+        value: function addUIListeners() {
+            $(".beerlink").on('click', function (e) {
+                e.preventDefault();
+                $(e.currentTarget).addClass('selected').siblings().removeClass('selected');
+                (0, _goToScroll.scrollTo)($(e.currentTarget).data("target"));
+                _tracking2.default.trackEvent({
+                    'category': $(e.currentTarget).data("category"),
+                    'label': $(e.currentTarget).data("label")
+                });
+                // this.stickyjumpnav.removeScrollListener();        
+            });
+        }
+    }, {
+        key: 'removeUIListeners',
+        value: function removeUIListeners() {
+            $(".jumpnav").eq(0).find(".jumplink").off('click');
+        }
+    }, {
+        key: 'createGallery1890Slider',
+        value: function createGallery1890Slider() {
+            var $gallery = $('.gallery-1890');
+            $gallery.slick({
+                dots: true,
+                infinite: true,
+                lazyLoad: 'ondemand'
+            });
+
+            var $buttons = $(".gallery-1890").find("button");
+
+            $buttons.on('click', function () {
+                var index = $(event.currentTarget).closest('.slick-slider').find('.slick-current').data('slick-index') + 1;
+                _tracking2.default.trackEvent({
+                    action: 'click',
+                    category: "gallery-1890",
+                    label: 'slide-' + index
+                });
+            });
+
+            $('.gallery-1890').on('swipe', function (event, slick, direction) {
+                var index = $(event.currentTarget).find('.slick-current').data('slick-index') + 1;
+                _tracking2.default.trackEvent({
+                    action: 'swipe',
+                    category: "gallery-1890",
+                    label: 'slide-' + index
+                });
+            });
+        }
+    }, {
+        key: 'addScrollController',
+        value: function addScrollController() {
+            this.scroller = new _scrollmagic2.default.Controller();
+        }
+    }, {
+        key: 'addJumpNav',
+        value: function addJumpNav() {
+            this.stickyjumpnav = new _jumpnav2.default({
+                el: '.jumpnav',
+                theme: 'light',
+                triggers: ['div#packaging-gallery', "div#timeline-section"]
+            });
+        }
+    }, {
+        key: 'addJumpnavScroll',
+        value: function addJumpnavScroll() {
+            var _this2 = this;
+
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '.jumptobeer',
+                triggerHook: 'onLeave',
+                duration: getElHeight
+            }).addTo(this.scroller);
+
+            scene.on("enter", function (event) {
+                _this2.stickyjumpnav.show();
+                _this2.removeUIListeners();
+            });
+
+            scene.on("leave", function (event) {
+                _this2.stickyjumpnav.hide();
+                _this2.addUIListeners();
+            });
+
+            function getElHeight() {
+                return $("#jump-link-start").height();
+            }
+        }
+    }, {
+        key: 'onRangeGalleryScroll',
+        value: function onRangeGalleryScroll() {
+            var _this3 = this;
+
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '#packaging-gallery',
+                triggerHook: 'onEnter'
+            }).addTo(this.scroller);
+
+            scene.on("enter", function (event) {
+                console.log('package linking enter');
+                _this3.addRangeGallery();
+            });
+
+            scene.on("leave", function (event) {
+                console.log('package linking leave');
+            });
+        }
+    }, {
+        key: 'addRangeGallery',
+        value: function addRangeGallery() {
+            require('scss/components/range-slider/range-slider');
+            require.ensure([], function (require) {
+                var myModule = require("./range-slide-gallery");
+                console.log(myModule);
+                myModule.init('#bottles');
+                $('.bottles').addClass('loaded');
+            }, "packaging-gallery");
+        }
+    }]);
+
+    return History;
+}();
+
+exports.default = History;
+
+
+var history = new History('.history');

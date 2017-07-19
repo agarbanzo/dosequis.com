@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Summer Adventure";
+    ViewBag.Location = "promotions/summer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyClass = "summer lightNav";
+    ViewBag.ShareImage = "/Assets/Images/promotions/summer/share_summer.jpg?3247";
+    ViewBag.MetaDescription = "Taste adventure all summer with Dos Equis and friends. As you embark on a summer filled with legendary experiences, do so with some crisp, cold Dos Equis to elevate such occasions.";
+}
+@section PageSpecificHeader {
+    <meta name="keywords" content="summer adventure" />
+}
+<section class="section top hero">
+    <div class="heading-block-01 darkText">
+        <h2 class="headline-01">summer adventure</h2>
+        <p class="heading-copy">Taste adventure all summer with Dos Equis and friends. As you embark on a summer filled with legendary experiences, do so with some crisp, cold Dos Equis to elevate such occasions.</p>
+    </div>
+    <div id="crosses">
+      <div id="destinations">
+        <div class="destination"></div>
+        <div class="destination"></div>
+        <div class="destination"></div>
+      </div>
+      <div id="frame"></div>
+    </div>
+</section>
+<section class="section main-cta">
+    <div class="content">
+        <div class="heading-block-01">
+            <h2 class="headline-02">enter for a chance to win</h2>
+            <p class="heading-copy">This summer, enter for a chance to win an extraordinary grand prize trip for two to your choice of Riot Fest in Chicago (9/15 - 9/17) or the Albuquerque Balloon Festival (10/7 - 10/15). Other instant prizes are also up for grabs, including Dos Equis summer can buckets &#8211; perfect for any summer celebration.</p>
+
+            <span class="cta">
+                <a href="http://linkto.us/xxbucket" target="_blank" data-ga='{"category":"summer"}'>enter to win</a>
+            </span>
+            <div class="social">
+                <a class="fb" href="#" data-fbShare=' {"title":"Dos Equis | Summer Adventure","copy":"Taste adventure all summer with Dos Equis and friends. As you embark on a summer filled with legendary experiences, do so with some crisp, cold Dos Equis to elevate such occasions.","img":"/Assets/Images/promotions/summer/share_summer.jpg"} ' data-ga='{"category":"summer","label":"facebook-share"}'><img src="/Assets/Images/svg/fb.svg" /></a>
+                <a class="tw" href="#" data-twShare=' {"text":"Taste adventure all summer and embark on legendary experiences with some crisp, cold Dos Equis." } ' data-ga='{"category":"summer","label":"twitter-share"}'><img src="/Assets/Images/svg/twitter.svg" /></a>
+            </div>
+
+            <div id="bucket">
+              <img src="/Assets/Images/promotions/summer/summer-bucket.png" width="14" height="1" alt="Bucket of Dos Equis" />
+            </div>
+
+            <p class="small">SWEEPSTAKES DETAILS: NO PURCHASE NECESSARY TO ENTER OR WIN. PURCHASING A PRODUCT WILL NOT IMPROVE YOUR CHANCES OF WINNING. SWEEPSTAKES IS OPEN ONLY TO LEGAL RESIDENTS OF THE 50 UNITED STATES AND THE DISTRICT OF COLUMBIA WHO ARE 21 OR OLDER AS OF DATE OF ENTRY. SWEEPSTAKES IS GOVERNED EXCLUSIVELY BY THE LAWS OF THE U.S. Void wherever prohibited or restricted by law. The Sweepstakes begins at 12:01 a.m. Eastern Time (ET) on 5/1/17 and ends at 11:59 p.m. ET on 7/9/17. Multiple entry deadlines apply. To enter, begin by texting "XXBUCKET" to 88500. Upon receiving an automatic bounce back link, click on the link and follow the on-screen instructions to enter your 8-digit date of birth, the state code for your state of residence (e.g., MM/DD/YYYY-AL) and your phone number. Then follow the instructions to complete the mobile form and submit your entry. Carrier’s standard messaging and data rates apply. OR for complete prize descriptions, entry deadlines, full terms and conditions, and to submit an internet entry for free, go directly to <a href="http://linkto.us/xxbucket" target="_blank" data-ga='{"category":"summer"}' >http://linkto.us/xxbucket</a> and follow the on-screen instructions. Sponsor: Cervezas Mexicanas, White Plains, NY.
+            </p>
+        </div>
+        <div class="links">
+          <div class="flex">
+              <div class="coupon">
+                  <p>Save on Dos Equis and <br />more this summer.</p>
+                  <a href="http://dosequissummer17.com" target="_blank" data-ga='{"category":"summer"}'>Get Coupon</a>
+              </div>
+              <div class="drizly">
+                  <p>Order Dos Equis for your <br />next summer adventure.</p>
+                  <a href="http://store.dosequis.com/" data-ga='{"category":"summer"}' onClick="fbq('track', 'Search');">Order now</a>
+              </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="bottom-touts" class="section toutsWrapper">
+    <div class="touts contentMax whiteText animation-element">
+        @Html.Partial("Touts/_BeerRecipe")
+        @Html.Partial("Touts/_BeerFinder")
+    </div>
+</section>

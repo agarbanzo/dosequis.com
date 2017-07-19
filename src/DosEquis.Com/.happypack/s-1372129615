@@ -1,0 +1,106 @@
+"use strict";
+
+require("babel-polyfill");
+
+var _header = require("components/header/header");
+
+var _header2 = _interopRequireDefault(_header);
+
+var _footer = require("components/footer");
+
+var _footer2 = _interopRequireDefault(_footer);
+
+var _agegate = require("./agegate/agegate");
+
+var _agegate2 = _interopRequireDefault(_agegate);
+
+var _cookies = require("utils/cookies");
+
+var _cookies2 = _interopRequireDefault(_cookies);
+
+var _popUp = require("./components/pop-up");
+
+var _popUp2 = _interopRequireDefault(_popUp);
+
+var _doubleArrowButton = require("components/doubleArrowButton");
+
+var _doubleArrowButton2 = _interopRequireDefault(_doubleArrowButton);
+
+require("scss/main");
+
+var _tracking = require("services/google-analytics/tracking");
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+require('events-dispatcher');
+
+
+window.dispatcher = new EventsDispatcher();
+
+var header = new _header2.default('header');
+var footer = new _footer2.default('footer');
+_tracking2.default.init();
+$(document).ready(function () {
+  this.scrolltop = new _doubleArrowButton2.default({ el: 'body',
+    type: 'fixed',
+    ga: {
+      category: 'backtotop',
+      label: 'scrollButton'
+    }
+  });
+});
+// POPUP: COMMENT OUT IN CASE THEY EVER REMOVE IT
+/*let html = '<p><strong>Our Terms of Use and Privacy Policy have changed.</strong> Please see our revised Terms of Use <a href="/terms-of-use" data-ga=\'{"label":"terms of use", "category":"newterms popup"}\' >here</a> and our revised Privacy Policy <a href="/privacy-policy" data-ga=\'{"label":"privacy policy", "category":"newterms popup"}\' >here</a>.</p>';
+ if (!getCookie('newterms')){
+   let popup = new PopUp({
+					id: 'newterms',
+          message: html
+			});
+ }*/
+// END POPUP
+if ((0, _cookies.getCookie)('legalage') != 'true') {
+  var agegate = new _agegate2.default('.agegate');
+} else {
+  $('body').removeClass('agegate');
+  _tracking2.default.trackEvent({
+    label: 'user bypassed agegate',
+    category: 'agegate'
+  });
+}
+
+//===================global beefinder tout listener
+
+$('.locatorCta').on('click', function (e) {
+  e.preventDefault();
+  gotoBeerPage();
+});
+
+$('.zipfield3').on("keyup", function (e) {
+  e.preventDefault();
+  if (e.keyCode == 13) {
+    gotoBeerPage();
+  }
+});
+
+$("#zipcode3").keypress(function (e) {
+  //if the letter is not digit then display error and don't type anything
+  if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+    //display error message
+    $("#errmsg").html("Digits Only").show().fadeOut("slow");
+    return false;
+  }
+});
+
+function gotoBeerPage() {
+  var zip = $('#zipcode3').val();
+  if (zip == '' || zip == 'ZIPCODE') {
+    window.location.assign("/beer-finder");
+  } else {
+    console.log('user added a zipcode');
+    window.location.assign('beer-finder?zipcode=' + zip);
+  }
+}
+
+module.exports = "Common";

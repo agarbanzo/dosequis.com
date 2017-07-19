@@ -1,0 +1,45 @@
+@import "config/vars";
+@import "config/global";
+
+    .fixed-links{
+        background-color:#f8f8f8;
+        position:fixed;
+        display:none;
+        top: $navHeight;
+        width:100%;
+        height: 50px;
+        text-align: center;
+        padding-top:20px;
+        z-index: 15;
+        box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
+
+        a{
+            margin:0 20px;
+            padding:5px 0;
+            display:inline;
+            color:black;
+            text-decoration: none;
+
+            font-size: 22px;
+
+            //  &:hover{
+            //     color:$lightgold;
+            //     border-bottom:4px solid $lightgold;
+            // }
+
+            // &.selected{
+            //     color:$lightgold;
+            //     border-bottom:4px solid $lightgold;
+            // }
+        }
+
+         @media all and (min-width:767px) {
+           height: 59px;
+        }
+    }
+
+
+    .fixed-links.show{
+        display:block;
+        opacity:1;
+    }

@@ -1,0 +1,252 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _throttleDebounce = require('utils/throttle-debounce');
+
+var _scrollToOffset = require('utils/scrollToOffset');
+
+var _map = require('./map');
+
+var _youtubePlayer = require('youtube-player');
+
+var _youtubePlayer2 = _interopRequireDefault(_youtubePlayer);
+
+require('services/social-sharing');
+
+require('components/touts/touts');
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+var _loader = require('components/loader/loader');
+
+var _loader2 = _interopRequireDefault(_loader);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+require('scss/pages/mim.scss');
+
+
+var mobileWidth = function mobileWidth() {
+  return $(window).width() <= require('utils/globals.json').dimensions.mobile;
+};
+
+require('jquery.transit');
+
+var _mimLocations = require('./mimLocations.json');
+
+var Mim = function () {
+  function Mim() {
+    var _this2 = this;
+
+    _classCallCheck(this, Mim);
+
+    this.legends = [];
+    (0, _map.map)();
+    this.currActive = 0;
+    $(function () {
+      //jquery ready
+      _this2.mimLocations();
+      _this2.scrollListener();
+      window.dispatcher.on('listScroll', _this2.listScroll, _this2);
+      window.dispatcher.on('listJump', _this2.listJump, _this2);
+
+      window.dispatcher.on('playVideo', _this2.playVideo, _this2);
+
+      // fbShare();
+      // twShare();
+    }); //ready
+
+
+    $(window).trigger('scroll');
+
+    $(window).on('resize', (0, _throttleDebounce.throttle)(function () {
+      if ($('.event.active').length < 1) return;
+      //console.log($('.event.active').length);
+      var id = $('.event.active')[0].id;
+      window.dispatcher.trigger('marker:' + id);
+      _this2.listJump(id);
+    }, 150));
+  } //constructor
+
+
+  _createClass(Mim, [{
+    key: 'playVideo',
+    value: function playVideo(legendID) {
+      var _this = this;
+      function callback() {
+        _this.legends[legendID].player.playVideo();
+      }
+      _this.legends[legendID].player.playVideo();
+      this.listScroll(legendID, callback);
+      this.legends[legendID].vidCover.transition({ 'opacity': 0 }).transition({ 'height': 0 });
+    }
+  }, {
+    key: 'shareFB',
+    value: function shareFB(item) {
+      var url = document.location.href;
+      var base = 'http://dosequisnew.dosequis.dev.tech.ny.havasww.com';
+      FB.ui({
+        method: 'share',
+        href: base,
+        title: 'Most Interesting Man in ' + item.title,
+        description: item.description,
+        hashtag: 'MostInterestingMan',
+        picture: base + item.social.fb.img
+      }, function (response) {});
+    }
+  }, {
+    key: 'scrollListener',
+    value: function scrollListener() {
+      var _this3 = this;
+
+      $(window).on('scroll', function () {
+        _this3.activeEl($('li.event'));
+      });
+    }
+  }, {
+    key: 'activeEl',
+    value: function activeEl(el) {
+      var windowHeight = $(window).height(),
+          gridTop = mobileWidth() ? $('.mapWrap').height() : $('#main-navigation .header-container').height();
+      $('li.event').each(function (i, e) {
+        var feat = $(e).find('.feature');
+        var thisTop = feat.offset().top + feat.height() / 2 - $(window).scrollTop();
+        if (thisTop > gridTop) {
+          $(e).addClass('active');
+        } else {
+          $(e).removeClass('active');
+        }
+      });
+      $('li.event.active').not($('li.event.active').eq(0)).removeClass('active');
+      this.newActive = $('li.event.active').index();
+      if (this.currActive != this.newActive) {
+        this.currActive = this.newActive;
+        window.dispatcher.trigger('stopvid');
+      };
+      if ($('li.event.active').length < 1) return;
+      window.dispatcher.trigger('marker:' + $('li.event.active')[0].id);
+    }
+  }, {
+    key: 'listScroll',
+    value: function listScroll(legendID, callback) {
+      var offset = $('#main-navigation .header-container').height();
+      if (mobileWidth()) offset = $('.mapWrap').height();
+      (0, _scrollToOffset.scrollToOffset)($('#' + legendID), offset, callback);
+    }
+  }, {
+    key: 'listJump',
+    value: function listJump(legendID) {
+      var legendID = $('#' + legendID);
+      var offset = $('#main-navigation .header-container').height();
+      if (mobileWidth()) offset = $('.mapWrap').height();
+      (0, _scrollToOffset.jumpToOffset)(legendID, offset);
+    }
+  }, {
+    key: 'mimLocations',
+    value: function mimLocations() {
+      var _this4 = this;
+
+      var template = require('./template/item.html');
+      var list = $('.hero .content ul');
+      $(_mimLocations).each(function (i, el) {
+        el.index = i;
+        var html = $(template(el));
+        var vidWrap = html.find('.video');
+        var vidCover = html.find('.cover');
+        list.append(html);
+        var mimLoader = new _loader2.default(vidCover);
+        mimLoader.show();
+        html.find('.more').on('click', function (ev) {
+          if (html.hasClass('open')) {
+            html.removeClass('open');
+            _tracking2.default.trackEvent({
+              category: "mim-" + el.title,
+              label: 'close'
+            });
+          } else {
+            _this4.showMore(html, el.id);
+            _this4.listScroll(el.id);
+            _tracking2.default.trackEvent({
+              category: "mim-" + el.title,
+              label: 'more info'
+            });
+            //       dispatcher.trigger('marker:'+el.id);
+          }
+        });
+        html.find('h2').on('click', function (ev) {
+          _this4.showMore(html, el.id);
+          _this4.listScroll(el.id);
+          _tracking2.default.trackEvent({
+            category: "mim",
+            label: 'header-' + el.title
+          });
+          //dispatcher.trigger('marker:'+el.id);
+        });
+        vidCover.on('click', function (ev) {
+          html.addClass('play');
+          window.dispatcher.trigger('stopvid');
+          window.dispatcher.trigger('playVideo', el.id, _this4);
+          _tracking2.default.trackEvent({
+            category: "mim-" + el.title,
+            label: 'playVideo'
+          });
+        });
+        if (i == 0) html.addClass('active');
+        window.dispatcher.on('openItem-' + el.id, function () {
+          _this4.showMore(html);
+        });
+        if (!el.videoId) return;
+        var player = (0, _youtubePlayer2.default)('video-' + el.id, {
+          playerVars: { 'autoplay': 0, 'controls': 1 }
+        });
+        // 'loadVideoById' is queued until the player is ready to receive API calls.
+        player.loadVideoById(el.videoId).then(function (v) {
+          vidWrap.addClass('ready');
+          console.log(mimLoader);
+          mimLoader.hide();
+          window.dispatcher.on('stopvid', stopVid);
+        });
+        player.stopVideo();
+        player.on('stateChange', function (event) {
+          if (event.data == 0) {
+            console.log('over');
+            vidCover.css('height', '100%').transition({ 'opacity': 1 });
+          }
+        });
+
+        function stopVid() {
+          player.stopVideo();
+          vidCover.css('height', '100%').transition({ 'opacity': 1 });
+        }
+
+        el.vidCover = vidCover;
+        el.player = player;
+
+        _this4.legends[el.id] = el;
+      }); //each
+
+      $(window).trigger('scroll');
+    }
+  }, {
+    key: 'showMore',
+    value: function showMore(ev) {
+      var item = $(ev);
+      item.addClass('open');
+    }
+  }]);
+
+  return Mim;
+}();
+
+exports.default = Mim;
+
+var mim = new Mim();

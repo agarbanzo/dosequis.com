@@ -1,0 +1,60 @@
+
+.pin::before {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  content: '';
+  border: 5px solid #ee3124;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+}
+
+.pulse {
+  position: absolute;
+  margin-top: -5px;
+  margin-left: -5px;
+  transform: rotateX(0);
+}
+
+.pulse::after {
+  display: block;
+  width: 20px;
+  height: 20px;
+  content: '';
+  animation: pulsate 2.5s ease-out;
+  animation-delay: 1.1s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 6px 3px #c7b87e;
+  transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}

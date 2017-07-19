@@ -1,0 +1,162 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-arrow-gold-down {
+  background-image: url(~sprite.png);
+  background-position: -80px -207px;
+  width: 46px;
+  height: 25px;
+}
+.icon-arrow-gold-up {
+  background-image: url(~sprite.png);
+  background-position: -34px -207px;
+  width: 46px;
+  height: 25px;
+}
+.icon-double-arrows {
+  background-image: url(~sprite.png);
+  background-position: -271px -185px;
+  width: 20px;
+  height: 22px;
+}
+.icon-facebook-footer {
+  background-image: url(~sprite.png);
+  background-position: 0px -207px;
+  width: 34px;
+  height: 36px;
+}
+.icon-feed-facebook {
+  background-image: url(~sprite.png);
+  background-position: -256px -90px;
+  width: 10px;
+  height: 19px;
+}
+.icon-feed-instagram {
+  background-image: url(~sprite.png);
+  background-position: -271px -207px;
+  width: 18px;
+  height: 18px;
+}
+.icon-feed-twitter {
+  background-image: url(~sprite.png);
+  background-position: -271px -225px;
+  width: 18px;
+  height: 15px;
+}
+.icon-icon-arrow-black-next {
+  background-image: url(~sprite.png);
+  background-position: -271px -93px;
+  width: 25px;
+  height: 46px;
+}
+.icon-icon-arrow-black-prev {
+  background-image: url(~sprite.png);
+  background-position: -271px -47px;
+  width: 25px;
+  height: 46px;
+}
+.icon-icon-arrow-white-next {
+  background-image: url(~sprite.png);
+  background-position: -271px 0px;
+  width: 26px;
+  height: 47px;
+}
+.icon-icon-arrow-white-prev {
+  background-image: url(~sprite.png);
+  background-position: -271px -139px;
+  width: 25px;
+  height: 46px;
+}
+.icon-inst {
+  background-image: url(~sprite.png);
+  background-position: 0px -147px;
+  width: 60px;
+  height: 60px;
+}
+.icon-instagram-footer {
+  background-image: url(~sprite.png);
+  background-position: -226px -170px;
+  width: 36px;
+  height: 36px;
+}
+.icon-list-selected {
+  background-image: url(~sprite.png);
+  background-position: -226px 0px;
+  width: 45px;
+  height: 45px;
+}
+.icon-listunselected {
+  background-image: url(~sprite.png);
+  background-position: -150px -147px;
+  width: 45px;
+  height: 45px;
+}
+.icon-logo-agegate {
+  background-image: url(~sprite.png);
+  background-position: -87px 0px;
+  width: 139px;
+  height: 89px;
+}
+.icon-logo {
+  background-image: url(~sprite.png);
+  background-position: -87px -89px;
+  width: 68px;
+  height: 42px;
+}
+.icon-mapselected {
+  background-image: url(~sprite.png);
+  background-position: -60px -147px;
+  width: 45px;
+  height: 45px;
+}
+.icon-mapunselected {
+  background-image: url(~sprite.png);
+  background-position: -105px -147px;
+  width: 45px;
+  height: 45px;
+}
+.icon-mapview {
+  background-image: url(~sprite.png);
+  background-position: -226px -45px;
+  width: 45px;
+  height: 45px;
+}
+.icon-pin {
+  background-image: url(~sprite.png);
+  background-position: 0px 0px;
+  width: 87px;
+  height: 147px;
+}
+.icon-searchbtn {
+  background-image: url(~sprite.png);
+  background-position: -226px -90px;
+  width: 30px;
+  height: 46px;
+}
+.icon-twitter-footer {
+  background-image: url(~sprite.png);
+  background-position: -226px -136px;
+  width: 40px;
+  height: 34px;
+}
+.icon-youtube {
+  background-image: url(~sprite.png);
+  background-position: -155px -89px;
+  width: 48px;
+  height: 36px;
+}

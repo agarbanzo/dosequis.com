@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfBeerPack xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BeerPack>
+    <Id>cervezas-de-mexico</Id>
+    <Name>Cervezas De Mexico</Name>
+    <Description>Parties are better with friends. The Cervezas de Mexico variety pack combines the Dos Equis varieties you know and love (Lager and Ambar) with Sol and Tecate Light for a cerveza tour of Mexico.</Description>
+    <Beers>
+      <Beer>
+        <Name>Tecate Light</Name>
+        <Id>Tecate</Id>
+        <Image>tecate.png</Image>
+        <Ingredients>
+          <string>Water</string>
+          <string>Malted barley</string>
+          <string>Hops</string>
+          <string>Corn starch / syrup</string>
+        </Ingredients>
+        <Calories>110</Calories>
+        <Fat>0g</Fat>
+        <Carbs>7g</Carbs>
+        <Abv>3.9%</Abv>
+        <Ibu></Ibu>
+      </Beer>
+      <Beer>
+        <Name>Dos Equis Lager Especial</Name>
+        <Id>Lager</Id>
+        <Image>lager.png</Image>
+        <Ingredients>
+          <string>Water</string>
+          <string>Malted barley</string>
+          <string>Hops</string>
+          <string>Corn starch / syrup</string>
+        </Ingredients>
+        <Calories>131</Calories>
+        <Fat>0g</Fat>
+        <Carbs>11g</Carbs>
+        <Abv>4.2%</Abv>
+        <Ibu>10</Ibu>
+      </Beer>
+      <Beer>
+        <Name>Sol</Name>
+        <Id>Sol</Id>
+        <Image>sol.png</Image>
+        <Ingredients>
+          <string>Water</string>
+          <string>Malted barley</string>
+          <string>Hops</string>
+          <string>Corn starch / syrup</string>
+        </Ingredients>
+        <Calories>145</Calories>
+        <Fat>0g</Fat>
+        <Carbs>14g</Carbs>
+        <Abv>4.2%</Abv>
+        <Ibu></Ibu>
+      </Beer>
+         <Beer>
+        <Name>Dos Equis Ambar</Name>
+        <Image>ambar.png</Image>
+        <Id>Ambar</Id>
+        <Ingredients>
+          <string>Water</string>
+          <string>Malted barley</string>
+          <string>Hops</string>
+          <string>Corn starch / syrup</string>
+        </Ingredients>
+        <Calories>146</Calories>
+        <Fat>0g</Fat>
+        <Carbs>14g</Carbs>
+        <Abv>4.7%</Abv>
+        <Ibu>12</Ibu>
+      </Beer>
+    </Beers>
+  </BeerPack>
+</ArrayOfBeerPack>

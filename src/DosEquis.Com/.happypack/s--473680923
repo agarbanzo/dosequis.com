@@ -1,0 +1,72 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+//import slick from 'slick-carousel';
+
+
+//import YouTubePlayer from 'youtube-player';
+
+
+require('scss/pages/promotions/summer.scss');
+
+require('components/touts/touts');
+
+require('services/social-sharing');
+
+var _helpers = require('utils/helpers');
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+//import Loader from "components/loader/loader";
+
+//import isMobile from 'ismobilejs';
+
+require('jquery.transit');
+
+var imageEls = void 0,
+    imgIntvl = void 0,
+    currentImgId = -1;
+
+var Summer = function () {
+  function Summer(selector) {
+    _classCallCheck(this, Summer);
+
+    var self = this;
+    imageEls = $('.destination');
+    this.doImageFades();
+  }
+
+  _createClass(Summer, [{
+    key: 'doImageFades',
+    value: function doImageFades() {
+      var self = this;
+      //console.log('currentImgId', currentImgId)
+      currentImgId = currentImgId === 2 ? 0 : currentImgId + 1;
+      var i = imageEls.length;
+      while (i--) {
+        $(imageEls[i]).css({ opacity: i === currentImgId ? 1 : 0 });
+      }
+      setTimeout(function () {
+        self.doImageFades();
+      }, 5000);
+    }
+  }]);
+
+  return Summer;
+}();
+
+exports.default = Summer;
+
+
+var summer = new Summer();

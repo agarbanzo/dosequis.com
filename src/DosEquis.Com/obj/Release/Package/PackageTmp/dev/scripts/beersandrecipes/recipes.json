@@ -1,0 +1,47 @@
+{
+       "dos-a-rita":{
+        "id":"dosarita",
+        "el":"#dosarita",
+        "type":"recipe",
+        "title":"DOS-A-RITA",
+        "bg":"/Assets/Images/beersandrecipes/bg_dosarita.jpg",
+        "product":"/Assets/Images/beersandrecipes/dos-a-rita/product.png",
+        "copy":"Some moments in life call for beer. Some call for a margarita.",
+        "cta":"see recipe",
+        "link":"/beers-and-recipes/dos-a-rita"
+    },
+    "michelada":{
+        "id":"michelada",
+        "el":"#michelada",
+        "type":"recipe",
+        "title":"dos equis michelada",
+        "bg":"/Assets/Images/beersandrecipes/bg_michelada.jpg",
+        "product":"/Assets/Images/beersandrecipes/michelada/product.png",
+        "copy":"A drink so legendary, it requires three sauces.",
+        "cta":"see recipe",
+        "link":"/beers-and-recipes/michelada"
+
+    },
+    "dos-sidra":{
+        "id":"dos-sidra",
+        "el":"#sidra",
+        "title":"dos sidra",
+        "type":"recipe",
+        "bg":"/Assets/Images/beersandrecipes/bg_sidra.jpg",
+        "product":"/Assets/Images/beersandrecipes/dos-sidra/product.png",
+        "copy":"Hard cider meets a few interesting friends in a pint glass.",
+        "cta":"see recipe",
+        "link":"/beers-and-recipes/dos-sidra"
+    },
+    "dos-a-stormy":{
+        "id":"dos-a-stormy",
+        "el":"#stormy",
+        "type":"recipe",
+        "title":"DOS-A-STORMY",
+        "bg":"/Assets/Images/beersandrecipes/bg_dosastormy.jpg",
+        "product":"/Assets/Images/beersandrecipes/dos-a-stormy/product.png",
+        "copy":"A beloved cocktail gets an Ambar twist.",
+        "cta":"see recipe",
+        "link":"/beers-and-recipes/dos-a-stormy"
+    }
+}

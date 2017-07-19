@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Spice up your Cinco";
+    ViewBag.Location = "promotions/cinco";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyClass = "cinco lightBg";
+    ViewBag.ShareImage = "/assets/images/promotions/cinco/share_cinco.jpg?3247";
+    ViewBag.MetaDescription = "This year, spice up your Cinco with some intrigue and - of course - Dos Equis.";
+}
+@section PageSpecificHeader {
+    <meta name="keywords" content="spice up your cinco" />
+}
+<section class="section top hero">
+    <div class="heading-block-01">
+        <h2 class="headline-01">spice up your cinco</h2>
+        <p class="heading-copy">Once a year, an extraordinary celebration transpires. That celebration is Cinco de Mayo. This year, spice up your fiesta with some intrigue and &#8212; of course &#8212; Dos Equis.</p>
+    </div>
+</section>
+<section class="section main-cta">
+    <div class="content">
+        <div class="peppers">
+        </div>
+        <div class="heading-block-01">
+            <h2 class="headline-02">enter for a chance to win</h2>
+            <p class="heading-copy">This Cinco de Mayo, enter for a chance to win an extraordinary journey to Mexico and a tour of the Dos Equis brewery.</p>
+
+            <span class="cta">
+                <a href="http://lim.bz/dosxx/xxcinco" target="_blank" data-ga='{"category":"cinco"}'>enter to win</a>
+            </span>
+            <div class="social">
+                <a class="fb" href="#" data-fbShare=' {"title":"Dos Equis | Spice Up Your Cinco","copy":"Once a year, an extraordinary celebration transpires. That celebration is Cinco de Mayo. This year, spice up your fiesta with some intrigue and &#8212; of course &#8212; Dos Equis.","img":"/assets/images/promotions/cinco/share_cinco.jpg"} ' data-ga='{"category":"cinco","label":"facebook-share"}'><img src="/assets/images/svg/fb.svg" /></a>
+                <a class="tw" href="#" data-twShare=' {"text":"This year, spice up your fiesta with some intrigue and &#8212; of course &#8212; Dos Equis." } ' data-ga='{"category":"cinco","label":"twitter-share"}'><img src="/assets/images/svg/twitter.svg" /></a>
+            </div>
+            <p class="small">NO PURCHASE NECESSARY TO ENTER OR WIN. PURCHASING A PRODUCT WILL NOT IMPROVE YOUR CHANCES OF WINNING. PROMOTION IS OPEN ONLY TO LEGAL RESIDENTS OF THE 50 UNITED STATES AND THE DISTRICT OF COLUMBIA WHO ARE 21 OR OLDER AS OF DATE OF ENTRY. THIS PROMOTION IS GOVERNED EXCLUSIVELY BY THE LAWS OF THE U.S. VOID WHEREVER PROHIBITED OR RESTRICTED BY LAW. Promotion begins at 12:01 a.m. Eastern Time (ET) on 3/15/17 and ends at 11:59 p.m. ET on 5/15/17. Entry deadline for Grand Prize is 11:59 p.m. ET on 5/15/17. Entry deadline for all other prizes is 11:59 p.m. ET on 5/1/17. For information on the various methods of entry, for prize descriptions, and for full terms and conditions, please visit <a href="http://lim.bz/dosxx/xxcinco/" target="_blank" data-ga='{"category":"cinco"}'>http://lim.bz/dosxx/xxcinco/</a>. Sponsor: Cervezas Mexicanas, White Plains, NY.</p>
+        </div>
+        <div class="links">
+          <div class="flex">
+              <div class="save-coupon">
+                  <p class="coupon-desktop">View on mobile to <br />save on Dos Equis</p>
+                  <div class="coupon-mobile">
+                    <p>Save on Dos Equis and <br />more this Cinco de Mayo.</p>
+                    <a href="http://DosEquisCinco2017.com" target="_blank" data-ga='{"category":"cinco"}'>Get Coupon</a>
+                  </div>
+              </div>
+              <div class="drizly">
+                  <p>Order Dos Equis for your <br />Cinco de Mayo fiesta.</p>
+                  <a href="http://store.dosequis.com/" data-ga='{"category":"cinco"}' onClick="fbq('track', 'Search');">Order now</a>
+              </div>
+          </div>
+        </div>
+    </div>
+</section>
+<section class="section videos-wrapper contentMax">
+  <div class="videos">
+    <div class="heading-block-03 content contentMax">
+        <h4 class="headline-04 title"><strong>spice up your cinco</strong></h4>
+        <divider></divider>
+    </div>
+    <div class="slider">
+        <div class="feature  video-player">
+            <div class="player" id="video-1" data-vidid="C_1aiMfproU"></div>
+            <div class="cover">
+                <img src="/assets/images/promotions/cinco/video-cinco.jpg" />
+                <span class="play">
+                    <svg class="video-overlay-play-button" viewBox="0 0 200 200" alt="Play video">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff"></circle>
+                        <polygon points="70, 55 70, 145 145, 100" fill="#fff"></polygon>
+                    </svg>
+                </span>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section id="bottom-touts" class="section toutsWrapper">
+    <div class="touts contentMax whiteText animation-element">
+        @Html.Partial("Touts/_BeerRecipe")
+        @Html.Partial("Touts/_BeerFinder")
+    </div>
+</section>

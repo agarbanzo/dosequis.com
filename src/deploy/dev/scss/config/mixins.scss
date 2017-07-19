@@ -1,0 +1,45 @@
+@mixin contentWidth($size:1330px){
+    max-width:$size; 
+    width:100%;
+    margin:auto;
+}
+@mixin gutter($width:12.5%){
+    padding-left:$width;
+    padding-right:$width;
+}
+
+
+
+@mixin cochin{
+  	font-family: "Cochin";
+  	text-transform: uppercase;
+    span{
+      text-transform: none;
+    }
+}
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before{
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.sixteen-nine {
+ // @include aspect-ratio(16,9);  
+}
+
+
+
+

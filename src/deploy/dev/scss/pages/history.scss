@@ -1,0 +1,320 @@
+@import "config/vars";
+@import "config/global";
+@import '../components/slick';
+@import '../components/slick-theme';
+@import '../components/touts';
+@import 'components/enjoyResponsibly';
+
+//===========================VARS================
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before{
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.sixteen-nine {
+    border:2px solid red;
+  @include aspect-ratio(16,9);  
+}
+
+.history {
+    background-color: #f8f8f8;
+    width: 100vw;
+    text-align: center;
+
+    a {
+        //color: #fff;
+    }
+    //================fixed jump nav
+
+
+    .heading-block-01{
+        padding:0;
+       @include contentWidth(800px);
+        @include gutter(2rem);
+    }
+
+     .heading-copy{
+       //max-width:70%;
+       @include contentWidth(800px);
+
+       @media all and (min-width:$mobile-width) {
+          //  max-width:50%;
+        }
+     } 
+
+    .canvasholder {
+        padding:0 50px;
+        .canvas-full {
+            padding-top: 20px;
+            // width: 100%;
+            width: auto;
+            height: 50vh;
+            max-width: 80%;
+            // max-width: 500px;
+            @media all and (max-width: $mobile-width) {
+                height: auto;
+                max-width: 100%;
+                // width: auto;
+            }
+        }
+     }
+
+    .jump-nav {
+        padding-bottom:0;
+        .jumptobeer{
+            padding-bottom:20px;
+        }
+        
+        .head {
+            //font-size: 0.8em;
+            font-size: 22px;
+        }
+        .nav-container {
+            padding-top: 10px;
+            a {
+                color: #000;
+                text-decoration: none;
+                display: block; 
+                font-size: 22px;
+            }
+            .lft {
+                display: inline-block;
+                padding-right: 10px;
+                vertical-align: top;
+            }
+            .ctr {
+                display: inline-block;
+                width: 1px;
+                height: 66px;
+                background-color: #000;
+            }
+            .rt {
+                vertical-align: top;
+                display: inline-block;
+                padding-left: 10px;
+            }
+            span {
+                display: block;
+            }
+            img {
+                width: 1.2em;
+                padding-top: 10px;
+            }
+        }
+    }
+    #timeline-section{
+        padding-top:50px;
+    }
+
+    .gallery-1890 {
+        width: 100%;
+        max-width: 630px;
+        margin: 0 auto 90px auto;
+        // margin-top: 50px;
+        .slick-next,.slick-prev{
+            width: 23px;
+            height: 40px;
+            background: url(/Assets/Images/svg/arrow.svg) no-repeat;
+        }
+        .slick-next {
+            right: -50px;
+        }
+        .slick-prev {
+            left: -50px;
+            transform: scaleX(-1);
+        }
+        .slick-dots {
+            bottom: -38px;
+            li {
+                margin: 0 3px;
+            }
+            .slick-active {
+                button {
+                    background: black;
+                    // opacity: 1;
+                }
+                :before {
+                    opacity: 0;
+                    background: #000;
+                }
+            }
+            button {
+                width: 14px;
+                height: 14px;
+                background: transparent;
+                border: 1px solid black;
+            }
+        }
+    }
+
+    .date-container {
+        .date {
+            @extend .cochin;
+            color: $lightgold;
+        }
+        p {
+            margin: 5px auto 20px auto;
+            //max-width: 630px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .vertical-line {
+        height: 45px;
+        width: 1px;
+        margin: 40px auto;
+        background-color: #000;
+    }
+     #jump-link-start{
+            padding:0;
+        }
+        #jump-link-end{
+            padding:0;
+        }
+
+    #packaging-gallery{
+        min-height: 500px;
+        padding-top:50px;
+    }
+
+
+    .bottles{
+        padding-bottom: 0;
+        background: white;
+        transition: opacity 1s ease-in-out;
+        opacity: 0;
+        //min-height:350px;
+
+         @media all and (min-width:$mobile-width) {
+           //min-height:550px;
+        }
+
+        &.loaded{
+             opacity: 1;
+        }
+
+        img{
+            margin: 0 auto;
+        }
+
+        .heading{
+            width:90vw;
+            padding-bottom: 50px;
+        }
+
+        .slick-slide{
+            .info{
+            opacity: 0;
+            transition: opacity .25s ease-in-out;
+            }
+
+            &.show{
+            .info{
+                opacity: 1;
+            }
+            }
+        }
+
+        .slick-dots {
+            display: flex; 
+            flex-flow: row wrap;
+            bottom:-100px;
+            width:100%;
+            li{
+                position:relative;
+                flex: 1;
+            }
+            li.slick-active{
+                color:red;
+            }
+        }
+
+
+        .content{
+         padding:0 20px;
+
+         @media all and (min-width:767px) {
+            padding:50px 20px;
+        }
+        }
+
+        .header{
+        margin-top: 100px;
+        }
+
+        .cta{
+        display: block;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 30px;
+        }
+
+        .icon{
+        margin-top:35px;
+        left:50%;
+        cursor: pointer;
+
+        &:hover{
+            opacity:.5;
+        }
+
+        @media all and (min-width:767px) {
+            position:relative;
+            bottom:-360px;
+            left:0;
+        }
+        }
+
+        .scrollbtn{
+            animation: bounce 2s infinite linear;
+        }
+
+        @media all and (min-width:767px) {
+
+        }
+    }
+    .full-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+
+
+     .heading{
+            width:90vw;
+            padding-bottom: 50px;
+            margin:0 auto;
+
+             @media all and (min-width:767px) {
+               width:60vw;
+            }
+        }
+
+    .history-range{
+        //padding-top:50px;
+        background-color:white;
+
+        &.fixed{
+            padding-top:75px;
+        }
+    }
+    #date-2016{
+        padding-bottom:60px;
+    }
+}

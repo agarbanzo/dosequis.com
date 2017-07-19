@@ -1,0 +1,20 @@
+.social{
+    display: flex;
+    align-items: center;
+    padding:32px 0;
+    &:before{
+        content:'Share:';
+        margin-right:.5em;
+    }
+    a{
+        img{
+            display: inline-block;
+            height:100%;
+            width:auto;
+        }
+        display: inline-block;
+        height:20px;
+        width:auto;
+        margin-right: .5rem;
+    }
+}

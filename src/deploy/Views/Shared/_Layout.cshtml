@@ -1,0 +1,71 @@
+﻿@{
+    String hostURL = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+    String currentURL = Request.Url.AbsoluteUri;
+    Boolean isAgeGate = (ViewBag.AgeGateVerified != "true" && ViewBag.PassThroughVerified != "true");
+    String ShareImage =  (ViewBag.ShareImage != null ? ViewBag.ShareImage : "/Assets/Images/share_dosequis.jpg");
+    String ShareImageUrl = hostURL + ShareImage;
+}<!DOCTYPE html>
+<html>
+<head>
+    <title>Dos Equis | @ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="msnbot" content="NOODP"><!--OVERRIDES DESCRIPTION FIELD FOR BING-->
+    <meta name="robots" content="NOYDIR"><!--OVERRIDES DESCRIPTION FIELD FOR YAHOO-->
+    <meta name="robots" content="NOODP"><!--OVERRIDES DESCRIPTION FIELD FOR SMALL SEARCH ENGINES-->
+    <meta name="googlebot" content="NOODP"><!--OVERRIDES DESCRIPTION FIELD FOR GOOGLE-->
+    <link rel="stylesheet" href="/_build/css/common.css" />
+    <link rel="stylesheet" href="/_build/css/@(ViewBag.Location).css" />
+    <link rel="shortcut icon" href="/Assets/Images/favicon/favicon.ico" />
+    @if (IsSectionDefined("PageSpecificHeader"))
+    {
+        @RenderSection("PageSpecificHeader")
+    }
+    <meta name="description" content="@ViewBag.MetaDescription" />
+    <meta property="fb:app_id" content="209002842602792" />
+    <meta property="og:site_name" content="Dos Equis" />
+    <meta property="og:title" content="Dos Equis | @ViewBag.Title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="@ViewBag.MetaDescription" />
+    <meta property="og:url" content="@currentURL" />
+    <meta property="og:image" content="@ShareImageUrl" />
+    <meta name="twitter:site" content="@Html.Raw("@dosequis")">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dos Equis | @ViewBag.Title" />
+    <meta name="twitter:image" content="@ShareImageUrl" />
+    <meta name="twitter:description" content="@ViewBag.TwitterDescription">
+</head> 
+
+<body class="@ViewBag.BodyClass @if (isAgeGate == true){<text>agegate</text>}">
+    @if (isAgeGate == true)
+    {
+        @Html.Partial("_AgeGate")
+    }
+    @Html.Partial("_nav")
+    <div class="page-container">
+        @if(ViewBag.HideBreadcrum != true){
+            <nav class="breadcrumb">
+                @Html.MvcSiteMap().SiteMapPath()
+            </nav>
+        }
+        @RenderBody()
+    </div>
+    @Html.Partial("_Footer")
+    
+    <script src="/_build/dll/dll.vendor.js"></script>
+    <script src="/_build/js/common.js"></script>
+    @{
+        if (ViewBag.Location != null){
+            <script src="/_build/js/@(ViewBag.Location +".js")"></script>
+        }
+    }
+
+    @Html.Partial("_TrackingCodes")
+
+     @if (IsSectionDefined("PageSpecificScripts"))
+    {
+        @RenderSection("PageSpecificScripts")
+    }
+</body>
+</html>

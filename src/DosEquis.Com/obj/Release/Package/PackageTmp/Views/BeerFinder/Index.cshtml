@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Beer Finder";
+    ViewBag.Location = "beerlocator";
+    ViewBag.BodyClass = "beerfinder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShareImage = "/assets/images/beerlocator/share_beerlocator.jpg";
+    ViewBag.MetaDescription = "Find your preferred Dos Equis in stores, bars and restaurants near you.";
+}
+@section PageSpecificHeader {
+    <meta name="keywords" content="beer finder, where to buy, dos equis" />
+}
+@section PageSpecificScripts {
+}
+
+<div class="beerlocator">
+    <div class="heading-block-01 whiteText">
+        <h2 class="headline-01">beer finder</h2>
+        <p class="heading-copy">Find your preferred Dos Equis in stores, bars and restaurants near you.</p>
+    </div>
+<div id="search-container" class="search search-container">
+        <div id="searchBox" class="searchBox opened">
+            <div id="zipSearch" class="zipSearch column">
+                <div class="column">
+                    <div class="find">
+                        <div class="formtop">
+                             <div class="formtitle">Find Dos Equis</div>
+                             <div class="locateme"><a href="" data-ga='{"category":"map","label":"locate me"}'>Locate Me</a></div>
+                        </div>
+                        <div class="searchbox">
+                            <input class="black" id="ZipCode" name="ZipCode" />
+                        </div>
+                    </div>
+
+
+                    <div class="filters">
+                        <div class="filters-type">
+                            <p class="label">Type</p>
+                            <form id="type-selection">
+                                <input type="radio" data-ga='{"category":"map-filter","label":"stores"}' value="01,02,03,08,05,14,09,10" name="type" id="type-1" class="stores" data-category="stores" checked/>
+                                <label for="type-1">STORES</label>
+                                <br />
+                                <input type="radio" data-ga='{"category":"map-filter","label":"bars"}' name="type" id="type-2" class="bars" data-category="bars" value=""/>
+                                <label for="type-2">BARS / RESTAURANTS</label>
+                            </form>
+
+</div>
+                        <div class="filters-product">
+                            <div class="label">Filter by Product</div>
+
+
+                            <form id="product-selection" name="products">
+                                <input class="filter" type="radio" data-ga='{"category":"map-filter","label":" product"}' name="product" id="product-1" value="" data-filter="all" checked/>
+                                <label for="product-1">ANY PRODUCT</label>
+                                <br />
+                                <input class="filter" type="radio" data-ga='{"category":"map-filter","label":"lager"}' name="product" id="product-2" data-filter="lager" value="lager" />
+                                <label for="product-2">LAGER ESPECIAL</label>
+                                <br />
+                                <input class="filter" type="radio" data-ga='{"category":"map-filter","label":"ambar"}' name="product" id="product-3" data-filter="ambar" value="ambar" />
+                                <label for="product-3">AMBAR</label>
+                                <br />
+                                <input class="filter" type="radio" data-ga='{"category":"map-filter","label":"demexico"}' name="product" id="product-4"  data-filter="demexico" value="demexico"/>
+                                <label for="product-4">CERVEZAS DE MEXICO</label>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="topresults">
+                    <div id="count" class="count">
+                    <div class="lft">
+                      <div data-ga='{"category":"map-filter"}'  class="count-viewmore viewlist">View As List</div>
+                      <div data-ga='{"category":"map-filter"}'  class="count-viewmore mapview">View As Map</div>
+                    </div>
+                    <div class="rgt">
+                      <span class="count-topnumber"></span> results
+                      <span class="count-barcount"></span>
+                    </div>
+                    </div>
+                </div>
+                <div id="searchResults" class="searchResults">
+                <div class="fbox">
+                <div class="fb-list">
+                        <div class="scrollable">
+                        <div class="error-noresults"></div>
+                                <div id="results" class="results">
+                                    <div class="resultsholder"></div>
+                                    <div class="bottomDiv"> <span class="loadmore gold" data-ga='{"category":"resullts list"}' >Load more</span></div>
+                                </div>
+                                </div>
+                    </div><!--end left-->
+                    <div class="fb-map">
+                        <div id="my_map"></div>
+
+                    </div><!--end right-->
+
+                    </div><!--end of fbox-->
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex drizzly">
+    <img class="drizly-icon" src="/Assets/Images/drizly-white.svg" />
+    <div class="">Order Dos Equis for delivery. <a href="http://store.dosequis.com/" data-ga='{"category":"drizly"}' class="gold" onClick="fbq('track', 'Search');">Order now</a></div>
+    </div>
+    <section id="bottom-touts" class="section toutsWrapper">
+        <div class="touts contentMax whiteText animation-element">
+            @Html.Partial("Touts/_About")
+            @Html.Partial("Touts/_BeerRecipe")
+        </div>
+    </section>
+</div>

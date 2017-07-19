@@ -1,0 +1,130 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jumpnav = require('components/jumpnav/jumpnav');
+
+var _jumpnav2 = _interopRequireDefault(_jumpnav);
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+require('components/touts/touts');
+
+require('components/touts/full-page/full-page-tout-loader');
+
+var _product = require('components/product');
+
+var _product2 = _interopRequireDefault(_product);
+
+var _goToScroll = require('utils/goToScroll');
+
+var _socialSharing = require('services/social-sharing');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+require('scss/pages/cervezasdemexico');
+
+var recipes = require('../beersandrecipes/recipes.json');
+var beers = require('../beersandrecipes/beers.json');
+
+var Cervezasdemexico = function () {
+    function Cervezasdemexico(selector) {
+        _classCallCheck(this, Cervezasdemexico);
+
+        var _this = this;
+        $(document).ready(function () {
+            _this.scroller = new _scrollmagic2.default.Controller();
+            _this.addJumpnavScroll();
+            _this.addJumpNav();
+            _this.addProducts();
+            _this.addUIListeners();
+        });
+
+        window.dispatcher.on('scrollDone', this.addWindowScrollListener, this);
+    }
+
+    _createClass(Cervezasdemexico, [{
+        key: 'addUIListeners',
+        value: function addUIListeners() {
+            var _this = this;
+            $(".jumpnav").eq(0).find(".jumplink").on('click', function (e) {
+                e.preventDefault();
+                $(this).addClass('selected').siblings().removeClass('selected');
+                (0, _goToScroll.scrollTo)($(this).data("target"));
+            });
+        }
+    }, {
+        key: 'removeUIListeners',
+        value: function removeUIListeners() {
+            $(".jumpnav").eq(0).find(".jumplink").off('click');
+        }
+    }, {
+        key: 'addProducts',
+        value: function addProducts() {
+            var lager = recipes['dos-a-rita'];
+            var ambar = recipes['michelada'];
+            var ambarTout = new _product2.default(ambar);
+            var lagerTout = new _product2.default(lager);
+            $('.products .touts-static').append(ambarTout.div);
+            $('.products .touts-static').append(lagerTout.div);
+
+            // show random recipe
+            // first remove current recipe
+            delete beers[this.recipeId];
+            var recipeArray = Object.keys(beers).map(function (key) {
+                return beers[key];
+            });
+            var recipeData = recipeArray[Math.floor(Math.random() * recipeArray.length)];
+            var recipe = new _product2.default(recipeData);
+            $('#recipes .touts-static').append(recipe.div);
+        }
+    }, {
+        key: 'addJumpNav',
+        value: function addJumpNav() {
+            this.stickyjumpnav = new _jumpnav2.default({
+                el: '.jumpnav',
+                theme: 'light',
+                triggers: ['section#Tecate', "section#Lager", "section#Sol", "section#Ambar"]
+            });
+        }
+    }, {
+        key: 'addJumpnavScroll',
+        value: function addJumpnavScroll() {
+            var _this = this;
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '.jumptobeer',
+                triggerHook: 'onLeave',
+                duration: getElHeight
+            }).addTo(_this.scroller);
+
+            scene.on("enter", function (event) {
+                _this.stickyjumpnav.show();
+                _this.removeUIListeners();
+            });
+
+            scene.on("leave", function (event) {
+                _this.stickyjumpnav.hide();
+                _this.addUIListeners();
+            });
+
+            function getElHeight() {
+                return $("#productcontainer").height();
+            }
+        }
+    }]);
+
+    return Cervezasdemexico;
+}();
+
+exports.default = Cervezasdemexico;
+
+
+var cervezasdemexico = new Cervezasdemexico('.cervezasdemexico');

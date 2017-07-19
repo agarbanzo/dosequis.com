@@ -1,0 +1,118 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+require('components/touts/touts');
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+require('scss/pages/faqs.scss');
+
+var Faqs = function () {
+  function Faqs() {
+    _classCallCheck(this, Faqs);
+
+    this.initSlick();
+    console.log('asdfsa');
+    this.initExpand();
+  }
+
+  _createClass(Faqs, [{
+    key: 'initIpsum',
+    value: function initIpsum() {
+      $('.q p').each(function () {
+        var _this = this;
+
+        $.getJSON('http://hipsterjesus.com/api/?paras=1&html=false', function (data) {
+          $(_this).text(data.text.split('.')[0] + '?');
+        });
+      });
+      $('.a p').each(function () {
+        var _this2 = this;
+
+        $.getJSON('http://hipsterjesus.com/api/?paras=1&html=false', function (data) {
+          $(_this2).text(data.text);
+        });
+      });
+    }
+  }, {
+    key: 'initSlick',
+    value: function initSlick() {
+      var popular = $('.question.popular');
+      $(".question-box .slider").slick({
+        infinite: true,
+        dots: true,
+        arrows: true,
+        nextArrow: '<button class="slick-next slick-arrow icon-icon-arrow-white-next"></button>',
+        prevArrow: '<button class="slick-prev slick-arrow icon-icon-arrow-white-prev"></button>'
+      });
+      $(".slider").on('reInit', function (e) {
+        setTimeout(function () {
+          $(window).trigger('resize');
+        }, 25);
+      });
+      popular.each(function (i, e) {
+        var q = $(e).find('.q p').html();
+        var a = $(e).find('.a p').html();
+        var slide = '<div class="slide">' + '<div class="box">' + '<div class="headline">Q:</div>' + '<p class="copy">' + q + '</p>' + '</div>' + '<div class="box">' + '<div class="headline">A:</div>' + '<p class="copy">' + a + '</p>' + '</div>' + '</div>';
+        $(".slider").slick('slickAdd', slide);
+      });
+      $(window).resize();
+    }
+  }, {
+    key: 'initExpand',
+    value: function initExpand() {
+      $('.question div.q').on('click', function (e) {
+        var $el = $(e.currentTarget);
+        var index = $el.parent().index();
+        _tracking2.default.trackEvent({
+          category: 'faqexpandtoggle',
+          label: 'question-' + index
+        });
+        $el.parent().toggleClass('expanded');
+      });
+      $('.expandAll a').on('click', function (e) {
+        e.preventDefault();
+        var $el = $(e.currentTarget);
+        if ($el.hasClass('expanded')) {
+          $('.question').removeClass('expanded');
+          $el.removeClass('expanded');
+          $el.text('Expand All');
+          _tracking2.default.trackEvent({
+            category: 'faq',
+            label: 'Collapse All'
+          });
+        } else {
+          $('.question').addClass('expanded');
+          $el.addClass('expanded');
+          $el.text('Collapse All');
+          _tracking2.default.trackEvent({
+            category: 'faq',
+            label: 'Expand All'
+          });
+        }
+      });
+    }
+  }]);
+
+  return Faqs;
+}();
+
+exports.default = Faqs;
+
+
+var faqs = new Faqs();

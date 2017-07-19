@@ -1,0 +1,224 @@
+@import 'config/vars.scss';
+@import 'components/enjoyresponsibly';
+.summer{
+  background:url(/Assets/Images/promotions/summer/wood-bg.jpg) #fff;
+   a{
+      &:hover{
+        text-decoration:none;
+      }
+    }
+  p,
+  p.heading-copy {
+    @include contentWidth(70%);
+    max-width:700px;
+    padding-top: 10px;
+  }
+  .hero{
+
+    div {
+      padding: 10px 0;
+    }
+
+    .heading-copy {
+      max-width: 600px;
+    }
+
+    #crosses{
+      position: relative;
+      margin: 0 auto;
+      margin-top:10px;
+      width: 647px;
+      height: 338px;
+      padding: 0;
+
+      #frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        z-index: 100;
+        background-image: url(/Assets/Images/promotions/summer/summer-hero-frame.png);
+        background-repeat: no-repeat;
+        background-position:50% bottom;
+        background-size: contain;
+      }
+
+      #destinations {
+        position: absolute;
+        /*top: 34px;
+        left: 32px;
+        width: 582px;
+        height: 268px;*/
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
+        padding: 0;
+
+        .destination {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          background-repeat: no-repeat;
+          background-position:50% 50%;
+          background-size: contain;
+          opacity: 0;
+          transition: opacity 1.5s;
+
+          &:nth-child(1){
+            background-image: url(/Assets/Images/promotions/summer/summer-hero-dest-1.png);
+            opacity:1;
+          }
+          &:nth-child(2){
+            background-image: url(/Assets/Images/promotions/summer/summer-hero-dest-2.png);
+          }
+          &:nth-child(3){
+            background-image: url(/Assets/Images/promotions/summer/summer-hero-dest-3.png);
+          }
+        }
+      }
+
+    }
+
+    @media all and (max-width:$mobile-width){
+      #crosses{
+        width: 500px;
+        height: 261px;
+        /*#destinations {
+          top: 26px;
+          left: 25px;
+          width: 450px;
+          height: 207px;
+        }*/
+      }
+      .heading-copy {
+        max-width: 500px;
+      }
+    }
+
+    @media all and (max-width: $iphone6P){
+      #crosses{
+        width: 400px;
+        height: 209px;
+      }
+    }
+
+    @media all and (max-width: $mobile-devices-width) {
+      #crosses{
+        width: 360px;
+        height: 188px;
+        /*#destinations {
+          top: 18px;
+          left: 17px;
+          width: 323px;
+          height: 148px;
+        }*/
+      }
+    }
+
+    @media all and (max-width: 360px) {
+      #crosses{
+        width: 300px;
+        height: 157px;
+        /*#destinations {
+          top: 15px;
+          left: 13px;
+          width: 270px;
+          height: 124px;
+        }*/
+      }
+      h2 {
+        font-size: 22px;
+      }
+    }
+  }
+  .main-cta{
+
+    #bucket {
+      margin: 40px 0 50px;
+      width: 100%;
+      height: 215px;
+      background-image: url(/Assets/Images/promotions/summer/summer-bucket.png);
+      background-repeat: no-repeat;
+      background-position:50% 50%;
+      background-size: contain;
+
+      img {
+        opacity: 0;
+      }
+
+      @media all and (max-width: $mobile-width){
+        height: 150px;
+      }
+    }
+
+    .content{
+      padding-top: 20px;
+      padding-bottom:0;
+
+      p.small {
+        font-size: 12px;
+        line-height: 15px;
+        margin: 0 auto;
+        text-align: justify;
+      }
+
+      @import "components/social-share";
+      .social{
+        align-items: center;
+        justify-content: center;
+        padding:0;
+      }
+
+      .heading-block-01{
+        .headline-01 {
+          font-size: 2rem !important;
+        }
+      }
+    }
+  }
+  .links{
+    position: relative;
+    padding:0;
+    text-align: center;
+
+    div.flex{
+      @include contentWidth(650px);
+      display: flex;
+      text-align: center;
+
+      >div{
+        padding-top:50px;
+        width:50%;
+        background: no-repeat top;
+        background-size:auto 45px;
+        margin: 50px auto;
+        a{
+          text-transform: uppercase;
+          margin:1.3rem auto;
+          display: block;
+        }
+        &.coupon {
+          display: block;
+          background-position: 50% 3px;
+          background-size:auto 40px;
+          background-image:url(/Assets/Images/promotions/summer/scissor.gif);
+
+        }
+        &.drizly{
+          background-image:url(/Assets/Images/svg/drizly.svg);
+        }
+
+      }
+      @media screen and (max-width:($mobile-width)){
+        display: block;
+      }
+
+    }
+  }
+}

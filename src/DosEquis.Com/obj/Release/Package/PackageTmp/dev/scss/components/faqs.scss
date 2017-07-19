@@ -1,0 +1,28 @@
+ .faq{
+     background: url(/Assets/Images/home/faqbg.jpg) center no-repeat;
+     background-size: cover;
+     color:white;
+     
+
+     h2{
+       padding-bottom: 20px;
+     }
+
+     p{
+       padding-bottom: 30px;
+     }
+
+     .content{
+
+     }
+
+      a{
+      color:white;
+     }
+
+
+     @media all and (min-width:767px) {
+        min-height: 255px;
+        padding-top: 80px;
+    }
+  }

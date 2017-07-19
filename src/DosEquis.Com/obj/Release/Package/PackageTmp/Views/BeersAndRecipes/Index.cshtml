@@ -1,0 +1,65 @@
+@{
+    ViewBag.Title = "Beers & Recipes";
+    ViewBag.Location = "beersandrecipes";
+    ViewBag.BodyClass = "beersandrecipes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShareImage = "/assets/images/beersandrecipes/share_beersandrecipes.jpg";
+    ViewBag.MetaDescription = "Explore our legendary beers and cocktail recipes.";
+}
+@section PageSpecificHeader {
+    <meta name="keywords" content="lager, ambar, mexican beer, mexican lager" />
+}
+
+<div id="products" class="products">
+    <section class="one">
+        <div class="heading-block-01 whiteText">
+            <h2 class="headline-01">Beers & recipes</h2>
+            <p class="copy">Explore our legendary beers and cocktail recipes.</p>
+        </div>
+    </section>
+    <section id="jump-nav" class="jump-nav">
+        <p class="copy jumptobeer">Jump to section</p>
+        <section class="jumpnavsection">
+            <div class="jumpnav">
+                <a class="jumplink whiteText" href="#" data-target="beer" data-category="jumpnav" data-label="beers">beers</a>
+                <a class="jumplink" href="#" data-target="variety-pack" data-category="jumpnav" data-label="varietypack">variety pack</a>
+                <a class="jumplink" href="#" data-target="recipes" data-category="jumpnav" data-label="recipes">recipes</a>
+            </div>
+        </section>
+        <div id="productcontainer">
+            <section id="beer" class="beer beer-section">
+                <div class="touts-static contentMax whiteText drizlyDark">
+                </div>
+            </section>
+            <section id="variety-pack" class="cervesas contentMax">
+                @*<img class="bg" src="/Assets/Images/cervezasdemexico/brick-bg.jpg" alt="Paris" data-parallax='{"y": 0}' />*@
+                <div class="heading-block-02 content contentMax black">
+                    <h4 class="headline-04"><strong>cervezas de mexico</strong></h4>
+                    <divider></divider>
+                    <h2 class="headline-02">THE NEWEST VARIETY PACK</h2>
+                    <span class="cta dark"><a class="black" href="/beers-and-recipes/cervezas-de-mexico">SEE PACK</a></span>
+                    <img class="desktop-only" src="/Assets/Images/cervezasdemexico/box-2.png"/>
+                    <img class="mobile-only" src="/Assets/Images/cervezasdemexico/BOX-m.png"/>
+                </div>
+            </section>
+            <section id="recipes" class="recipes recipes-section">
+                <div class="touts-static contentMax whiteText group1">
+                </div>
+                <div class="touts-static contentMax whiteText group2">
+                </div>
+            </section>
+        </div>
+        </section>
+        <section id="history" class="history section lightBg">
+            @Html.Partial("_HistorySlider")
+        </section>
+
+        <section id="bottom-touts" class="section toutsWrapper">
+            <div class="touts contentMax whiteText animation-element">
+                @Html.Partial("Touts/_BeerFinder")
+                @Html.Partial("Touts/_Brewing")
+            </div>
+        </section>
+
+</div>
+

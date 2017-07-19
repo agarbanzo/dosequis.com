@@ -1,0 +1,380 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _loader = require('components/loader/loader');
+
+var _loader2 = _interopRequireDefault(_loader);
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+var _googleMaps = require('google-maps');
+
+var _googleMaps2 = _interopRequireDefault(_googleMaps);
+
+var _gplaces = require('utils/gplaces');
+
+var _gplaces2 = _interopRequireDefault(_gplaces);
+
+var _pulseMarker = require('components/pulseMarker');
+
+var _pulseMarker2 = _interopRequireDefault(_pulseMarker);
+
+var _gmapTilemarker = require('utils/gmap-tilemarker');
+
+var _gmapTilemarker2 = _interopRequireDefault(_gmapTilemarker);
+
+var _gmapMarkercluster = require('utils/gmap-markercluster');
+
+var _gmapMarkercluster2 = _interopRequireDefault(_gmapMarkercluster);
+
+var _geturlparams = require('utils/geturlparams');
+
+var _google_api = require('utils/google_api');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var template = require('../beerlocator/templates/info-window.html');
+
+var roadAtlasStyles = require('./mapstyles').style;
+
+var Map = function () {
+	function Map(loc) {
+		var _this2 = this;
+
+		_classCallCheck(this, Map);
+
+		if (!loc) {
+			console.warn('you have not set a location');
+		}
+		var _this = this;
+		this.defaultLoc = { lat: loc.lat, lng: loc.lng };
+		this.mymarkers = [];
+		this.pulseMarker = _pulseMarker2.default;
+		this.numLocationsToLoad = 0;
+		this.mapCenter;
+		this.markerCluster;
+		this.hasBeenResizedToFitBounds = false;
+		this.loader = new _loader2.default($('.fb-map'));
+		this.searchData = {};
+		this.zipcode;
+		this.address = 'postal_code';
+		this.xhrPool = [];
+		_googleMaps2.default.KEY = (0, _google_api.googleApiKey)();
+		_googleMaps2.default.LIBRARIES = ['places'];
+		_googleMaps2.default.load(function (google) {
+			window.dispatcher.on('onShowLoader', function (e) {
+				return _this2.showLoader();
+			});
+			window.dispatcher.on('onHideLoader', function (e) {
+				return _this2.hideLoader();
+			});
+			window.dispatcher.on('onInitMap', function (e) {
+				return _this2.initMap(e[0]);
+			});
+			window.dispatcher.on('onGPlacesError', function (e) {
+				return _this2.initMap(_this2.defaultLoc);
+			});
+			window.dispatcher.on("onGPlacesChanged", function (location, address) {
+				var latlng = {
+					lat: location[0].lat(),
+					lng: location[0].lng()
+				};
+				_this2.address = location[1];
+				console.log(_this2.address);
+				_this2.initMap(latlng);
+			});
+			window.dispatcher.on('onFilterChange', function (e) {
+				_this2.abortAjaxCalls();
+				_this2.addLocations();
+			});
+			window.dispatcher.on('onTypeChange', function (e) {
+				_this2.abortAjaxCalls();
+				_this2.addLocations();
+			});
+			if ((0, _geturlparams.GetQueryStringParams)('zipcode') || (0, _geturlparams.GetQueryStringParams)('product')) {
+				var product = (0, _geturlparams.GetQueryStringParams)('product');
+				var newzip = (0, _geturlparams.GetQueryStringParams)('zipcode');
+				window.dispatcher.trigger('onSetFilterSelected', [product]);
+				_this2.setQueryParams(newzip);
+			} else {
+				_this2.initMap(_this2.defaultLoc);
+			}
+		});
+	}
+
+	_createClass(Map, [{
+		key: 'setQueryParams',
+		value: function setQueryParams(newzip) {
+			var _this3 = this;
+
+			this.zipcode = newzip;
+			document.getElementById('ZipCode').value = newzip;
+			this.searchData.ZipCode = newzip;
+			_gplaces2.default.getLatLng(newzip).then(function (latlng) {
+				_this3.initMap(latlng);
+			});
+		}
+	}, {
+		key: 'initMap',
+		value: function initMap(loc) {
+			var _this4 = this;
+
+			console.log('initMap');
+			this.showLoader();
+			this.hasBeenResizedToFitBounds = false;
+			this.bounds = new google.maps.LatLngBounds();
+			this.map = new google.maps.Map(document.getElementById('my_map'), {
+				clickableIcons: false,
+				name: 'Dos Equis',
+				streetViewControl: false,
+				mapTypeControl: false,
+				maxZoom: 17,
+				minZoom: 10,
+				fullscreenControl: 0,
+				gestureHandling: 'greedy'
+			});
+			//SET different Zoom Levels
+			var zoom = $(window).width() < 767 ? this.map.setZoom(14) : this.map.setZoom(15);
+			this.map.setCenter(loc);
+			this.map.addListener('zoom_changed', function () {
+				//console.log('zoom = ', this.map.getZoom())
+			});
+			//==============================================================
+			window.dispatcher.on("onSetMapItem", function (e) {
+				return _this4.setMapItem(e[0]);
+			});
+			var usRoadMapType = new google.maps.StyledMapType(roadAtlasStyles);
+			this.info_window = new google.maps.InfoWindow({
+				//pixelOffset: new google.maps.Size(0, 60)
+				maxWidth: 300
+			});
+			this.map.bounds = new google.maps.LatLngBounds();
+			this.map.mapTypes.set('usroadatlas', usRoadMapType);
+			this.map.setMapTypeId('usroadatlas');
+			this.listItems = [];
+			this.markerCluster = new _gmapMarkercluster2.default.MarkerClusterer(this.map, null, {
+				imagePath: '/Assets/Images/gmap-cluster/de-m',
+				maxZoom: 14
+			});
+			this.listItemIndex = 0;
+			console.log('address= ', this.address);
+			if (this.centerMarker) this.centerMarker.setMap(null);
+			var image = this.address == 'street_address' ? this.addPulseMarker() : this.addZipCodeMarker();
+			this.addLocations(null);
+		}
+	}, {
+		key: 'abortAjaxCalls',
+		value: function abortAjaxCalls() {
+			$.each(this.xhrPool, function (idx, jqXHR) {
+				jqXHR.abort();
+			});
+			this.xhrPool = [];
+		}
+	}, {
+		key: 'addLocations',
+		value: function addLocations(center) {
+			this.showLoader();
+			this.numLocationsToLoad = 0;
+			this.xhrPool = [];
+			if (this.errorMarker) this.errorMarker.setMap(null);
+			this.deleteMarkers();
+			this.tileMarkerMapType();
+		}
+	}, {
+		key: 'tileMarkerMapType',
+		value: function tileMarkerMapType() {
+			var _this = this;
+			this.markerMap = {};
+			this.mapCenter = this.map.getCenter();
+			this.map.overlayMapTypes.insertAt(0, new _gmapTilemarker2.default.TileMarkerMapType(this.map, function (center, radiusMiles, NW, SE) {
+				_this.radius = radiusMiles;
+				_this.center = center;
+				_this.searchData = {
+					latitude: center.lat,
+					longitude: center.lng,
+					searchRadiusInMiles: radiusMiles
+				};
+				_this.searchAPI().done(function (data) {});
+			}));
+		}
+	}, {
+		key: 'searchAPI',
+		value: function searchAPI() {
+			var _this5 = this;
+
+			var _this = this;
+			this.searchData.brands = $("input:radio[name='product']:checked").val();
+			this.searchData.storeCodes = $("input:radio[name='type']:checked").val();
+			this.searchData.ZipCode = this.zipcode;
+			this.searchData.fetchall = false;
+			this.searchData.centerLatitude = this.mapCenter.lat();
+			this.searchData.centerLongitude = this.mapCenter.lng();
+			return $.ajax({
+				dataType: "json",
+				url: '/api/BarFinder/Search',
+				data: this.searchData,
+				beforeSend: function beforeSend(xhr) {
+					_this.xhrPool.push(xhr);
+				},
+				success: function success(data) {
+					_this.xhrPool.shift();
+					if (!_this.xhrPool.length) {
+						console.log('done!!!!!!!!!!!!!!!!!! and i have ', _this5.mymarkers.length, 'markers', _this5.hasBeenResizedToFitBounds);
+						_this5.ajaxStop();
+						return;
+					} else {
+						$.each(data.SearchResults, function (i, location) {
+							_this5.addMarkerCluster(i, location);
+						});
+					}
+				}
+			});
+		}
+	}, {
+		key: 'ajaxStop',
+		value: function ajaxStop() {
+			window.dispatcher.trigger('onLocationsDoneLoading');
+			//if(this.mymarkers.length){
+			if (this.mymarkers.length <= 20 && !this.hasBeenResizedToFitBounds) {
+				this.fitBoundsToMarkers();
+			}
+			//}
+			else if (!this.mymarkers.length && this.hasBeenResizedToFitBounds) {
+					console.log("No locations were found");
+					if (this.errorMarker) this.errorMarker.setMap(null);
+					this.showErrorMsg('No Locations were found.</br> Keep staying thirsty.');
+					window.dispatcher.trigger('onNoLocationsFound');
+				}
+			this.hideLoader();
+		}
+	}, {
+		key: 'addMarkerCluster',
+		value: function addMarkerCluster(i, location) {
+			var _this6 = this;
+
+			var _this = this;
+			if (this.errorMarker) this.errorMarker.setMap(null);
+			location.id = _this.listItemIndex;
+			var mKey = location.Latitude + ',' + location.Longitude;
+			if (this.markerMap[mKey] !== true) {
+				this.markerMap[mKey] = true;
+				var marker = new google.maps.Marker({
+					position: {
+						lat: location.Latitude,
+						lng: location.Longitude
+					},
+					icon: '/Assets/Images/beerlocator/pin.png',
+					id: this.listItemIndex,
+					Name: location.Name,
+					title: location.Name + ' - ' + location.Address + '- ' + location.Distance
+				});
+				this.bounds.extend(marker.getPosition());
+				this.listItemIndex++;
+				marker.addListener('click', function (e) {
+					_this6.info_window.setContent(template(location));
+					_this6.info_window.open(_this6.map, marker);
+					_tracking2.default.trackEvent({
+						label: location.Name,
+						category: 'map-pin'
+					});
+				});
+				marker.setZIndex(1);
+				this.mymarkers.push(marker);
+				this.markerCluster.addMarker(marker);
+				if (this.mymarkers.length) window.dispatcher.trigger('addListItem', [location]);
+			}
+		}
+	}, {
+		key: 'setMapItem',
+		value: function setMapItem(id) {
+			var marker = _.findWhere(this.mymarkers, { id: id });
+			google.maps.event.trigger(marker, "click");
+			this.map.setZoom(15);
+			this.map.panTo(marker.position);
+			setTimeout(function () {
+				window.dispatcher.trigger('onShowMap');
+			}, 400);
+		}
+	}, {
+		key: 'deleteMarkers',
+		value: function deleteMarkers() {
+			for (var i = 0; i < this.mymarkers.length; i++) {
+				this.mymarkers[i].setMap(null);
+			}
+			if (this.mymarkers.length) this.markerCluster.clearMarkers();
+			this.mymarkers = [];
+			this.mymarkers.length = 0;
+		}
+	}, {
+		key: 'showErrorMsg',
+		value: function showErrorMsg(msg) {
+			var _this = this;
+			this.errorMarker = new google.maps.Marker({
+				position: this.map.getCenter(),
+				map: this.map
+			});
+			this.info_window.setContent("<p class='error'>" + msg + "</p>");
+			setTimeout(function () {
+				_this.info_window.open(_this.map, _this.errorMarker);
+			}, 350);
+			google.maps.event.addListener(_this.info_window, 'closeclick', function () {
+				if (_this.errorMarker) {
+					_this.errorMarker.setMap(null);
+					_this.errorMarker = null;
+				}
+			});
+		}
+	}, {
+		key: 'fitBoundsToMarkers',
+		value: function fitBoundsToMarkers() {
+			//if(this.hasBeenResizedToFitBounds)return;
+			console.log('i am refitting the bounds');
+			var zoom = $(window).width() < 769 ? this.map.setZoom(12) : this.map.setZoom(13);
+			this.hasBeenResizedToFitBounds = true;
+			if (!this.mymarkers.length) {
+				window.dispatcher.trigger('onNoLocationsFound');
+			}
+		}
+	}, {
+		key: 'showLoader',
+		value: function showLoader() {
+			this.loader.show();
+		}
+	}, {
+		key: 'hideLoader',
+		value: function hideLoader() {
+			this.loader.hide();
+		}
+	}, {
+		key: 'addZipCodeMarker',
+		value: function addZipCodeMarker() {
+			this.centerMarker = new google.maps.Marker({
+				position: this.map.getCenter(),
+				map: this.map,
+				title: 'XX marks the spot',
+				icon: '/assets/images/beerlocator/nearby_icon.png'
+			});
+		}
+	}, {
+		key: 'addPulseMarker',
+		value: function addPulseMarker() {
+			this.pulsemarker = new _pulseMarker2.default({
+				position: this.map.getCenter(),
+				map: this.map
+			});
+		}
+	}]);
+
+	return Map;
+}();
+
+exports.default = Map;

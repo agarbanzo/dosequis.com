@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "dev/scss/pages/productdetail.css",
+    "inputFile": "dev/scss/pages/productdetail.scss"
+  },
+  {
+    "outputFile": "dev/scss/config/vars.css",
+    "inputFile": "dev/scss/config/vars.scss"
+  },
+  {
+    "outputFile": "dev/scss/pages/xxambar.css",
+    "inputFile": "dev/scss/pages/xxambar.scss"
+  }
+]

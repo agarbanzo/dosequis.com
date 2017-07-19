@@ -1,0 +1,16 @@
+ .history{
+    background: url(/Images/home/enjoybg.jpg) center no-repeat;
+    background-size: 100%;
+    background: white;
+    color: black;
+    padding:50px 0;
+    min-height: auto;
+
+    img{
+       //width: 100%;
+    }
+
+     @media all and (min-width:767px) {
+         min-height: 520px;
+    }
+  }

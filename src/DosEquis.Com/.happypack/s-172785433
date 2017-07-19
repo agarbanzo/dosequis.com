@@ -1,0 +1,126 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require('scss/components/jumpnav.scss');
+
+var _goToScroll = require('utils/goToScroll');
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var JumpNav = function () {
+	function JumpNav(options) {
+		var _this2 = this;
+
+		_classCallCheck(this, JumpNav);
+
+		var _this = this;
+		this.$el = $('.page-container').find(options.el);
+		this.stickynav = this.$el.clone().appendTo(this.$el.parent()).removeClass('static').addClass('sticky');
+
+		if (options.theme == 'dark') this.stickynav.addClass('dark');
+		this.links = this.stickynav.find('a');
+		this.triggers = options.triggers;
+		this.elements = [];
+		//ADD DOM ELEMENTS
+		_.each(this.triggers, function (element) {
+			var $element = $('.page-container').find(element);
+			_this.elements.push($element);
+		});
+
+		this.addUIListeners();
+		this.addScrollListener(options.triggers);
+		this.isScrolling = false;
+
+		setTimeout(function () {
+			_this.triggerEvents();
+		}, 250);
+		//ADD EVENT FOR WHEN SCROLLING IS DONE
+		window.dispatcher.on('scrollDone', function () {
+			_this2.isScrolling = false;
+		});
+	}
+
+	_createClass(JumpNav, [{
+		key: 'addUIListeners',
+		value: function addUIListeners() {
+			var _this = this;
+			$(this.links).on('click', function (e) {
+				e.preventDefault();
+				$(this).addClass('selected').siblings().removeClass('selected');
+
+				(0, _goToScroll.scrollTo)($(this).data("target"));
+				_tracking2.default.trackEvent({
+					'category': $(this).data("category"),
+					'label': $(this).data("label")
+				});
+				_this.isScrolling = true;
+			});
+		}
+	}, {
+		key: 'addScrollListener',
+		value: function addScrollListener() {
+			var _this3 = this;
+
+			var $window = $(window);
+
+			$window.on('scroll', function () {
+				_this3.lazyscroll();
+			});
+
+			$window.on('resize', function () {
+				_this3.lazyscroll();
+			});
+		}
+	}, {
+		key: 'lazyscroll',
+		value: function lazyscroll() {
+			var $window = $(window);
+			var offset = $("#main-navigation").height() + this.stickynav.height();
+			var _this = this;
+
+			_.each(this.elements, function (element) {
+				if (!_this.isScrolling) {
+					if ($window.scrollTop() >= element.offset().top - offset && $window.scrollTop() <= element.offset().top + element.height() - offset) {
+						var id = $(element).attr('id');
+						$('a[data-target=' + id + ']').addClass('selected').siblings().removeClass('selected');
+					}
+				}
+			});
+		}
+	}, {
+		key: 'triggerEvents',
+		value: function triggerEvents() {
+			var $window = $(window);
+			$window.trigger('scroll');
+			$window.trigger('resize');
+		}
+	}, {
+		key: 'removeScrollListener',
+		value: function removeScrollListener() {}
+	}, {
+		key: 'show',
+		value: function show() {
+			this.stickynav.show();
+		}
+	}, {
+		key: 'hide',
+		value: function hide() {
+			this.stickynav.hide();
+		}
+	}]);
+
+	return JumpNav;
+}();
+
+exports.default = JumpNav;

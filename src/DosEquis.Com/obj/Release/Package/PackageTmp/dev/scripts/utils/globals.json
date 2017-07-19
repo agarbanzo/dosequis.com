@@ -1,0 +1,11 @@
+{
+    "colors":{
+        "lightgold":" #c7b87e",
+        "white":"#f8f8f8",
+        "darkgrey":"#4e4e4e",
+        "black":"#1e1e1e"
+    },
+    "dimensions":{
+        "mobile":767
+    }
+}

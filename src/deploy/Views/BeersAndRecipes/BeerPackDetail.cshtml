@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Cervezas de Mexico";
+    ViewBag.Location = "cervezasdemexico";
+    ViewBag.BodyClass = "cervezasdemexico light lightNav";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShareImage = "/assets/images/beersandrecipes/share_cdm.jpg";
+    ViewBag.MetaDescription = "The Cervezas de Mexico variety pack combines the Dos Equis varieties you know and love (Lager and Ambar) with Sol and Tecate Light for a cerveza tour of Mexico.";
+}
+@section PageSpecificHeader {
+    <title>Cervezas de Mexico | Dos Equis</title>
+    <meta name="keywords" content="lager, ambar, mexican beer, mexican lager" />
+}
+
+<div id="cervezasdemexico" class="cervezasdemexico">
+    <section class="hero section top">
+        <div class="content darkText">
+            <h2 class="headline">cervezas de mexico</h2>
+            <p class="copy">The Cervezas de Mexico variety pack combines the Dos Equis varieties you know and love (Lager and Ambar) with Sol and Tecate Light for a cerveza tour of Mexico.</p>
+            <div class="imageholder">
+                <img class="" src="/Assets/Images/cervezasdemexico/BOX.png" />
+            </div>
+        </div>
+        <div class="order-share">
+            <div class="social">
+                <a class="fb" href="#" data-fbShare='{"copy":"The Cervezas de Mexico variety pack combines the Dos Equis varieties you know and love (Lager and Ambar) with Sol and Tecate Light for a cerveza tour of Mexico.","title":"Dos Equis | Cervezas de Mexico","img":"/Assets/images/beersandrecipes/share_cdm.jpg"}'><img src="/assets/images/svg/fb.svg" width="40" height="40" /></a>
+                <a class="tw" href="#" data-twShare='{"text":"The Cervezas de Mexico variety pack combines the Dos Equis varieties you know and love (Lager and Ambar) with Sol and Tecate Light for a cerveza tour of Mexico."}'><img src="/assets/images/svg/twitter.svg" width="40" height="40"/></a>
+            </div>
+        </div>
+    </section>
+    <section class="insidethepack">
+        <div class="heading-block-01">
+            <h1 class="headline-01">inside the pack</h1>
+            <p class="heading-copy">3 12 oz. bottles of Tecate Light, 3 12 oz. bottles of Dos Equis Lager Especial, 3 12 oz. bottles of Sol and 3 12 oz. bottles of Dos Equis Ambar.</p>
+        </div>
+        <p class="copy jumptobeer">Jump to beer</p>
+        <div class="jumpnav static">
+            <a class="jumplink" href="#" data-target="Tecate" data-category="jumpnav" data-label="tecate">tecate light</a>
+            <a class="jumplink" href="#" data-target="Lager" data-category="jumpnav" data-label="lager">lager</a>
+            <a class="jumplink" href="#" data-target="Sol" data-category="jumpnav" data-label="sol">sol</a>
+            <a class="jumplink" href="#" data-target="Ambar" data-category="jumpnav" data-label="ambar">ambar</a> 
+        </div>
+    </section>
+    <section id="productcontainer" class="productcontainer">
+        @foreach (var item in Model.Beers)
+        {
+            <section id="@item.Id" class="beer @item.Name">
+                <img src="/Assets/Images/beersandrecipes/cervezasdemexico/@item.Image"/>
+                <h3 class="headline-03">@item.Name</h3>
+                <div class="ingredients">
+                    <p class="copy bold">Ingredients</p>
+                    <ul>
+                        @foreach (var ingredient in item.Ingredients)
+                        {
+                            <li>@ingredient</li>
+                        }
+                    </ul>
+                </div>
+                <div class="nutritional-facts">
+                    <p class="copy bold">Nutritional Facts*</p>
+                    <div class="fact">Calories: @item.Calories <span>-</span></div>
+                    <div class="fact">Fat: @item.Fat <span>-</span></div>
+                    <div class="fact">Carbs: @item.Carbs <span>-</span></div>
+                    <div class="fact">ABV: @item.Abv</div>
+                    <!-- IBU is missing for Sol and Tecate Light -->
+                    @if (!string.IsNullOrEmpty(item.Ibu))
+                    {
+                        <div class="fact"><span> - </span> IBU: @item.Ibu</div>
+                    }
+                    
+                </div>      
+        </section>
+        }
+        <p class="copy-small">* Serving size 12 fl. oz; Servings per container: 1</p>
+    </section>
+    <section class="products">
+        <h2 class="headline-02">CRAFTED COCKTAILS</h2>
+        <section class="section toutsWrapper">
+            <div class="touts-static contentMax whiteText">
+
+            </div>
+        </section>
+    </section>
+   
+    @Html.Partial("_BrewingPanel")
+    <section class="recipes darkBg" id="recipes">
+        <div class="heading-block-02  content contentMax">
+            <section>
+                <div class="touts-static touts-large contentMax whiteText">
+                </div>
+            </section>
+        </div>
+    </section>
+    <section id="bottom-touts" class="section toutsWrapper">
+        <div class="touts bottom-touts contentMax whiteText">
+            @Html.Partial("Touts/_BeerFinder")
+            @Html.Partial("Touts/_Faq")
+        </div>
+    </section>
+</div>

@@ -1,0 +1,135 @@
+@import 'components/slick';
+@import 'components/slick-theme';
+@import 'config/vars';
+@import 'components/touts/faq';
+@import 'components/touts/beer-recipes';
+
+.toutsWrapper{
+    background: $black;
+    .touts {
+        @include contentWidth;
+        //@include gutter(1rem);
+        display: block;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        @media all and (max-width:$mobile-width) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        &.slick-dotted.slick-slider{
+        }
+        .slick-dots {
+            position: relative;
+            bottom: -20px;
+            li {
+                button {
+                    background: #1e1e1e;
+                    border-color: #f8f8f8;
+                }
+                &.slick-active {
+                    button {
+                        background: #f8f8f8;
+                    }
+                }
+            }
+        }
+        .tout{
+            position: relative;
+
+            &.about-tout .content .starting-bg {
+                background: #E7EEE7;
+            }
+            &.faq-tout .content .starting-bg {
+                background: #1e1e1e;
+            }
+            &.beer-finder-tout .content .starting-bg {
+                background: #000;
+            }
+            &.beer-recipe-tout .content .starting-bg {
+                background: #09230D;
+            }
+            &.brewing-tout .content .starting-bg {
+                background: #F8F8F8;
+            }
+            &:after{
+                content:' ';
+                display: block;
+                padding-bottom:120%;
+            }
+            .content{
+                padding-top:45px;
+                position: absolute;
+                top:0;
+                height:100%;
+                width:100%;
+                background:no-repeat;
+                background-size:100% auto;
+                 @media all and (min-width:$mobile-width) {
+                    border: 10px solid #1e1e1e;
+                }
+                .starting-bg {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: -2;
+                    top: 0;
+                    left: 0;
+                }
+                img{
+                    width:100%;
+                }
+                .hero-graphic {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: -1;
+                    left: 0;
+                    top: 0;
+                }
+                .title{
+                    margin-top:2em;
+                }
+                divider {
+                    height: 1px;
+                    margin-top: 0.8em;
+                    margin-bottom: 0.8em;
+                }
+                p{
+                    padding: 0;
+                    width: 75%;
+                    margin: 0 auto;
+                }
+                input {
+                    padding:5px;
+                    color:#aaa;
+                    width: 185px;
+                    margin-top:30px;
+                    font-size:22PX;
+                    font-family: 'open_sans_condensed_light';
+                    text-align:center;
+                }
+                .cta {
+                }
+                .locatorCta {
+                    padding-top:15px;
+                }
+                &.dark {
+                    color: $black;
+                    divider {
+                        color: $black;
+                    }
+                    a {
+                        color: $black;
+                    }
+                }
+
+            }
+            &:last-child{
+                .content{
+                    right:0;
+                }
+            }
+        }
+    }
+}

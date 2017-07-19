@@ -1,0 +1,232 @@
+@import 'config/vars.scss';
+  @import 'components/enjoyresponsibly';
+  .cinco{
+    background: #fff;
+
+     a{
+      &:hover{
+        text-decoration:none;
+      }
+    }
+    .hero{
+      $heroRatio: (1024/642);
+          background:url(/Assets/Images/promotions/cinco/hero-cinco.jpg) no-repeat #fff;
+          background-size: cover;
+          background-position: top;
+          position: relative;
+          z-index: 0;
+          //padding-top: 115px;
+          padding-bottom: 35%;
+          //height:500px;
+          color: $white;
+      >div{
+        padding-top:0;
+      }
+
+      p{
+        @include contentWidth(70%);
+        @include gutter(2rem);
+        font-size: .9rem;
+        //padding-top: 0;
+      }
+      img{
+        padding-top:25px;
+      }
+
+      @media all and (min-width: 1500px) {
+        background-position: bottom;
+        padding-bottom: 40%;
+        p {
+          @include contentWidth(55%);
+        }
+
+      }
+      @media all and (max-width:$mobile-width){
+        //padding-top: 90px;
+        p{
+          @include contentWidth(60%);
+        }
+      }
+      @media all and (max-width: $mobile-devices-width) {
+        background:url(/Assets/Images/promotions/cinco/hero-cinco_m.jpg) no-repeat #fff;
+        height: 500px;
+        background-size: cover;
+        background-position: center;
+        //padding-top: 100px;
+        p {
+          @include contentWidth(90%);
+          @include gutter(.3rem);
+        }
+      }
+      @media all and (max-width: 360px) {
+        h2 {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .main-cta{
+      position: relative;
+      z-index: 1;
+      @include gutter(2rem);
+      @include contentWidth(1000px);
+
+      .content{
+        padding-top: 30px;
+        padding-bottom:0;
+        background: #fff;
+        position: relative;
+        margin-top:-2rem;
+
+        p.small {
+          font-size: 12px;
+          line-height: 15px;
+          margin: 0 auto;
+        //  margin-bottom: 10px;
+          text-align: justify;
+        }
+        .social{
+          padding: 32px 0 22px;
+        }
+
+        .peppers {
+          position:relative;
+          margin: 0 auto;
+          width: 170px;
+          height: 39px;
+          background: url(/Assets/Images/promotions/cinco/peppers.png) no-repeat 50% 0,
+                      url(/Assets/Images/promotions/cinco/peppers-line.png) repeat-x 0 50%;
+          margin-bottom: 20px;
+        }
+        @media screen and (max-width:($mobile-width)){
+            //margin-top:-1rem;
+          }
+        }
+
+      .heading-block-01{
+        width:100%;
+        .headline-01 {
+          font-size: 2rem !important;
+        }
+      }
+      .cta{
+        padding-bottom: 0;
+      }
+    }
+    @import "components/social-share";
+    .social{
+      align-items: center;
+      justify-content: center;
+      padding:0;
+      }
+    .slider{
+      position: relative;
+      margin-bottom: 50px;
+    }
+    .slick-arrow{
+        top:50%;
+        transform:translateY(-50%);
+        @media screen and (max-width:$mobile-width){
+                display: none;
+          }
+    }
+    .slick-next{
+      right:-(90/24)*1rem;
+    }
+    .slick-prev{
+      left:-(90/24)*1rem;
+    }
+    .slick-dotted.slick-slider{
+      margin:0;
+    }
+    .slick-dots{
+      bottom:-35px;
+    }
+    .videos-wrapper {
+      background: $white;
+      max-width: 100%;
+      padding: 0;
+      padding-bottom:1px;
+      .videos{
+        padding:0;
+        > div{
+          padding:0;
+        }
+
+        .heading-block-03 {
+          padding: 35px 0 10px;
+        }
+        @include contentWidth(750px);
+        @include gutter(1rem);
+        @import "components/video-player";
+      }
+    }
+
+  .links{
+    position: relative;
+    padding:75px 0 30px;
+    //background: $white;
+    text-align: center;
+
+    div.flex{
+      @include contentWidth(650px);
+      display: flex;
+      text-align: center;
+
+
+      @media screen and (max-width:($mobile-width)){
+        display: block;
+      }
+      >div{
+        padding-top:50px;
+        width:50%;
+        background: no-repeat top;
+        background-size:auto 45px;
+        margin:auto;
+        a{
+          text-transform: uppercase;
+          margin:1.3rem auto;
+          display: block;
+        }
+        &.save-coupon {
+          background-position: 50% 3px;
+          background-size:auto 40px;
+          background-image:url('/assets/images/promotions/cinco/scissor.gif');
+
+          .coupon-desktop {
+            display:none;
+          }
+
+          &.hide-mobile {
+
+            margin-top: 0;
+            margin-bottom: 50px;
+
+            .coupon-desktop {
+              display:block;
+            }
+
+            .coupon-mobile  {
+              display:none;
+            }
+
+          }
+
+          .coupon-mobile  {
+            display:block;
+            .hide-mobile & {
+              display:none;
+            }
+          }
+
+        }
+        &.drizly{
+          background-image:url(/Assets/Images/svg/drizly.svg);
+        }
+
+      }
+
+
+    }
+  }
+}

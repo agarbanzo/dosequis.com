@@ -1,0 +1,33 @@
+
+  /*colors*/
+
+$lightgold: #c7b87e;
+$white: #f8f8f8;
+$grey: #8b8b8b;
+$grey-dark:#757373;
+$darkgrey:#4e4e4e;
+$red: rgba(255,104,115,1);
+$black: #1e1e1e;
+$sans: sans-serif;
+$breadcrumbDark:#d0d0d0;
+$breadcrumbLight:#888888;
+
+$lg-screens: 1600px;
+$max-width: 1366px;
+$mid-width: 1024px;
+$mobile-width:767px;
+$mobile-devices-width:640px;
+
+$navHeight:66px;
+
+$iphone6P:414px;
+$iphone6:375px;
+$mobile-small:374px;
+
+$mapheight:60vh;
+
+
+$aniSpeed:.4s;
+$aniQspeed: $aniSpeed / 4;
+
+@import './mixins';

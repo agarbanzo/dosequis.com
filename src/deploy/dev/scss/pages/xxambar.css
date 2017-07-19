@@ -1,0 +1,22 @@
+﻿.page-container {
+  min-height: 1600px; }
+
+.xxambar-iframe {
+  height: 0;
+  overflow: hidden; }
+  .xxambar-iframe iframe {
+    position: absolute;
+    top: 105px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0px; }
+
+/* 16x9 Aspect Ratio */
+.xxambar-iframe-16x9 {
+  padding-bottom: 56.25%; }
+
+/* 4x3 Aspect Ratio */
+.xxambar-iframe-4x3 {
+  padding-bottom: 75%; }
+

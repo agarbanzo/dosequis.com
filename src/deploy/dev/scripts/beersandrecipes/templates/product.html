@@ -1,0 +1,21 @@
+<div  class="tout {{type}}-tout">
+    <div class="tout-wrap">
+        <img class="bg" src="{{bg}}" alt="Paris" data-parallax='{"y": -80}' />
+        <div class="heading-block-01 content">
+            <h4 class="headline-04"><strong>{{title}}</strong></h4>
+            <divider></divider>
+            <div class="copy">{{copy}}</div>
+            <div class="cta">
+                <a data-ga='{"category":"tout-{{id}}"}' href="{{link}}">{{cta}}</a>
+            </div>
+        </div>
+        <div class="imgholder">
+            <img class="hero-graphic two" src="{{product}}">
+        </div>
+    </div>
+    {{#drizly}}
+    <div class="drizly">
+        <a href="http://store.dosequis.com/" data-ga='{"category":"tout-{{id}}"}' onClick="fbq('track', 'Search');"> Order {{name}}</a>
+    </div>
+    {{/drizly}}
+</div>

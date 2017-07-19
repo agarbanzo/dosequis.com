@@ -1,0 +1,464 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+//import './mimGallery';
+
+
+var _slickCarousel = require('slick-carousel');
+
+var _slickCarousel2 = _interopRequireDefault(_slickCarousel);
+
+var _historySlider = require('components/historySlider');
+
+var _historySlider2 = _interopRequireDefault(_historySlider);
+
+var _socialFeed = require('../services/social-feed');
+
+var _scrollmagic = require('scrollmagic');
+
+var _scrollmagic2 = _interopRequireDefault(_scrollmagic);
+
+var _doubleArrowButton = require('components/doubleArrowButton');
+
+var _doubleArrowButton2 = _interopRequireDefault(_doubleArrowButton);
+
+var _fullscreenVideo = require('components/fullscreen-video');
+
+var _fullscreenVideo2 = _interopRequireDefault(_fullscreenVideo);
+
+var _loader = require('components/loader/loader');
+
+var _loader2 = _interopRequireDefault(_loader);
+
+var _product = require('components/product');
+
+var _product2 = _interopRequireDefault(_product);
+
+var _util_play_video_inline = require('utils/util_play_video_inline');
+
+var _youtubePlayer = require('youtube-player');
+
+var _youtubePlayer2 = _interopRequireDefault(_youtubePlayer);
+
+require('components/touts/touts');
+
+require('components/touts/full-page/full-page-tout-loader');
+
+var _ismobilejs = require('ismobilejs');
+
+var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var recipes = require('../beersandrecipes/recipes.json');
+var beers = require('../beersandrecipes/beers.json');
+require('scss/pages/home.scss');
+require('scss/pages/home-waves.scss');
+require("vendor/jquery.parallax-scroll");
+require("vendor/jquery.easing.1.3");
+require('jquery.transit');
+var makeVideoPlayableInline = require('iphone-inline-video');
+
+
+console.log(createjs, 'home');
+
+var screenOrientation = require('screen-orientation');
+var viewSize = require('view-size');
+
+var Home = function () {
+    function Home() {
+        var _this2 = this;
+
+        _classCallCheck(this, Home);
+
+        var _this = this;
+        //this.initDevice();
+        //this.intiVideo();
+        this.players = [];
+        this.intiPlayers();
+        this.addProducts();
+        this.makeWaves();
+
+        $(document).ready(function () {
+            //_this.addUIListeners();
+            _this2.addScrollController();
+            _this2.addLoaders();
+            //this.video = document.getElementById('bgvid');
+
+
+            window.dispatcher.on('ageGateHidden', function () {
+                //  _this.video.play();
+            });
+        });
+        //
+        // $('.locatorCta').on('click',(e)=>{
+        //     e.preventDefault();
+        //     this.gotoBeerPage();
+        // })
+        //
+        //   $('.zipfield3').on("keyup",(e)=> {
+        //     e.preventDefault();
+        //     if (e.keyCode == 13) {
+        //         this.gotoBeerPage();
+        //     }
+        //  });
+
+        this.herobutton = new _doubleArrowButton2.default({
+            el: "#section1",
+            target: ".section2",
+            direction: "down",
+            animate: true,
+            ga: {
+                category: 'hero',
+                label: 'scrollButton'
+            }
+        });
+    }
+
+    _createClass(Home, [{
+        key: 'addWindowSizeListeners',
+        value: function addWindowSizeListeners() {
+            var self = this;
+            console.log('isMobile', _ismobilejs2.default.any);
+            if (_ismobilejs2.default.any) {
+                // after orientationchange
+                window.addEventListener('orientationchange', function () {
+                    self.setBackgroundImgPosition(20);
+                    //console.log('AFTER ORIENTATION CHANGE : '+ self.isPortrait());
+                });
+            } else {
+                // after window resize
+                window.addEventListener('resize', function () {
+                    self.setBackgroundImgPosition(20);
+                    //console.log('AFTER RESIZE : '+self.isPortrait());
+                });
+            }
+        }
+    }, {
+        key: 'isPortrait',
+        value: function isPortrait() {
+            var portrait = void 0;
+            if (_ismobilejs2.default.any) {
+                var so = screenOrientation();
+                portrait = so.direction === 'portrait';
+            } else {
+                var vs = viewSize();
+                portrait = vs.x < vs.y;
+            }
+            return portrait;
+        }
+    }, {
+        key: 'makeWaves',
+        value: function makeWaves() {
+            var self = this,
+                speed = 100,
+                container = $('#wavesMask');
+            for (var i = 0; i < 220; i++) {
+                var div = $('<div></div>');
+                container.append(div);
+                var offset = $(div).offset();
+                var offsetSum = offset.left + offset.top;
+                var delay = parseFloat(offsetSum / speed).toFixed(2);
+                //console.log('speed', delay%4);
+                $(div).css({ 'animation-delay': (delay % 4).toFixed(2) + 's' });
+            }
+            this.setBackgroundImgPosition(20);
+            setTimeout(function () {
+                $('#bgHero').css({ opacity: 1 });
+            }, 1000);
+
+            this.addWindowSizeListeners();
+        }
+    }, {
+        key: 'setBackgroundImgPosition',
+        value: function setBackgroundImgPosition(slices) {
+            console.log('setBackgroundImgPosition');
+            var h = 3,
+                sliceWidth = 100 / slices,
+                xpos = 0,
+                ypos = 0,
+                origWidth = 1024,
+                origHeight = 360,
+                scaleX = $('#wavesMask').width() / origWidth,
+                scaleY = $('#wavesMask').height() / origHeight,
+                elements = $('#wavesMask').children('div');
+            elements.each(function (i) {
+                var offset = $(this).offset();
+                xpos = i % slices * sliceWidth;
+                if (i % slices === 0) {
+                    xpos = 0;
+                    h++;
+                    ypos += h;
+                }
+                $(this).css({
+                    'height': h + '%',
+                    'background-position': xpos + '% ' + (ypos - h) + '%',
+                    'background-size': scaleY * origWidth + 'px ' + scaleY * origHeight + 'px' });
+            });
+        }
+    }, {
+        key: 'intiPlayers',
+        value: function intiPlayers() {
+            $('.player').each(function (i, el) {
+                var html = $(el);
+                var vidWrap = html.closest('.video-player');
+                var vidCover = vidWrap.find('.cover');
+                var loader = new _loader2.default(vidCover);
+                loader.show();
+                console.log(vidWrap, vidCover);
+                var vidID = $(el).data('vidid');
+                console.log(vidID);
+                var player = (0, _youtubePlayer2.default)(el, {
+                    playerVars: { 'autoplay': 0, 'controls': 1, rel: 0 }
+                });
+                // 'loadVideoById' is queued until the player is ready to receive API calls.
+                player.loadVideoById(vidID).then(function (v) {
+                    vidWrap.addClass('ready');
+                    loader.hide();
+                    window.dispatcher.on('stopvid', stopVid);
+                });
+                player.stopVideo();
+                player.on('stateChange', function (event) {
+                    if (event.data == 0) vidCover.css('height', '100%').transition({ 'opacity': 1 });
+                });
+
+                vidCover.on('click', function (ev) {
+                    window.dispatcher.trigger('stopvid');
+                    player.playVideo();
+                    vidCover.transition({ 'opacity': 0 }).transition({ 'height': 0 });
+                    ga.trackEvent({
+                        category: "CFPVideo",
+                        label: "Play-Video" + (i + 1)
+                    });
+                });
+                window.dispatcher.on('stopVideo', stopVid);
+                function stopVid() {
+                    player.stopVideo();
+                    vidCover.css('height', '100%').transition({ 'opacity': 1 });
+                }
+            });
+            this.initSlick(".videos .slider");
+        }
+
+        // gotoBeerPage(){
+        //   var zip = $('#zipcode3').val();
+        //   if(zip == '' || zip=='ADDRESS/ZIPCODE'){
+        //     window.location.assign("/beer-finder")
+        //   }else{
+        //     console.log('user added a zipcode')
+        //     window.location.assign('beer-finder?zipcode='+zip)
+        //   }
+        // }
+
+    }, {
+        key: 'initDevice',
+        value: function initDevice() {
+            console.log('IS MOBILE:', _ismobilejs2.default.any);
+            if (!_ismobilejs2.default.any) {
+                $('.save-coupon').addClass('hide-mobile');
+            }
+        }
+    }, {
+        key: 'addProducts',
+        value: function addProducts() {
+            var lager = beers['lager'];
+            var ambar = beers['ambar'];
+            var ambarTout = new _product2.default(ambar);
+            var lagerTout = new _product2.default(lager);
+            $('.products .touts-static').append(ambarTout.div);
+            $('.products .touts-static').append(lagerTout.div);
+        }
+    }, {
+        key: 'addLoaders',
+        value: function addLoaders() {
+            this.socialLoader = new _loader2.default('#social');
+            this.socialLoader.show();
+            this.mimLoader = new _loader2.default('.mim').show();
+        }
+    }, {
+        key: 'addUIListeners',
+        value: function addUIListeners() {
+            //var mobileview = 640;
+            //var debouncedLayout = _.debounce(updateLayout, 300);
+            // $(window).resize(debouncedLayout);
+        }
+    }, {
+        key: 'addScrollController',
+        value: function addScrollController() {
+            this.scroller = new _scrollmagic2.default.Controller();
+            this.addVideoScroll();
+            this.addMimScroll();
+            this.addHistoryScroll();
+            this.addSocialScroll();
+        }
+    }, {
+        key: 'addVideoScroll',
+        value: function addVideoScroll() {
+            var _this = this;
+            var video = document.getElementById('bgHero');
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '#bgHero',
+                triggerHook: 'onLeave',
+                duration: $(window).height() }).addTo(this.scroller);
+
+            scene.on("enter", function (event) {
+                //  _.defer(function(){ video.play() });
+                _this.toggleWaveAnimation(true);
+            });
+
+            scene.on("leave", function (event) {
+                //  _.defer(function(){ video.pause() });
+                _this.toggleWaveAnimation(false);
+            });
+        }
+    }, {
+        key: 'toggleWaveAnimation',
+        value: function toggleWaveAnimation(on) {
+            var elements = $('#wavesMask').children();
+            //console.log('children', elements.length);
+            if (on) {
+                elements.each(function () {
+                    $(this).css({ 'animation-name': 'wave' });
+                });
+            } else {
+                elements.each(function () {
+                    $(this).css({ 'animation-name': 'none' });
+                });
+            }
+        }
+    }, {
+        key: 'addMimScroll',
+        value: function addMimScroll() {
+            var _this = this;
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '#mim',
+                triggerHook: 'onEnter'
+            }).addTo(this.scroller);
+
+            scene.on("enter", function (event) {
+                console.log('mim entered');
+                _this.addMimGallery();
+            });
+        }
+    }, {
+        key: 'addMimGallery',
+        value: function addMimGallery() {
+            require('scss/components/mimgallery.scss');
+            require.ensure([], function (require) {
+                var myModule = require("./mimGallery");
+                $('.most-interesting-man').transition({ opacity: 1 });
+            }, "mimgallery");
+            //   this.addMimGallery = function(){};
+        }
+    }, {
+        key: 'addHistoryScroll',
+        value: function addHistoryScroll() {
+            var _this = this;
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '#history',
+                triggerHook: 'onEnter'
+            }).addTo(this.scroller);
+
+            scene.on("enter", function (event) {
+                _this.initSlick();
+            });
+        }
+    }, {
+        key: 'addSocialScroll',
+        value: function addSocialScroll() {
+            var _this = this;
+            var scene = new _scrollmagic2.default.Scene({
+                triggerElement: '#social',
+                triggerHook: 'onEnter',
+                duration: 300
+            }).addTo(this.scroller);
+
+            scene.on("enter", function (event) {
+                $('#social').addClass('active').siblings().removeClass('active');
+                _this.showFeed();
+            });
+        }
+    }, {
+        key: 'intiVideo',
+        value: function intiVideo() {
+            //playVideoInline('bgvid');
+        }
+    }, {
+        key: 'initSlick',
+        value: function initSlick() {
+            var slider = new _historySlider2.default({ el: '.gallery' });
+            //let's function only be called once.
+            this.initSlick = function () {};
+        }
+    }, {
+        key: 'showFeed',
+        value: function showFeed() {
+            var _this = this;
+
+            var template = require('./templates/feed-item.html');
+            (0, _socialFeed.getSocialFeed)().done(function (data, status) {
+                //   console.log(data,status);
+                if (status !== "success") return;
+                $(".social-slider").transition({ opacity: 1 }, 1000, 'ease');
+                $(".social-slider").slick({
+                    infinite: true,
+                    dots: false,
+                    autoplay: true,
+                    responsive: [{
+                        breakpoint: 3000,
+                        settings: { slidesToShow: 5 }
+                    }, {
+                        breakpoint: 1024,
+                        settings: { slidesToShow: 4 }
+                    }, {
+                        breakpoint: 480,
+                        settings: { slidesToShow: 2 }
+                    }]
+                });
+
+                data.Models.forEach(function (d, i) {
+                    //   console.log(d);
+                    d.channel = d.SocialNetwork.toLowerCase();
+                    if (d.FeedType == 'Text') {
+                        d.isText = true;
+                        addItem(d);
+                    } else {
+                        var img = new Image();
+                        img.src = d.ImageUrl;
+                        img.onload = function () {
+                            var orientation = 'square';
+                            var or = img.width / img.height;
+                            if (or > 1) orientation = 'hor';
+                            if (or < 1) orientation = 'vert';
+                            d.orientation = orientation;
+                            addItem(d);
+                        };
+                    }
+                    function addItem(d) {
+                        var html = $(template(d));
+                        $(".social-slider").slick('slickAdd', html);
+                        _this.socialLoader.hide();
+                    }
+                    //   console.log(d);
+                });
+            }).fail(function (data, status) {
+                //   console.log('error',data,status);
+            });
+            //let's function only be called once.
+            this.showFeed = function () {};
+        }
+    }]);
+
+    return Home;
+}();
+
+exports.default = Home;
+
+
+var home = new Home('.home');

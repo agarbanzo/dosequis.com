@@ -1,0 +1,219 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _cookies = require('../utils/cookies');
+
+var _util_play_video_inline = require('../utils/util_play_video_inline');
+
+var _fullscreenVideo = require('components/fullscreen-video');
+
+var _fullscreenVideo2 = _interopRequireDefault(_fullscreenVideo);
+
+var _tracking = require('services/google-analytics/tracking');
+
+var _tracking2 = _interopRequireDefault(_tracking);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+require('../../scss/pages/agegate');
+
+var makeVideoPlayableInline = require('iphone-inline-video');
+
+var Agegate = function () {
+	function Agegate(selector) {
+		_classCallCheck(this, Agegate);
+
+		var _this = this;
+
+		$(document).ready(function () {
+			_this.$el = $(selector);
+			_this.render();
+			_this.addUIListeners();
+			_this.month = $('#month');
+			_this.day = $("#day");
+			_this.year = $("#year");
+
+			_tracking2.default.trackEvent({
+				label: 'Page View',
+				category: 'agegate'
+			});
+		});
+	}
+
+	_createClass(Agegate, [{
+		key: 'addUIListeners',
+		value: function addUIListeners() {
+			var _this = this;
+
+			$('#month,#day,#year').keyup(function (e) {
+				if ($(this).val().length == $(this).attr('maxlength')) $(this).next(':input').focus();
+				if (_this.year.val().length == 4 && _this.month.val().length >= 1 && _this.day.val().length >= 1) {
+					$('.cta a').removeClass('disabled');
+					$('#input-date-submit').on("click", function (e) {
+						e.preventDefault();
+						_this.validateFields();
+						if (_this.validateFields()) _this.validateAgeEntry(_this.month.val() + '/' + _this.day.val() + '/' + _this.year.val());
+						_tracking2.default.trackEvent({
+							label: 'submit clicked',
+							category: 'agegate'
+						});
+					});
+				}
+			});
+
+			$("input").keypress(function (event) {
+				if (event.which == 13) {
+					$('#input-date-submit').trigger('click');
+				}
+			});
+
+			$("input").focusin(function (event) {
+				event.preventDefault();
+				var id = $(this).attr('id');
+				_tracking2.default.trackEvent({
+					label: id,
+					category: 'agegate'
+				});
+			});
+
+			$("input").focus(function (event) {
+				event.preventDefault();
+			});
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var isLegal = (0, _cookies.getCookie)('legalage');
+			if (isLegal == false) {
+				this.showErrorMesssage();
+			} else {
+				this.$el.find('.entry').removeClass('hide');
+
+				(0, _util_play_video_inline.playVideoInline)('agegatebgvid');
+			}
+		}
+	}, {
+		key: 'hideAgeGate',
+		value: function hideAgeGate() {
+			$(document.getElementById('agegate')).remove();
+			this.$el.hide();
+		}
+	}, {
+		key: 'removeCookie',
+		value: function removeCookie() {
+			(0, _cookies.eraseCookie)('legalage');
+		}
+	}, {
+		key: 'validateFields',
+		value: function validateFields() {
+			var d = new Date();
+			var valid = false;
+
+			function padDigits(number, digits) {
+				return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number;
+			}
+
+			if (this.month.val() > 12 || this.month.val() < 1) {
+				console.log('month is not valid');
+				this.addInputErrorStates();
+				this.month.addClass('error');
+			} else if (this.month.val() == 2 && this.day.val() > 28 || this.month.val() == 9 && this.day.val() > 30 || this.month.val() == 11 && this.day.val() > 30 || this.month.val() == 4 && this.day.val() > 30 || this.month.val() == 6 && this.day.val() > 30) {
+				console.log('this day is not valid');
+				this.addInputErrorStates();
+			} else if (this.day.val() < 1 || this.day.val() > 31) {
+				this.addInputErrorStates();
+			} else if (this.year.val() > d.getFullYear()) {
+				console.log('this year is not valid');
+				this.addInputErrorStates();
+			} else {
+				if (this.month.val().length < 2) {
+					this.month.val(padDigits(this.month.val(), 2));
+				}
+				if (this.day.val().length < 2) {
+					this.day.val(padDigits(this.day.val(), 2));
+				}
+				console.log('yes! this date is valid');
+
+				valid = true;
+			}
+
+			return valid;
+		}
+	}, {
+		key: 'validateMonth',
+		value: function validateMonth() {
+			var valid = false;
+			return valid;
+		}
+	}, {
+		key: 'validateDay',
+		value: function validateDay() {
+			var valid = false;
+			return valid;
+		}
+	}, {
+		key: 'validateYear',
+		value: function validateYear() {
+			var valid = false;
+
+			return valid;
+		}
+	}, {
+		key: 'addInputErrorStates',
+		value: function addInputErrorStates() {
+			this.day.addClass('error');
+			this.month.addClass('error');
+			this.year.addClass('error');
+		}
+	}, {
+		key: 'validateAgeEntry',
+		value: function validateAgeEntry(dateString) {
+			if (this.getAge(dateString) >= 21) {
+				console.log('yes! you are over 21');
+				this.hideAgeGate();
+				(0, _cookies.setCookie)("legalage", 'true', 365);
+				$('body').removeClass('agegate');
+				$(window).scrollTop(0);
+				window.dispatcher.trigger('ageGateHidden');
+			} else {
+				console.log('no! you are not over 21');
+				this.showErrorMesssage();
+				(0, _cookies.setCookie)("legalage", 'false', 0);
+			}
+		}
+	}, {
+		key: 'getAge',
+		value: function getAge(dateString) {
+			var today = new Date();
+			var birthDate = new Date(dateString);
+			var age = today.getFullYear() - birthDate.getFullYear();
+			var m = today.getMonth() - birthDate.getMonth();
+
+			if (m < 0 || m === 0 && today.getDate() < birthDate.getDate()) {
+				age--;
+			}
+			return age;
+		}
+	}, {
+		key: 'showErrorMesssage',
+		value: function showErrorMesssage() {
+			this.$el.find('.entry').addClass('hide');
+			this.$el.find('.notlegal').removeClass('hide');
+			_tracking2.default.trackEvent({
+				label: 'is not legal',
+				category: 'agegate'
+			});
+		}
+	}]);
+
+	return Agegate;
+}();
+
+exports.default = Agegate;

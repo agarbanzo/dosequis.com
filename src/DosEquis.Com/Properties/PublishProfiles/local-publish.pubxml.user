@@ -1,0 +1,2511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\andrey.garbanzo\OneDrive\Freelancer\Hangar\Heineken\dosequis.com\src\DosEquis.Com\Properties\PublishProfiles\..\..\..\deploy</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/beer-packs.xml">
+      <publishTime>03/07/2017 17:15:46</publishTime>
+    </File>
+    <File Include="App_Data/beers.xml">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="App_Data/FeedPageConfig.xml">
+      <publishTime>07/11/2016 18:17:32</publishTime>
+    </File>
+    <File Include="App_Data/feeds.xml">
+      <publishTime>07/21/2016 12:22:50</publishTime>
+    </File>
+    <File Include="App_Data/HomePageConfig.xml">
+      <publishTime>10/25/2016 14:44:24</publishTime>
+    </File>
+    <File Include="App_Data/recipes.xml">
+      <publishTime>03/07/2017 17:15:46</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Italic.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Italic.svg">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Italic.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Italic.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Roman.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Roman.svg">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Roman.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/Caslon540LTStd-Roman.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/CochinLTStd.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/CochinLTStd.svg">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/CochinLTStd.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/CochinLTStd.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/fontawesome-webfont.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/fontawesome-webfont.svg">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/fontawesome-webfont.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/fontawesome-webfont.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/fontawesome-webfont.woff2">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/FontAwesome.otf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/icons/entypo.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/icons/entypo.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/icons/entypo.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condbold-webfont.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condbold-webfont.svg">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condbold-webfont.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condbold-webfont.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condlight-webfont.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condlight-webfont.svg">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condlight-webfont.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/opensans-condlight-webfont.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/TradeGothicLTStd-Cn18.eot">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/TradeGothicLTStd-Cn18.svg">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/TradeGothicLTStd-Cn18.ttf">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/fonts/TradeGothicLTStd-Cn18.woff">
+      <publishTime>09/12/2016 12:41:58</publishTime>
+    </File>
+    <File Include="Assets/googleTileMarkerMapType.js">
+      <publishTime>04/18/2017 16:49:40</publishTime>
+    </File>
+    <File Include="Assets/googleTileMarkerMapType2.js">
+      <publishTime>04/18/2017 16:49:40</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewery.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewery1.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/share_brewing.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step-1.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step-2.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step-3.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step-4.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step-5.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step1-left.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step1-right.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step1-top.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step2-left.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step2-right.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step2-top.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step3-left.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step3-right.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step3-top.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step4-left.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step4-legt.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step4-right.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step4-top.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step5-left.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step5-right.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewing/step5-top.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewingBg-left.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewingBg-right.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/brewingBg.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/clouds.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/clouds1.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/faq/faq-mask.gif">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/faq/faq-mask.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/faq/faq-mask1.gif">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/faq/share_faq.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/about/faqBg.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/faqBg.svg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/gallery-1841.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/gallery-1897.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/about/gallery-2011.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/gallery-2016.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/share_about.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/anchorArrows.svg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/bottles-2016.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/box-left.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/history-1841-img1.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/history-1841-img2.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/old-bottle.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/share_history.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/two-bottles.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/about/timeline/xx-cerveza.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/agegate/ageGate_thumb.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/agegate/ageGate_thumb_mobile.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/dot.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/dot.svg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/logo-map.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/nearby.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/nearby_icon.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/pin.png">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/searchbtn.png">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/beerlocator/share_beerlocator.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/ambar/background-large.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/ambar/product-lg.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/ambar/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/bg_ambar.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/bg_dosarita.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/bg_dosastormy.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/bg_lager.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/bg_michelada.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/bg_sidra.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/cervesas-bg-m.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/cervesas-bg.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/cervezasdemexico/ambar.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/cervezasdemexico/lager.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/cervezasdemexico/sol.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/cervezasdemexico/tecate.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-a-rita/background.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-a-rita/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-a-stormy/background.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-a-stormy/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-arita/background.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-arita/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-sidra/background.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/dos-sidra/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/lager/background.jpg">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/lager/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/michelada/background.png">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/michelada/product.png">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/share_beersandrecipes.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/share_cdm.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/sidra/background.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/sidra/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/stormy/background.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/beersandrecipes/stormy/product.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/bullit.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/cervezasdemexico/box-2.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/cervezasdemexico/BOX-m.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/cervezasdemexico/box.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/cervezasdemexico/brick-bg.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/drizly-white.svg">
+      <publishTime>12/09/2016 12:51:02</publishTime>
+    </File>
+    <File Include="Assets/Images/drizly.svg">
+      <publishTime>12/09/2016 12:51:02</publishTime>
+    </File>
+    <File Include="Assets/Images/favicon/favicon.ico">
+      <publishTime>12/13/2016 16:03:20</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/de-m1.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/de-m2.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/de-m3.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/de-m4.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/de-m5.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/m1.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/m2.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/m3.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/m4.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/gmap-cluster/m5.png">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/home/.mimbg~imageoptim.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/home/boat.png">
+      <publishTime>05/31/2017 12:44:36</publishTime>
+    </File>
+    <File Include="Assets/Images/home/boat2.png">
+      <publishTime>05/31/2017 12:44:36</publishTime>
+    </File>
+    <File Include="Assets/Images/home/dock-bucket.png">
+      <publishTime>05/31/2017 12:44:36</publishTime>
+    </File>
+    <File Include="Assets/Images/home/lockup.png">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/home/mountains.png">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/home/mountains2.png">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim1-m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim1.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim2-m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim2.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim3-m.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim3.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim4-m.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/home/slides/mim4.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/home/thailand.jpg">
+      <publishTime>05/31/2017 12:44:36</publishTime>
+    </File>
+    <File Include="Assets/Images/home/water.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/home/water.png">
+      <publishTime>05/31/2017 12:44:36</publishTime>
+    </File>
+    <File Include="Assets/Images/home/weddingCrasher.jpg">
+      <publishTime>05/31/2017 12:44:36</publishTime>
+    </File>
+    <File Include="Assets/Images/logo-map.svg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim-1.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_cave.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_cfp.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_coach.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_coconut.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_fortune.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_knifeThrow.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_soon.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_tattoo.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_tech.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/mim_well.jpg">
+      <publishTime>10/25/2016 14:44:44</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/share_mim.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/share_weddingCrasher.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/mim/weddingCrasher.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/about.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/about.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/about_m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/beerfinder.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/beerfinder.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/beerfinder_m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/beersandrecipes.jpg">
+      <publishTime>01/06/2017 13:19:42</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/beersandrecipes.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/beersandrecipes_m.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/cinco.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/cinco_m.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/cinqo.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/cinqo_m.png">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/collegefootball.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/collegefootball.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/collegefootball_m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/expand-arrow.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/home.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/logo-black.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/logo-white.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/logo.svg">
+      <publishTime>09/12/2016 12:41:52</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/mostinterestingman.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/mostinterestingman.png">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/mostinterestingman_m.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec1bg-m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec1bg.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec2bg-m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec2bg.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec3bg-m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec3bg.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec4bg-m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec4bg.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec5bg-m.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/sec5bg.jpg">
+      <publishTime>10/25/2016 14:44:46</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/store.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/store_m.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/summer.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/nav/summer_m.jpg">
+      <publishTime>05/31/2017 12:44:34</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/1897.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/1920.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/1940.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/1979.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/1983.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/1984.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/2004.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/2011.jpg">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/2016.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/partials/packaging/arrows.png">
+      <publishTime>10/25/2016 14:44:42</publishTime>
+    </File>
+    <File Include="Assets/Images/prod-card/p1.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/prod-card/prod-and-rec-card-bg.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/darbg.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/lagerpack.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/pack-ambar-bottle.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/pack-ambar-draught.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/pack-lager-bottle.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/pack-lager-can.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/pack-lager-draught.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/scissors-white.png">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/share_ambar.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/productdetail/share_lager.jpg">
+      <publishTime>05/22/2017 17:04:32</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/can.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/championship-game.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/cotton-bowl.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/enjoy.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/fiesta-bowl.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/flash.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/heroBg.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/logo-fpo.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/orange-bowl.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/peach-bowl.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/rose-bowl.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/scissor.gif">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/share_cfp.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/sponser-lockup.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/sugar-bowl.png">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/vid-fpo.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/vid_thumb_15.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cfp/vid_thumb_45.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/can.jpg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/enjoy.jpg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/hero-cinco.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/hero-cinco_m.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/peppers-line.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/peppers.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/scissor.gif">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/scissors.svg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/share_cinco.jpg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/vid-fpo.jpg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/video-cinco.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/vid_thumb_15.jpg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/cinco/vid_thumb_45.jpg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/hero-summer.png">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/scissor.gif">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/scissors.svg">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/share_summer.jpg">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/summer-bucket.png">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/summer-hero-dest-1.png">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/summer-hero-dest-2.png">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/summer-hero-dest-3.png">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/summer-hero-frame.png">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/summer-wood-bg.jpg">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/summer/wood-bg.jpg">
+      <publishTime>05/31/2017 12:44:38</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/xxambar/CTA.png">
+      <publishTime>06/26/2017 20:56:25</publishTime>
+    </File>
+    <File Include="Assets/Images/promotions/xxambar/Overlay.png">
+      <publishTime>06/26/2017 20:56:16</publishTime>
+    </File>
+    <File Include="Assets/Images/recipedetail/share_dosarita.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/recipedetail/share_dosastormy.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/recipedetail/share_dossidra.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/recipedetail/share_michelada.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/recipedetail/skill-empty.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/recipedetail/skill-full.png">
+      <publishTime>10/25/2016 14:44:48</publishTime>
+    </File>
+    <File Include="Assets/Images/scissors.svg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/share_dosequis.jpg">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Assets/Images/sliders/history/history_mod_1500.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/sliders/history/history_mod_1897.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/sliders/history/history_mod_1983.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/sliders/history/history_mod_2011.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/sliders/recipe1.jpg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/anchorArrows-black.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/anchorArrows-gold.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/arrow-gold-down.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/arrow-gold.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/arrow-grey.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/arrow.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/close-x.svg">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/DosEquisLogo-dark.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/DosEquisLogo-white.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/DosEquisLogo.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/drizly-white.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/drizly.svg">
+      <publishTime>12/13/2016 16:03:20</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/faq-diamond.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/faq-diamond.svg._00_">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/faq.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/fb.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/home.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/icon-right.svg">
+      <publishTime>09/12/2016 12:41:52</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/logo.svg">
+      <publishTime>09/12/2016 12:41:52</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/pin-gold.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/pin.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/play-btn.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/twitter.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/svg/wheel.svg">
+      <publishTime>10/25/2016 14:44:50</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/2011/history_2011_atlas_NP_.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/2011/history_2011_atlas_P_.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/2016/history_2016_atlas_P_.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/2016/spacerjpg.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/about/foreground.png">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/about/sky.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/beer-finder/map.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/beer-finder/spacerjpg.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/beer-recipe/beer_recipe_tout_atlas_P_.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/beer-recipe/bg.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/brewing-fullpage/brewingleft_atlas_P_.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/brewing-fullpage/brewingright_atlas_P_.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/brewing-fullpage/spacerjpg.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/brewing-fullpage/spacerpng.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/brewing/brewing_tout_atlas_NP_.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/brewing/flowersuse.png">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/dos-arita/background.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/dos-arita/product.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/enjoyresponsibly/bg-mobile.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/enjoyresponsibly/bg.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/es-cerveza/es_cerveza_atlas_NP_.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/es-cerveza/spacerpng.png">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/faq/spacerjpg.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/faq/spacerpng.png">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/glass-of-lager/glass_of_lager_atlas_P_.png">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/glass-of-lager/spacerjpg.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/lager/background.jpg">
+      <publishTime>10/25/2016 14:44:54</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/lager/product.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/moctezuma/rings.png">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/moctezuma/spacerjpg.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/steam/spacerjpg.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/steam/spacerpng.png">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/us-map/label.jpg">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/touts/us-map/spacerpng.png">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/Images/video-thumbs/ambar.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/video-thumbs/lager.jpg">
+      <publishTime>10/25/2016 14:44:52</publishTime>
+    </File>
+    <File Include="Assets/Images/video-thumbs/spiceUpYourCinco.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/video-thumbs/spiceUpYourCinco_m.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/video-thumbs/vid-thumb-homepage-OLD.jpg">
+      <publishTime>02/28/2017 13:21:52</publishTime>
+    </File>
+    <File Include="Assets/Images/video-thumbs/vid-thumb-homepage.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/Images/video-thumbs/vid-thumb-homepage2.jpg">
+      <publishTime>05/22/2017 17:04:34</publishTime>
+    </File>
+    <File Include="Assets/videos/458993486.mp4">
+      <publishTime>09/12/2016 12:42:06</publishTime>
+    </File>
+    <File Include="Assets/videos/Bubbles.mp4">
+      <publishTime>10/25/2016 14:45:02</publishTime>
+    </File>
+    <File Include="Assets/videos/cfp_clip.mp4">
+      <publishTime>10/25/2016 14:45:02</publishTime>
+    </File>
+    <File Include="Assets/videos/luis.mp4">
+      <publishTime>09/12/2016 12:42:06</publishTime>
+    </File>
+    <File Include="Assets/videos/mim-video.mp4">
+      <publishTime>02/28/2017 13:21:52</publishTime>
+    </File>
+    <File Include="Assets/videos/mim.mp4">
+      <publishTime>09/12/2016 12:42:06</publishTime>
+    </File>
+    <File Include="Assets/videos/products/ambar.mp4">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/videos/products/lager.mp4">
+      <publishTime>10/25/2016 14:44:56</publishTime>
+    </File>
+    <File Include="Assets/videos/spanish-lesson.mp4">
+      <publishTime>02/28/2017 13:21:52</publishTime>
+    </File>
+    <File Include="Assets/videos/spiceUpYourCinco.mp4">
+      <publishTime>04/18/2017 16:49:40</publishTime>
+    </File>
+    <File Include="Assets/videos/spiceUpYourCinco_m.mp4">
+      <publishTime>04/18/2017 16:49:40</publishTime>
+    </File>
+    <File Include="Assets/videos/video.mp4">
+      <publishTime>10/25/2016 14:45:02</publishTime>
+    </File>
+    <File Include="Assets/videos/_video.mp4">
+      <publishTime>09/12/2016 12:42:06</publishTime>
+    </File>
+    <File Include="bin/AlexPilotti.FTPS.Client.dll">
+      <publishTime>07/11/2016 18:17:54</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>09/12/2016 12:42:48</publishTime>
+    </File>
+    <File Include="bin/AWSSDK.dll">
+      <publishTime>07/11/2016 18:17:58</publishTime>
+    </File>
+    <File Include="bin/DosEquis.Com.Core.dll">
+      <publishTime>06/15/2017 23:16:23</publishTime>
+    </File>
+    <File Include="bin/DosEquis.Com.dll">
+      <publishTime>06/28/2017 23:00:40</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>07/11/2016 18:18:06</publishTime>
+    </File>
+    <File Include="bin/Elmah.Mvc.dll">
+      <publishTime>07/21/2016 12:22:50</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>07/11/2016 18:17:48</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>07/11/2016 18:17:48</publishTime>
+    </File>
+    <File Include="bin/Facebook.dll">
+      <publishTime>07/11/2016 18:17:34</publishTime>
+    </File>
+    <File Include="bin/Havas.Common.dll">
+      <publishTime>06/15/2017 23:16:22</publishTime>
+    </File>
+    <File Include="bin/Havas.Social.Aggregator.dll">
+      <publishTime>06/15/2017 23:16:22</publishTime>
+    </File>
+    <File Include="bin/LinqToTwitter.net.dll">
+      <publishTime>07/11/2016 18:18:02</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>07/11/2016 18:17:54</publishTime>
+    </File>
+    <File Include="bin/Lucene.Net.dll">
+      <publishTime>07/11/2016 18:17:50</publishTime>
+    </File>
+    <File Include="bin/map-test.html">
+      <publishTime>04/18/2017 16:49:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/11/2016 18:17:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>07/11/2016 18:18:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Administration.dll">
+      <publishTime>03/08/2016 11:28:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/11/2016 18:17:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.StorageClient.dll">
+      <publishTime>07/11/2016 18:18:20</publishTime>
+    </File>
+    <File Include="bin/MvcSiteMapProvider.dll">
+      <publishTime>07/11/2016 18:18:08</publishTime>
+    </File>
+    <File Include="bin/MvcSiteMapProvider.WebActivator.dll">
+      <publishTime>07/11/2016 18:17:58</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/11/2016 18:17:38</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>09/12/2016 12:42:20</publishTime>
+    </File>
+    <File Include="bin/StructureMap.dll">
+      <publishTime>09/12/2016 12:42:30</publishTime>
+    </File>
+    <File Include="bin/StructureMap.Net4.dll">
+      <publishTime>09/12/2016 12:42:30</publishTime>
+    </File>
+    <File Include="bin/StructureMap.Web.dll">
+      <publishTime>09/12/2016 12:42:26</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>07/11/2016 18:18:00</publishTime>
+    </File>
+    <File Include="bin/System.Reactive.Core.dll">
+      <publishTime>07/11/2016 18:17:38</publishTime>
+    </File>
+    <File Include="bin/System.Reactive.Interfaces.dll">
+      <publishTime>07/11/2016 18:18:14</publishTime>
+    </File>
+    <File Include="bin/System.Reactive.Linq.dll">
+      <publishTime>07/11/2016 18:18:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/11/2016 18:17:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>07/11/2016 18:18:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>07/11/2016 18:17:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/11/2016 18:18:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/11/2016 18:17:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>07/11/2016 18:17:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>07/11/2016 18:17:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>07/11/2016 18:17:42</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>07/11/2016 18:17:58</publishTime>
+    </File>
+    <File Include="dev/animate/about-tout/about_tout.fla">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/about-tout/about_tout.html">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/about-tout/about_tout.js">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/about-tout/images/foreground.png">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/about-tout/images/sky.jpg">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/about-tout/libs/createjs-2015.11.26.min.js">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder - V2 - Lower Map/beer_finder_tout.fla">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder - V2 - Lower Map/beer_finder_tout.html">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder - V2 - Lower Map/beer_finder_tout.js">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder - V2 - Lower Map/images/map.png">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder - V2 - Lower Map/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder/beer_finder_tout.fla">
+      <publishTime>05/31/2017 12:44:10</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder/beer_finder_tout.html">
+      <publishTime>05/31/2017 12:44:10</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder/beer_finder_tout.js">
+      <publishTime>05/31/2017 12:44:10</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder/images/map.png">
+      <publishTime>05/31/2017 12:44:10</publishTime>
+    </File>
+    <File Include="dev/animate/beer-finder/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:10</publishTime>
+    </File>
+    <File Include="dev/animate/beer-recipe-card/beer_recipe_tout.fla">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-recipe-card/beer_recipe_tout.html">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-recipe-card/beer_recipe_tout.js">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-recipe-card/images/beer_recipe_tout_atlas_P_.png">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/beer-recipe-card/images/bg.jpg">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/brewingleft.fla">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/brewingleft.html">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/brewingleft.js">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/brewingright.fla">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/brewingright.html">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/brewingright.js">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/images/brewingleft_atlas_P_.png">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/images/brewingright_atlas_P_.png">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-full-page/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-tout/brewing_tout.fla">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-tout/brewing_tout.html">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-tout/brewing_tout.js">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-tout/images/brewing_tout_atlas_NP_.jpg">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/brewing-tout/images/flowersuse.png">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/code.rtf">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/es-cerveza/es_cerveza.fla">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/es-cerveza/es_cerveza.html">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/es-cerveza/es_cerveza.js">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/es-cerveza/images/es_cerveza_atlas_NP_.jpg">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/es-cerveza/images/spacerpng.png">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/faq-tout/faq_tout.fla">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/faq-tout/faq_tout.html">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/faq-tout/faq_tout.js">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/faq-tout/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/faq-tout/images/spacerpng.png">
+      <publishTime>05/31/2017 12:44:20</publishTime>
+    </File>
+    <File Include="dev/animate/glass-of-lager/glass_of_lager.fla">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/glass-of-lager/glass_of_lager.html">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/glass-of-lager/glass_of_lager.js">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/glass-of-lager/images/glass_of_lager_atlas_P_.png">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/glass-of-lager/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/history-2011/history_2011.fla">
+      <publishTime>05/31/2017 12:44:12</publishTime>
+    </File>
+    <File Include="dev/animate/history-2011/history_2011.html">
+      <publishTime>05/31/2017 12:44:12</publishTime>
+    </File>
+    <File Include="dev/animate/history-2011/history_2011.js">
+      <publishTime>05/31/2017 12:44:12</publishTime>
+    </File>
+    <File Include="dev/animate/history-2011/images/history_2011_atlas_NP_.jpg">
+      <publishTime>05/31/2017 12:44:12</publishTime>
+    </File>
+    <File Include="dev/animate/history-2011/images/history_2011_atlas_P_.png">
+      <publishTime>05/31/2017 12:44:12</publishTime>
+    </File>
+    <File Include="dev/animate/history-2016/history_2016.fla">
+      <publishTime>05/31/2017 12:44:18</publishTime>
+    </File>
+    <File Include="dev/animate/history-2016/history_2016.html">
+      <publishTime>05/31/2017 12:44:18</publishTime>
+    </File>
+    <File Include="dev/animate/history-2016/history_2016.js">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/history-2016/images/history_2016_atlas_P_.png">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/history-2016/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/homepage-football/homepage_football.fla">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/homepage-football/homepage_football.html">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/homepage-football/homepage_football.js">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/homepage-football/images/Ref1.png">
+      <publishTime>05/31/2017 12:44:16</publishTime>
+    </File>
+    <File Include="dev/animate/moctezuma/images/rings.png">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/moctezuma/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/moctezuma/moctezuma.fla">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/moctezuma/moctezuma.html">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/moctezuma/moctezuma.js">
+      <publishTime>05/31/2017 12:44:24</publishTime>
+    </File>
+    <File Include="dev/animate/steam/images/spacerjpg.jpg">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/steam/images/spacerpng.png">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/steam/steam.fla">
+      <publishTime>05/31/2017 12:44:28</publishTime>
+    </File>
+    <File Include="dev/animate/steam/steam.html">
+      <publishTime>05/31/2017 12:44:28</publishTime>
+    </File>
+    <File Include="dev/animate/steam/steam.js">
+      <publishTime>05/31/2017 12:44:26</publishTime>
+    </File>
+    <File Include="dev/animate/us-map/images/label.jpg">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/us-map/images/spacerpng.png">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/us-map/us_map.fla">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/us-map/us_map.html">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/animate/us-map/us_map.js">
+      <publishTime>05/31/2017 12:44:22</publishTime>
+    </File>
+    <File Include="dev/scripts/about/about.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/about/brewing.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/about/faqs.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/about/history.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/about/range-slide-gallery.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/agegate/agegate.js">
+      <publishTime>04/18/2017 17:26:24</publishTime>
+    </File>
+    <File Include="dev/scripts/agegate/templates/popup.html">
+      <publishTime>04/18/2017 17:26:24</publishTime>
+    </File>
+    <File Include="dev/scripts/beerlocator/beerlocator.js">
+      <publishTime>04/18/2017 16:50:44</publishTime>
+    </File>
+    <File Include="dev/scripts/beerlocator/dragMapList.js">
+      <publishTime>04/18/2017 16:50:44</publishTime>
+    </File>
+    <File Include="dev/scripts/beerlocator/GmapDragSearch.js">
+      <publishTime>04/18/2017 16:50:44</publishTime>
+    </File>
+    <File Include="dev/scripts/beerlocator/mapstyles.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/beerlocator/templates/info-window.html">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/beerlocator/templates/list-item.html">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/beersandrecipes/beers.json">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/beersandrecipes/beersandrecipes.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/beersandrecipes/productdetail.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/beersandrecipes/recipedetail.js">
+      <publishTime>10/25/2016 14:44:34</publishTime>
+    </File>
+    <File Include="dev/scripts/beersandrecipes/recipes.json">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/beersandrecipes/templates/product.html">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/cervezasdemexico/cervezasdemexico.js">
+      <publishTime>11/07/2016 13:54:40</publishTime>
+    </File>
+    <File Include="dev/scripts/components/doubleArrowButton.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/footer.js">
+      <publishTime>12/13/2016 16:03:10</publishTime>
+    </File>
+    <File Include="dev/scripts/components/fullscreen-video.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/gmap-markercluster0.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/components/gmap-tilemarker0.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/components/gplaces0.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/components/header/drizly-white.svg">
+      <publishTime>12/09/2016 12:50:54</publishTime>
+    </File>
+    <File Include="dev/scripts/components/header/drizly.svg">
+      <publishTime>12/09/2016 12:50:54</publishTime>
+    </File>
+    <File Include="dev/scripts/components/header/header.js">
+      <publishTime>01/06/2017 13:19:40</publishTime>
+    </File>
+    <File Include="dev/scripts/components/header/navigation.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/historySlider.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/jumpnav/jumpnav.js">
+      <publishTime>11/07/2016 13:54:40</publishTime>
+    </File>
+    <File Include="dev/scripts/components/loader/loader.html">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/loader/loader.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/loader/logo-white.png">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/brewingright.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/brewingright_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/brewing_fullpage_left.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/brewing_fullpage_left_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/es_cerveza.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/es_cerveza_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/glass_of_lager.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/glass_of_lager_export.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/history_2011.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/history_2011_export.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/history_2016.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/history_2016_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/moctezuma.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/moctezuma_export.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/page-animation-loader.js">
+      <publishTime>01/06/2017 13:19:40</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/steam.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/steam_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/us_map.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/page-animations/us_map_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/pop-up.js">
+      <publishTime>04/18/2017 17:26:24</publishTime>
+    </File>
+    <File Include="dev/scripts/components/product.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/components/pulseMarker.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/about.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/about_tout.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/beer-finder.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/beer-recipe.js">
+      <publishTime>03/07/2017 17:15:46</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/beer_finder_tout.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/beer_recipe_tout.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/brewing.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/brewing_tout.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/faq.js">
+      <publishTime>03/07/2017 17:15:46</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/faq_tout.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/full-page/brewingleft.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/full-page/brewingleft_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/full-page/brewingright.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/full-page/brewingright_export.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/full-page/full-page-tout-loader.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/touts-loader.js">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/components/touts/touts.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/home/home.js">
+      <publishTime>05/31/2017 12:44:04</publishTime>
+    </File>
+    <File Include="dev/scripts/home/mimGallery.js">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scripts/home/templates/feed-item.html">
+      <publishTime>10/25/2016 14:44:30</publishTime>
+    </File>
+    <File Include="dev/scripts/legal/legal.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/main.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/mim/map.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/mim/mapStyles.json">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/mim/mim.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/mim/mimLocations.json">
+      <publishTime>05/31/2017 12:44:04</publishTime>
+    </File>
+    <File Include="dev/scripts/mim/template/item.html">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/promotions/cfp.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/promotions/cinco.js">
+      <publishTime>04/19/2017 18:05:30</publishTime>
+    </File>
+    <File Include="dev/scripts/promotions/summer.js">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scripts/router/router.js">
+      <publishTime>10/25/2016 14:44:24</publishTime>
+    </File>
+    <File Include="dev/scripts/services/google-analytics/tracking.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/services/social-feed.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/services/social-sharing.js">
+      <publishTime>10/25/2016 14:44:28</publishTime>
+    </File>
+    <File Include="dev/scripts/templates/pop-up.html">
+      <publishTime>04/18/2017 17:26:24</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/canvas-animation-controller.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/canvas-creator.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/cookies.js">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/css-edit-svg.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/getPaginatedItems.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/geturlparams.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/globals.json">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/gmap-markercluster.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/gmap-tilemarker.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/google_api.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/goToScroll.js">
+      <publishTime>11/07/2016 13:54:40</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/gplaces.js">
+      <publishTime>04/18/2017 16:50:44</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/helpers.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/scrollToOffset.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/throttle-debounce.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/util_check_if_in_view.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/util_play_video_inline.js">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scripts/utils/window-scroll-tracker.js">
+      <publishTime>10/25/2016 14:44:26</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/create-ani.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/create.js">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/createjs.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/jquery-ui-slider-pips.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/jquery-ui.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/jquery-ui.min.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/jquery.easing.1.3.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/jquery.parallax-scroll.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/jquery.ui.touch-punch.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scripts/vendor/jquery.unveil.js">
+      <publishTime>10/25/2016 14:44:32</publishTime>
+    </File>
+    <File Include="dev/scss/base.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/beercard.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/brewingPanel.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/doublearrowbtn.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/components/enjoyResponsibly.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/faqs.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/footer.scss">
+      <publishTime>04/18/2017 17:26:24</publishTime>
+    </File>
+    <File Include="dev/scss/components/fullscreen-video.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/header-nav.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/history.scss">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/scss/components/historyslider.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/components/howitsmade.scss">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/scss/components/jumpnav.scss">
+      <publishTime>11/07/2016 13:54:42</publishTime>
+    </File>
+    <File Include="dev/scss/components/loader.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/maplist.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/mimgallery.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/components/nav.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/components/pop-up.scss">
+      <publishTime>04/18/2017 17:59:12</publishTime>
+    </File>
+    <File Include="dev/scss/components/product.scss">
+      <publishTime>12/13/2016 16:03:18</publishTime>
+    </File>
+    <File Include="dev/scss/components/pulsemarker.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/range-slider/jquery-ui-slider-pips.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/range-slider/jquery-ui.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/range-slider/range-slider.scss">
+      <publishTime>11/07/2016 13:54:42</publishTime>
+    </File>
+    <File Include="dev/scss/components/recipeslider.scss">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/scss/components/slick-theme.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/slick.scss">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/scss/components/social-share.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/touts.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/components/touts/beer-recipes.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/components/touts/faq.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/components/video-player.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/config/fontmediaqueries.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/config/fonts.scss">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/scss/config/global.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/config/mixins.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/config/vars.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/jumpnav.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/main.scss">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="dev/scss/pages/about.scss">
+      <publishTime>01/06/2017 13:19:40</publishTime>
+    </File>
+    <File Include="dev/scss/pages/agegate.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/pages/beerlocator.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/pages/beersandrecipes.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/pages/brewing.scss">
+      <publishTime>10/25/2016 14:44:38</publishTime>
+    </File>
+    <File Include="dev/scss/pages/cervezasdemexico.scss">
+      <publishTime>11/17/2016 12:35:14</publishTime>
+    </File>
+    <File Include="dev/scss/pages/common-details.scss">
+      <publishTime>06/28/2017 10:26:09</publishTime>
+    </File>
+    <File Include="dev/scss/pages/faqs.scss">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/scss/pages/history.scss">
+      <publishTime>11/07/2016 13:54:42</publishTime>
+    </File>
+    <File Include="dev/scss/pages/home-waves.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/pages/home.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/pages/legal.scss">
+      <publishTime>04/19/2017 18:05:34</publishTime>
+    </File>
+    <File Include="dev/scss/pages/mim.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/pages/productdetail.css">
+      <publishTime>06/28/2017 22:58:34</publishTime>
+    </File>
+    <File Include="dev/scss/pages/productdetail.min.css">
+      <publishTime>06/28/2017 22:58:34</publishTime>
+    </File>
+    <File Include="dev/scss/pages/productdetail.scss">
+      <publishTime>06/28/2017 22:58:33</publishTime>
+    </File>
+    <File Include="dev/scss/pages/promotions/cfp.scss">
+      <publishTime>11/07/2016 13:54:42</publishTime>
+    </File>
+    <File Include="dev/scss/pages/promotions/cinco.scss">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="dev/scss/pages/promotions/summer.scss">
+      <publishTime>05/31/2017 12:44:06</publishTime>
+    </File>
+    <File Include="dev/scss/pages/recipedetail.scss">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/scss/pages/xxambar.css">
+      <publishTime>06/28/2017 13:51:56</publishTime>
+    </File>
+    <File Include="dev/scss/pages/xxambar.min.css">
+      <publishTime>06/28/2017 13:51:56</publishTime>
+    </File>
+    <File Include="dev/scss/pages/xxambar.scss">
+      <publishTime>06/28/2017 13:51:55</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/arrow-gold-down.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/arrow-gold-up.png">
+      <publishTime>10/25/2016 14:44:34</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/double-arrows.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/facebook-footer.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/feed-facebook.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/feed-instagram.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/feed-twitter.png">
+      <publishTime>10/25/2016 14:44:34</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/icon-arrow-black-next.jpg">
+      <publishTime>10/25/2016 14:44:34</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/icon-arrow-black-next.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/icon-arrow-black-prev.jpg">
+      <publishTime>10/25/2016 14:44:34</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/icon-arrow-black-prev.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/icon-arrow-white-next.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/icon-arrow-white-prev.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/inst.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/instagram-footer.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/list-selected.png">
+      <publishTime>10/25/2016 14:44:34</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/listunselected.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/logo-agegate.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/logo.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/mapselected.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/mapunselected.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/mapview.jpg">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/mapview.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/pin.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/searchbtn.png">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/twitter-footer.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/ico/youtube.png">
+      <publishTime>09/12/2016 12:42:08</publishTime>
+    </File>
+    <File Include="dev/sprites/common/index.js">
+      <publishTime>10/25/2016 14:44:34</publishTime>
+    </File>
+    <File Include="dev/sprites/sprite.css">
+      <publishTime>06/28/2017 09:56:39</publishTime>
+    </File>
+    <File Include="dev/sprites/sprite.png">
+      <publishTime>06/28/2017 09:56:39</publishTime>
+    </File>
+    <File Include="dev/sprites/sprite.scss">
+      <publishTime>06/28/2017 09:56:39</publishTime>
+    </File>
+    <File Include="dev/sprites/sprite.styl">
+      <publishTime>06/28/2017 09:56:39</publishTime>
+    </File>
+    <File Include="dev/sprites/style.styl">
+      <publishTime>10/25/2016 14:44:36</publishTime>
+    </File>
+    <File Include="dev/templates/pop-up.html">
+      <publishTime>04/18/2017 17:26:24</publishTime>
+    </File>
+    <File Include="dev/vendors.js">
+      <publishTime>05/22/2017 17:04:30</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>07/11/2016 18:17:32</publishTime>
+    </File>
+    <File Include="lbcheck.html">
+      <publishTime>10/25/2016 14:44:40</publishTime>
+    </File>
+    <File Include="map-test.html">
+      <publishTime>04/18/2017 16:49:36</publishTime>
+    </File>
+    <File Include="Mvc.sitemap">
+      <publishTime>06/15/2017 23:14:18</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/About/Brewing.cshtml">
+      <publishTime>03/07/2017 17:15:44</publishTime>
+    </File>
+    <File Include="Views/About/Faq.cshtml">
+      <publishTime>03/07/2017 17:15:44</publishTime>
+    </File>
+    <File Include="Views/About/History.cshtml">
+      <publishTime>03/07/2017 17:15:44</publishTime>
+    </File>
+    <File Include="Views/About/Index.cshtml">
+      <publishTime>03/07/2017 17:15:44</publishTime>
+    </File>
+    <File Include="Views/BeerFinder/Index.cshtml">
+      <publishTime>04/18/2017 16:49:36</publishTime>
+    </File>
+    <File Include="Views/BeersAndRecipes/BeerPackDetail.cshtml">
+      <publishTime>03/07/2017 17:15:44</publishTime>
+    </File>
+    <File Include="Views/BeersAndRecipes/Index.cshtml">
+      <publishTime>11/17/2016 12:35:14</publishTime>
+    </File>
+    <File Include="Views/BeersAndRecipes/ProductDetail.cshtml">
+      <publishTime>06/28/2017 22:49:04</publishTime>
+    </File>
+    <File Include="Views/BeersAndRecipes/RecipeDetail.cshtml">
+      <publishTime>10/25/2016 14:44:22</publishTime>
+    </File>
+    <File Include="Views/Cinco/Index.cshtml">
+      <publishTime>04/18/2017 16:49:38</publishTime>
+    </File>
+    <File Include="Views/CollegeFootball/Index.cshtml">
+      <publishTime>12/13/2016 16:03:10</publishTime>
+    </File>
+    <File Include="Views/Error/Index.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/31/2017 12:44:02</publishTime>
+    </File>
+    <File Include="Views/MostInterestingMan/Index.cshtml">
+      <publishTime>03/07/2017 17:15:44</publishTime>
+    </File>
+    <File Include="Views/PrivacyPolicy/Index.cshtml">
+      <publishTime>04/19/2017 18:05:42</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/CanonicalHelperModel.ascx">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/MenuHelperModel.ascx">
+      <publishTime>05/31/2017 12:44:00</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/MetaRobotsHelperModel.ascx">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapHelperModel.ascx">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapNodeModel.ascx">
+      <publishTime>10/25/2016 14:44:18</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapNodeModelList.ascx">
+      <publishTime>10/25/2016 14:44:18</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapPathHelperModel.ascx">
+      <publishTime>10/25/2016 14:44:18</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapTitleHelperModel.ascx">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/Shared/Touts/_About.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/Touts/_BeerFinder.cshtml">
+      <publishTime>04/18/2017 16:49:36</publishTime>
+    </File>
+    <File Include="Views/Shared/Touts/_BeerRecipe.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/Touts/_Brewing.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/Touts/_DosArita.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/Touts/_Faq.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/Touts/_Lager.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_AgeGate.cshtml">
+      <publishTime>04/18/2017 17:34:00</publishTime>
+    </File>
+    <File Include="Views/Shared/_BrewingPanel.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_EnjoyResponsibly.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_EnjoyResponsiblyPanel.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_Faqs.cshtml">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/Shared/_Footer.cshtml">
+      <publishTime>04/18/2017 17:26:24</publishTime>
+    </File>
+    <File Include="Views/Shared/_History.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_HistorySlider.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_Howitsmade.cshtml">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>05/31/2017 12:44:00</publishTime>
+    </File>
+    <File Include="Views/Shared/_nav.cshtml">
+      <publishTime>04/18/2017 16:49:36</publishTime>
+    </File>
+    <File Include="Views/Shared/_ProductsCard.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_RangeSliderGallery.cshtml">
+      <publishTime>10/25/2016 14:44:20</publishTime>
+    </File>
+    <File Include="Views/Shared/_Recipeslider.cshtml">
+      <publishTime>09/12/2016 12:41:46</publishTime>
+    </File>
+    <File Include="Views/Shared/_TrackingCodes.cshtml">
+      <publishTime>04/18/2017 16:49:36</publishTime>
+    </File>
+    <File Include="Views/style-guide/index.cshtml">
+      <publishTime>10/25/2016 14:44:22</publishTime>
+    </File>
+    <File Include="Views/Summer/Index.cshtml">
+      <publishTime>05/31/2017 12:44:02</publishTime>
+    </File>
+    <File Include="Views/TermsOfUse/Index.cshtml">
+      <publishTime>04/19/2017 18:05:42</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>07/11/2016 18:17:32</publishTime>
+    </File>
+    <File Include="Views/XXAmbar/Index.cshtml">
+      <publishTime>06/15/2017 23:10:25</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>12/13/2016 16:07:54</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/15/2017 23:16:27</publishTime>
+    </File>
+    <File Include="_build/css/about.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/beerlocator.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/beersandrecipes.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/brewing.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/cervezasdemexico.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/common.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/faqs.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/history.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/home.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/legal.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/mim.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/productdetail.css">
+      <publishTime>06/28/2017 22:58:34</publishTime>
+    </File>
+    <File Include="_build/css/promotions/summer.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/recipedetail.css">
+      <publishTime>05/31/2017 12:44:30</publishTime>
+    </File>
+    <File Include="_build/css/xxambar.css">
+      <publishTime>06/28/2017 13:51:56</publishTime>
+    </File>
+    <File Include="_build/dll/dll.vendor.js">
+      <publishTime>06/28/2017 09:56:31</publishTime>
+    </File>
+    <File Include="_build/img/img-d3471c.png">
+      <publishTime>04/19/2017 18:07:58</publishTime>
+    </File>
+    <File Include="_build/img/img-fdcc3a.png">
+      <publishTime>04/19/2017 18:07:58</publishTime>
+    </File>
+    <File Include="_build/js/about.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/beerlocator.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/beersandrecipes.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/brewing.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/cervezasdemexico.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/chunk-mimgallery.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/chunk-packaging-gallery.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/common.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/faqs.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/history.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/home.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/legal.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/mim.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/productdetail.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/promotions/summer.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+    <File Include="_build/js/recipedetail.js">
+      <publishTime>05/31/2017 12:44:32</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

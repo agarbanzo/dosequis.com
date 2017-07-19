@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "FAQs";
+    ViewBag.Location = "faqs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.BodyClass = "faqs lightText";
+    ViewBag.ShareImage = "/assets/images/about/faq/share_faq.jpg";
+    ViewBag.MetaDescription = "You asked, we answered.";
+}
+@section PageSpecificHeader {
+    <meta name="keywords" content="faqs, dos equis cans, cans, dos-a-rita, ingredients, beers of mexico, gluten-free" />		
+}
+<div id="faqs">
+    <section class="section top">
+        <h1 class="headline-01">Faqs</h1>
+        <p>You asked, we answered.</p>
+    </section>
+
+    <section class="section question-gallery">
+        <div class="content">
+            <div class="question-box">
+                <div class="title">POPULAR QUESTIONS</div>
+                <hr />
+                <div class="slider"></div>
+            </div>
+            <div class="questions">
+                <div class="expandAll">
+                    <a href="#">Expand All</a>
+                </div>
+                <div class="question">
+                    <div class="q">
+                        <span class="expand"></span>
+                            <p class="copy">What are the ingredients in Dos Equis beer?</p>
+                    </div>
+                    <div class="a">
+                            <p class="copy">Four ingredients make up Dos Equis: water, malted barley, corn starch / syrup and hops.</p>
+                    </div>
+                </div>
+                <div class="question popular">
+                    <div class="q">
+                        <span class="expand"></span>
+                            <p class="copy">Is Dos Equis gluten-free?</p>
+                    </div>
+                    <div class="a">
+                            <p class="copy">No, all Dos Equis beers are made with malted barley and therefore are not gluten-free products.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="q">
+                        <span class="expand"></span>
+                            <p class="copy">Where can I find Dos Equis cans?</p>
+                    </div>
+                    <div class="a">
+                            <p class="copy">Dos Equis cans are now available nationwide. Ask your local beer retailer for availability.</p>
+                    </div>
+                </div>
+                <div class="question popular">
+                    <div class="q">
+                        <span class="expand"></span>
+                        <p class="copy">What size varieties does Dos Equis come in?</p>
+                    </div>
+                    <div class="a">
+                        <p class="copy">
+                            Lager (bottles): 12 oz. 6-pack, 12 oz. 12-pack, 12 oz. 18-pack, 12 oz. 24-pack, 7 oz. 6-pack.<br />
+                            Lager (cans): 12 oz. 12-pack, 12 oz. 18-pack, 16 oz. single-serve can, 24 oz. single-serve can.<br />
+                            Ambar (bottles): 12 oz. 6-pack, 12 oz. 12-pack.<br />
+                            Cervezas de Mexico variety pack: 12 oz. 12-pack, 12 oz. 24-pack.
+                        <p>
+                    </div>
+                </div>
+                <div class="question popular">
+                    <div class="q">
+                        <span class="expand"></span>
+                        <p class="copy">
+                           What is the shelf life / expiration date of Dos Equis beer?
+                        </p>
+                    </div>
+                    <div class="a">
+                        <p class="copy">
+                          The shelf life is roughly 180 days. The expiration date is printed on the shoulder of the bottle or the bottom of the can. The expiration date is the first four or five printed numbers. The first number is the last digit of the year the beer was brewed; the subsequent three or four numbers reference the month and day of that year. For example, 6907 = September 7, 2016.
+                         <p>
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="q">
+                        <span class="expand"></span>
+                        <p class="copy">
+                          How do I find Dos Equis Azul?
+                        </p>
+                    </div>
+                    <div class="a">
+                        <p class="copy">
+                            Dos Equis Azul is no longer in distribution. Dos Equis Azul was available in the Beers of Mexico variety pack, but the Beers of Mexico variety pack is being phased out of distribution in November 2016. Look out for Dos Equis’ newest variety pack, Cervezas de Mexico. 
+                         <p>
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="q">
+                        <span class="expand"></span>
+                        <p class="copy">
+                         How do I find Dos Equis Dos-A-Rita?
+                        </p>
+                    </div>
+                    <div class="a">
+                        <p class="copy">
+                            Dos Equis Dos-A-Rita is no longer in distribution. But there’s a silver lining: You can concoct a cocktail inspired by Dos-A-Rita with Dos Equis Lager and margarita ingredients. Interested in making such a cocktail? Check out our <a href="/beers-and-recipes/dos-a-rita" data-ga='{"category":"FaqQuestion"}'>Dos-A-Rita cocktail recipe</a>.
+                         <p>
+                    </div>
+                </div>
+            <p class="more copy">If you have any additional questions, call us toll free at 1-877-522-5001 or write us at <a href="mailto:ccmcerveza@qualitycustomercare.com" target="_blank" data-ga='{"category":"FaqQuestion","label":"contactEmail"}'>ccmcerveza@qualitycustomercare.com</a>.</p>
+        </div>
+    </section>
+    <section id="bottom-touts" class="section toutsWrapper">
+        <div class="touts contentMax whiteText animation-element">
+            @Html.Partial("Touts/_BeerFinder")
+            @Html.Partial("Touts/_BeerRecipe")
+        </div>
+    </section>
+    
+    <div class="bg">
+        <div class="mask"></div>
+        <div class="star spin"></div>
+    </div>
+</div>

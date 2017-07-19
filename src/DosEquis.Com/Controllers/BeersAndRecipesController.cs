@@ -78,6 +78,14 @@ namespace DosEquis.Com.Controllers
             return RedirectToActionPermanent("ProductDetails", new { id = "lager" });
         }
 
+        //[Route("beers-and-recipes/xxambar")]
+        //public ActionResult RedirectToXXAmbar()
+        //{
+        //    //return RedirectToActionPermanent("xxambar");
+        //    //return View("xxambar");
+        //    return RedirectToAction("Index", "XXAmbar");
+        //}
+
         [Route("ambar")
          Route("amber")
          Route("beers-and-recipes/amber")]

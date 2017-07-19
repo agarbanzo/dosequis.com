@@ -1,0 +1,111 @@
+@import 'components/slick';
+@import 'components/slick-theme';
+@import 'components/touts';
+@import "config/vars";
+
+.products{
+	text-align: center;
+	padding-top: 100px;
+
+	h1,h3{
+		color:white;
+	}
+
+	.heading-block-01 {
+	    padding: 20px 0 0 0;
+	    max-width: 80vw;
+	    margin: 0 auto;
+	}
+
+	.jumptobeer{
+        padding-bottom:20px;
+    }
+
+    .jumpnavsection{
+        padding-bottom:  60px;
+        background-color:$black
+    }
+
+    .jumpnav{
+        a{
+            color:$white;
+            border-right:1px solid $white;
+
+            &:last-child{
+                border-right:none;
+            }
+        }
+    }
+
+     .jump-nav {
+     	 color: $white;
+         margin: 50px auto;
+        .head {
+            font-size: 22px;
+        }
+    }
+
+    .cervesas{
+       background: url(/Assets/Images/cervezasdemexico/brick-bg.jpg) center bottom no-repeat;
+       background-size:cover;
+        margin-bottom:2em;
+        max-width:1220px;
+        position:relative;
+        overflow:hidden;
+
+         @media all and (min-width:767px) {
+           background: url(/Assets/Images/cervezasdemexico/brick-bg.jpg) center bottom no-repeat;
+           background-size:cover;
+        }
+
+        .bg{
+          position:absolute;
+          left: 0;
+          right:0;
+          width:100%;
+        }
+
+        .content{
+            padding-top:45px;
+            -webkit-transform: translate3d(0, 0, 50px);
+        }
+
+        .cta{
+            a{
+                color:black;
+            }
+        }
+
+        .desktop-only{
+             transition:all 0.25s;
+          overflow: hidden;
+           position:relative;
+        }
+    }
+
+    #lager{
+        background-color:#091f0a;
+    }
+
+    #ambar{
+        background-color:#1e1208;
+    }
+
+
+    #sidra{
+        background-color:#0c151a;
+    }
+
+    #stormy{
+        background-color:#160e14;
+    }
+
+    #dosarita{
+        background-color:#1b1610;
+
+    }
+
+    #michelada{
+        background-color:#1e070f;
+    }
+}

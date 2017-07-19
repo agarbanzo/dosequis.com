@@ -1,0 +1,107 @@
+﻿@model DosEquis.Com.Core.Entities.Recipe
+@{
+    ViewBag.Title = @Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Location = "recipedetail";
+    ViewBag.ShareImage = Model.ShareImage;
+    ViewBag.MetaDescription = Model.MetaDescription;
+}
+@section PageSpecificHeader {
+   <meta name="keywords" content="stay thirsty my friend" />
+}
+<div data-recipe="@Model.Id" id="recipedetail" class="recipedetail">
+    <section class="hero">
+        <div class="contentWrap section top whiteText">
+               <h2 class="headline-01">@Html.Raw(Model.Name)</h2>
+               <p class="heading-copy">@Html.Raw(Model.Description)</p>
+               <img class="item" src="/Assets/Images/beersandrecipes/@(Model.Id)/product.png" />
+       </div>
+       <div class="order-share">
+        <div class="social">
+            <a class="fb" href="#" data-fbShare=' {"copy":"@Model.MetaDescription","img":"","@Model.ShareImage":"@Model.Name" } '><img src="/assets/images/svg/fb.svg" /></a>
+            <a class="tw" href="#" data-twShare=' {"text":"@Model.TwitterDescription" } '><img src="/assets/images/svg/twitter.svg" /></a>
+        </div>
+       </div>
+       </section>
+       <section class="section recipe content-main">
+        <div class="heading-block-02 content contentMax preptime">
+            <h4 class="headline-04"><strong>Prep time</strong></h4>
+            <divider></divider>
+                    <h3 class="" itemprop="prepTime">@Html.Raw(Model.PrepTime)</h3>
+           </div>
+        <div class="heading-block-02 content contentMax skill">
+            <h4 class="headline-04"><strong>Skill Level</strong></h4>
+            <divider></divider>
+                <ul class="skill-@(Model.SkillLevel)">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+           </div>
+            <div class="heading-block-02 content contentMax ingredients">
+                 <h4 class="headline-04"><strong>ingredients</strong></h4>
+            <divider></divider>
+                <ul class="ingredientlist">
+                   @foreach (var item in Model.Ingredients)
+                   {
+                    <li itemprop="recipeIngredient">@Html.Raw(item)</li>
+                   }
+                </ul>
+            </div>
+        <div class="heading-block-02 content contentMax directions">
+            <h4 class="headline-04"><strong>Instructions</strong></h4>
+            <divider></divider>
+                    <ol>
+                        @foreach (var item in Model.Directions)
+                        {
+                            <li>@Html.Raw(item)</li>
+                        }
+                    </ol>
+           </div>
+       </section>
+        <section id="beer" class="section lightBg lightText beer">
+            <div class="heading-block-02 content contentMax">
+                <div class="touts-static touts-large" data-product-used="@Model.ProductUsed"></div>
+            </div>
+        </section>
+
+    @Html.Partial("_BrewingPanel")
+
+    <section class="recipes darkBG" id="recipes">
+        <div class="heading-block-02  content contentMax">
+            <section>
+                <div class="touts-static touts-large contentMax whiteText">
+                   </div>
+            </section>
+        </div>
+     </section>
+    <section id="bottom-touts" class="section toutsWrapper">
+        <div class="touts contentMax whiteText animation-element">
+            @Html.Partial("Touts/_BeerFinder")
+            @Html.Partial("Touts/_Faq")
+        </div>
+    </section>
+</div>
+<script type="application/ld+json">
+{
+  "@@context": "http://schema.org",
+  "@@type": "Recipe",
+  "image" : "@Model.Image",
+  "name": "@Model.Name",
+  "description" : "@Model.Description",
+  "totalTime" : "@Model.TotalTimeScheme",
+  "prepTime" : "@Model.PrepTimeScheme",
+  "recipeCategory" : "Cocktail",
+  "recipeYield" : "1 Drink",
+  "ingredients" : [
+    @foreach (var item in Model.Ingredients)
+            {
+                <text>"@item"</text>
+            }
+    ],
+    "recipeInstructions":"@foreach (var item in Model.Directions){<text>@item </text>}"
+        ]
+  }
+
+</script>
